@@ -1,0 +1,30 @@
+###################
+### Description ###
+###################
+
+### Configuration file for hsfu23. Specify instrument settings
+### Inputs are case sensitive, available options are given in ()
+
+######################
+### File locations ###
+######################
+
+FILE_NAME r0076.fits #The image name to be reduced
+
+FILE_PATH /mimsy/george/wifes/program_test/RV/red/ #The filepath of the raw images
+
+###########################
+### Instrument settings ###
+###########################
+
+CAMERA red ### WiFeS camera (red/blue)
+GRATING R7000 ### WiFeS grating (B3000/R3000/R7000)
+DICHROIC RT480 ### WiFeS dichroic (RT480/RT560)
+
+#########################
+### Reduction options ###
+#########################
+DELETE_ALL false #### Delete all previous reductions (true/false)
+INTERACT true ### Interactive? (true/false)
+NO_APERTURES 2 ### Number of apertures to extract (integer)
+
