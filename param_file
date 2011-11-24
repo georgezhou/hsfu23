@@ -1,0 +1,12 @@
+###############################
+### Parameters and settings ###
+###############################
+
+###########################
+### Red camera settings ###
+###########################
+### Bias and trim sections
+RED_TRIMSEC [63:4160,1:1024] ### trimsec, fits header not correct
+RED_BIASSEC [4163:4180,1:1024] ### biassec
+RED_REGION1 [1:2047,1:1024] ### image region 1
+RED_REGION2 [2053:4098,1:1024] ### image region 2
