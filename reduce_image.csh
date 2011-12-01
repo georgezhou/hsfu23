@@ -37,3 +37,15 @@ python bias_subtraction.py $file_path $file_name
 ### Find the image slices and chop each image slice into separate files
 python define_image_slices.py $file_path
 python chop_image.py $file_path $file_name
+
+### Find and reduce corresponding arc image
+./reduce_arc.csh $file_path $file_name
+
+### Reconstruct the spatial image
+### and find which image slices to extract stellar signal
+python reconstruct_image.py $file_path $file_name
+
+### Correct for spectroscopic distortions on those 
+### image slices
+python correct_distortions.py $file_path $file_name
+python calibrate_wavelength.py $file_path $file_name

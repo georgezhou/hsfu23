@@ -43,22 +43,11 @@ if os.path.exists(file_path_temp + "master_flat.fits"):
 
     ### Find the start and end of each image slice
     initial_value = median_values[0]
-    threshold = 7000.
-    start_values = [1]
+    threshold = mean(median_values)/2.
+    region_table = []
     for i in range(1,len(median_values)):
         if median_values[i] > threshold and median_values[i-1] < threshold:
-            start_values.append(i+1)
-
-    end_values = []
-    for i in range(len(median_values)):
-        if median_values[i] < threshold and median_values[i-1] > threshold:
-            end_values.append(i+1)
-
-    ### Compile them into a table in the format
-    ### [[start_1, end_1],[start_2, end_2]...]
-    region_table = []
-    for i in range(len(start_values)):
-        region_table.append([start_values[i],end_values[i]])
+            region_table.append([i+1,i+38])
 
     ### Write the table into a text file
     image_slice_table = open(file_path_temp + "image_slice_table.txt","w")

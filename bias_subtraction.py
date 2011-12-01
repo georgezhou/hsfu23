@@ -4,6 +4,7 @@ from numpy import *
 import string
 import sys
 import os
+import pyfits
 
 ### Load functions script (located in the same folder)
 import functions
@@ -33,15 +34,23 @@ file_path_reduced = file_path + "reduced/"
 
 file_name = sys.argv[2]
 
+hdulist = pyfits.open(file_path + file_name)
+object_name = hdulist[0].header["OBJECT"]
+hdulist.close()
+
 print "This script applies bias subtraction to the image " + file_name
 
 camera = functions.read_config_file("CAMERA")
 if camera == "red":
     trimsec_value = functions.read_param_file("RED_TRIMSEC")
     biassec_value = functions.read_param_file("RED_BIASSEC")
+    region1 = functions.read_param_file("RED_REGION1")
+    region2 = functions.read_param_file("RED_REGION2")
 if camera == "blue":
     trimsec_value = functions.read_param_file("BLUE_TRIMSEC")
     biassec_value = functions.read_param_file("BLUE_BIASSEC")
+    region1 = functions.read_param_file("BLUE_REGION1")
+    region2 = functions.read_param_file("BLUE_REGION2")
 
 ########################
 ### Start of program ###
@@ -104,7 +113,7 @@ os.system("rm " + file_path + "bias_list")
 ########################
 ### Form master flat ###
 ########################
-if functions.read_config_file("DIVIDE_FLAT") == "true":
+if functions.read_config_file("DIVIDE_FLAT") == "true" and (not object_name == "Ne-Ar"):
     ### Find the flat images
     print "Finding the flat frame(s)"
     ccdlist_info = iraf.ccdlist(file_path + "*.fits", Stdout=1)
@@ -241,12 +250,12 @@ os.system("rm -f " + file_path_temp + "*_" + "ccdproc_" + file_name)
 
 ### Extract region 1
 iraf.imcopy(
-    input = file_path_temp + "ccdproc_" + file_name+ "[1:2047,1:1024]", \
+    input = file_path_temp + "ccdproc_" + file_name+ region1, \
     output = file_path_temp + "1_" + "ccdproc_" + file_name)
 
 ### Extract region 2
 iraf.imcopy(
-    input = file_path_temp + "ccdproc_" + file_name+ "[2053:4098,1:1024]", \
+    input = file_path_temp + "ccdproc_" + file_name+ region2, \
     output = file_path_temp + "2_" + "ccdproc_" + file_name)
 
 ### Join region 1 and 2 together

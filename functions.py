@@ -110,3 +110,11 @@ def ccdlist_identify_HD(ccdlist_info):
             match.append(i)
     return match
 
+### Sort array according to a specific column
+def sort_array(input_array,column):
+    column_to_sort = transpose(input_array)[column]
+    sorted_indicies = column_to_sort.argsort()
+    temp_array = []
+    for index in sorted_indicies:
+        temp_array.append(input_array[index])
+    return temp_array
