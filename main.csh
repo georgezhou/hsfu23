@@ -48,3 +48,19 @@ rm -f $file_path/reduced/database/*$file_name_short*
 
 ### Apply reduce_image.csh to object image
 ./reduce_image.csh $file_path $file_name
+
+### Measure RV - if task is RV
+set task = `grep TASK config_file | awk '{print $2}'`
+if ($task == RV) then 
+    ./radial_velocity.csh $file_path $file_name
+endif
+
+### Spectral typing
+set task = `grep TASK config_file | awk '{print $2}'`
+if ($task == SPECTYPE) then 
+    ./spectype.csh $file_path $file_name
+endif
+
+### Remove the iraf log file it stores in this folder.
+rm logfile
+rm tmp*.fits

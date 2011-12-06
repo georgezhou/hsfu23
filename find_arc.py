@@ -61,8 +61,11 @@ for i in range(len(NeAr_match)):
 arc_MJD = functions.sort_array(arc_MJD,0)
 
 ### Choose 2 arc images if the 2nd arc frame was taken <30min from object
-if arc_MJD[1][0] < 0.02:
-    arc_names = arc_MJD[0][1] + "\n" + arc_MJD[1][1] + "\n"
+if len(arc_MJD) > 1:
+    if arc_MJD[1][0] < 0.02:
+        arc_names = arc_MJD[0][1] + "\n" + arc_MJD[1][1] + "\n"
+    else:
+        arc_names = arc_MJD[0][1] + "\n"
 else:
     arc_names = arc_MJD[0][1] + "\n"
 

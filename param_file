@@ -2,9 +2,9 @@
 ### Parameters and settings ###
 ###############################
 
-###########################
-### Red camera settings ###
-###########################
+#######################
+### Camera settings ###
+#######################
 ### Bias and trim sections
 RED_TRIMSEC [63:4160,1:1024] ### trimsec, fits header not correct
 RED_BIASSEC [4163:4180,1:1024] ### biassec
@@ -16,7 +16,39 @@ BLUE_BIASSEC [4163:4180,1:1024] ### biassec
 BLUE_REGION1 [1:2047,1:1024] ### image region 1
 BLUE_REGION2 [2053:4098,1:1024] ### image region 2
 
+########################
+### Spectral regions ###
+########################
+
+R7000_RT480_w1 5250 ### start wavelength for R7000
+R7000_RT480_w2 7000 ### end wavelength for R7000
+
+B3000_RT560_w1 3400 ### start wavelength for B3000
+B3000_RT560_w2 5990 ### end wavelength for B3000
+
+I7000_RT615_w1 6750 ### start wavelength for I7000
+I7000_RT615_w2 8880 ### end wavelength for I7000
+
 ################################
 ### Radial velocity settings ###
 ################################
-TELLURIC_REGION a6881-6931 ### Region for cc against telluric lines
+TELLURIC_REGION a6881-6931 ### Region for cc against telluric lines 
+###(Defaults: R7000 a6881-6931, I7000 a7618-7675)
+
+STELLAR_REGION a5270-5650 ### Region for cc against stellar lines
+###(Defaults: R7000 a5270-5650, I7000 a8500-8510,a8535-8561,a8652-8687)
+
+################################
+### Spectral typing settings ###
+################################
+
+ONLY_FLUXCAL false ### Perform only flux calibration, don't do the things (true/false)
+
+###Choose a region used for spectral typing of normalised data
+###Keep this as default! As I only have normalised spectral
+###templates for this region. (4500-6000A)
+###This only works if you are using B3000 RT560 (or RT615)
+
+NORM_REGION_w1 4500 ### Start of region for normalisation
+NORM_REGION_w2 5950 ### End of region for normalisation
+

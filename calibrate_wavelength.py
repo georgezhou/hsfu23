@@ -187,10 +187,10 @@ for im_slice in image_slices:
         iraf.reidentify(
             reference = template, \
             images = "nearraw_"+im_slice + "_" + arc_name,\
-            answer = "yes",\
+            answer = "no",\
             crval = "",\
             cdelt = "",\
-            interactive = "yes",\
+            interactive = "no",\
             section = "first line",\
             newaps = 0,\
             override = 1,\

@@ -96,7 +96,8 @@ telluric_region = functions.read_param_file("TELLURIC_REGION")
 
 print "This script applies NeAr arc image to calibrate the object spectrum " +file_name
 ### Copy telluric line spectra to working directory
-os.system("cp -f telluric.fits " + file_path_temp)
+telluric_fits = grating + "_telluric.fits"
+os.system("cp -f telluric_fits/" + telluric_fits + " " + file_path_temp+"telluric.fits")
 
 ### Get slice numbers
 image_slices = functions.read_ascii(file_path_temp + "stellar_apertures.txt")

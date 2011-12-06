@@ -6,7 +6,6 @@ import sys
 import os
 import functions
 import matplotlib.pyplot as plt
-import time
 
 ###################
 ### Description ###
@@ -16,6 +15,17 @@ import time
 ### And marks pixels used for background subtraction
 
 ### Usage: reconstruct_image file_path file_name
+
+#############
+### To do ###
+#############
+
+### Will construct a user interface
+### to allow the user to redesignate the 
+### image slices where the star is located.
+
+### This may be simply vim the file,
+### or using matplotlib to move the crosshairs
 
 #################
 ### Functions ###
@@ -51,7 +61,6 @@ def find_required_apertures(input_list,starting_pos):
             n = n
             i = i+1
     return sequence
-
 
 ########################
 ### Start of program ###
@@ -96,7 +105,8 @@ for image_slice in image_slices_list:
 spatial_image = array(spatial_image)
 
 xpos,ypos = find_max_in_array(spatial_image)
-### xpos is image slice no.
+
+## xpos is image slice no.
 ### ypos is yaxis position on an image slice
 
 ### Now find no_apertures image slices in order of brightness
@@ -137,21 +147,24 @@ stellar_apertures.close()
 # functions.write_table(ybackground,background_apertures)
 # background_apertures.close()
 
-################################################
-### Create spatial plot for future reference ###
-################################################
+# ################################################
+# ### Create spatial plot for future reference ###
+# ################################################
 
-def fill_positions(input_coords,input_color):
-    for i in input_coords:
-        plt.fill([i[1],i[1]+1,i[1]+1,i[1]],[i[0],i[0],i[0]+1,i[0]+1],color=input_color,alpha=0.5)
+# def fill_positions(input_coords,input_color):
+#     for i in input_coords:
+#         plt.fill([i[1],i[1]+1,i[1]+1,i[1]],[i[0],i[0],i[0]+1,i[0]+1],color=input_color,alpha=0.5)
 
 os.system("rm " + file_path_reduced + "spatial_" + file_name + ".pdf")
+
 plt.clf()
 plt.figure(figsize=(17.25,5))
 plt.contourf(spatial_image)
 plt.scatter(ypos,xpos,color="k",marker="+",s=20)
-#fill_positions(star_spectra_pos,"k")
-#fill_positions(ybackground,"white")
+# fill_positions(star_spectra_pos,"k")
+# fill_positions(ybackground,"white")
 
 plt.title(file_name + " " + object_name)
 plt.savefig(file_path_reduced + "spatial_" + file_name + ".pdf")
+# plt.show()
+

@@ -48,4 +48,29 @@ python reconstruct_image.py $file_path $file_name
 ### Correct for spectroscopic distortions on those 
 ### image slices
 python correct_distortions.py $file_path $file_name
+
+### Perform wavelength calibration
 python calibrate_wavelength.py $file_path $file_name
+
+### Correct RV based on telluric lines
+### Do this only for R7000 or I7000 data
+set task = `grep TASK config_file | awk '{print $2}'`
+if ($task == RV) then 
+    python telluric_correction.py $file_path $file_name
+endif
+
+### Combine the spectra into a single spectrum
+python combine_apertures.py $file_path $file_name
+
+
+### Copy the reduced files into file_path/reduced
+set task = `grep TASK config_file | awk '{print $2}'`
+if ($task == RV) then 
+    cp $file_path/temp/spec_$file_name $file_path/reduced/
+    cp $file_path/temp/normspec_$file_name $file_path/reduced/
+else if ($task == NONE) then 
+    cp $file_path/temp/spec_$file_name $file_path/reduced/
+    cp $file_path/temp/normspec_$file_name $file_path/reduced/
+else if ($task == SPECTYPE) then 
+    cp $file_path/temp/spec_$file_name $file_path/reduced/
+endif
