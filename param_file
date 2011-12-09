@@ -49,6 +49,11 @@ ONLY_FLUXCAL false ### Perform only flux calibration, don't do the things (true/
 ###templates for this region. (4500-6000A)
 ###This only works if you are using B3000 RT560 (or RT615)
 
-NORM_REGION_w1 4500 ### Start of region for normalisation
-NORM_REGION_w2 5950 ### End of region for normalisation
+NORM_REGION_w1 4500 ### Start of normalised spectral region
+NORM_REGION_w2 5950 ### End of normalised spectral region
 
+FLUX_NORMALISE_w1 5400 ### Start of region where the flux calibrated spectrum is normalised
+FLUX_NORMALISE_w2 5600 ### End of region where the flux calibrated spectrum is normalised
+
+MODEL_PATH_FLUX /priv/miner3/hat-south/george/Honours/template_spectra_marcs/ ###Path for flux corrected templates
+MODEL_PATH_NORM /priv/miner3/hat-south/george/Honours/template_normalised_spectra_marcs/ ###Path for normalised templates

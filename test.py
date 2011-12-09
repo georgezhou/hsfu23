@@ -1,7 +1,11 @@
-import matplotlib.pyplot as plt
+import functions
+import spectype_functions
+#import spectype_numerical_functions
 from numpy import *
+import MySQLdb
 
-x = array([[1,2,3],[1,2,3]])
-
-plt.contourf(x)
-plt.show()
+conn = MySQLdb.connect(Name = "HSCAND",\
+                           Host = "hatsouth.cfa.harvard
+                           user = "testuser",\
+                           passwd = "testpass",\
+                           db = "test")
