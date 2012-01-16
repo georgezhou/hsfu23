@@ -1,3 +1,12 @@
 README
 
 ANU 2.3m WiFeS HAT-South follow-up reduction program
+
+REQUIRED PYTHON MODULES
+Cython http://cython.org/
+Matplotlib
+Pyraf
+PyFITS
+numpy
+
+(Of the above list, cython is the only module not standard on MSO servers)

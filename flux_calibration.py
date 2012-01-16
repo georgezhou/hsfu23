@@ -110,7 +110,7 @@ SpecPhot_list = functions.read_ascii(file_path_temp + "SpecPhot_list")
 ### Divide object by black body star spectrum ###
 #################################################
 print "Dividing by black body smooth spectrum"
-os.system("cp " + program_dir + "smooth_dir/master_smooth.fits .")
+os.system("cp " + program_dir + "smooth_dir/" + grating + "_" + dichroic +"_smooth.fits ./master_smooth.fits")
 
 divide_smooth(file_name)
 for specphot in SpecPhot_list:

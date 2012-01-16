@@ -45,6 +45,9 @@ python chop_image.py $file_path $file_name
 ### and find which image slices to extract stellar signal
 python reconstruct_image.py $file_path $file_name
 
+### Analyse image signal-to-noise
+python analyse_spectrum.py $file_path $file_name
+
 ### Correct for spectroscopic distortions on those 
 ### image slices
 python correct_distortions.py $file_path $file_name

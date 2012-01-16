@@ -170,8 +170,8 @@ if combine_apertures == "true":
         combine = "sum",\
         reject = "none",\
         first = 1,\
-        w1 = "INDEF",\
-        w2 = "INDEF",\
+        w1 = spectrum_w1,\
+        w2 = spectrum_w2,\
         dw = "INDEF",\
         nw = "INDEF",\
         log = 0,\
@@ -193,6 +193,23 @@ if combine_apertures == "true":
         grow = 0,\
         blank = 0.0,\
         mode = "al")
+
+    iraf.scopy(
+        input = "spec_" + file_name,\
+        output = "spec_" + file_name,\
+        w1 = spectrum_w1,\
+        w2 = spectrum_w2,\
+        apertures = "*",\
+        bands = "",\
+        beams = "",\
+        apmodulus = "0",\
+        format = "multispec",\
+        renumber = 0,\
+        offset = 0,\
+        clobber = 1,\
+        merge = 0,\
+        rebin = 0,\
+        verbose = 1)
 
     ### Then normalise this spectrum (rather than combining the normalised 
     ### spectra from each aperture... easier!)

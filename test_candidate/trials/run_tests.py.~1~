@@ -1,0 +1,23 @@
+import functions
+import os
+import sys
+from numpy import *
+import matplotlib.pyplot as plt
+
+def rms(input_list):
+    input_list = array(input_list)
+    rms = sqrt(sum(input_list**2) / len(input_list))
+    return rms
+               
+RV = functions.read_ascii("aperture_RV_562-002.dat")
+RV = functions.read_table(RV)
+
+for i in RV:
+    ap1 = i[2]
+    ap1_RV = i[3]
+    ap2 = i[4]
+    ap2_RV = i[5]
+
+    plt.plot(array([ap1,ap2]) - min([ap1,ap2]),[ap1_RV,ap2_RV])
+
+plt.show()

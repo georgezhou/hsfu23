@@ -78,6 +78,15 @@ linelist = grating + "_linelist.dat"
 ### Define template to use
 template = "calibrated_" + grating +"_"+dichroic+ "_template.fits"
 
+### Determine if the extraction process should be done interactively
+interact = 0
+
+interact = functions.read_config_file("INTERACT")
+if interact == "true":
+    interact = 1
+if interact == "false":
+    interact = 0
+
 ###################################
 ### Perform spectral extraction ###
 ###################################
@@ -95,8 +104,6 @@ os.system("rm -f " + file_path_temp + "nearraw_*" + file_name)
 os.system("cp -f " + program_dir + "cal_linelists/"  + template + " .")
 os.system("cp -f " + program_dir+"cal_linelists/database/idcalibrated_"+grating+"_"+dichroic+"_template " + "database/")
  
-interact = 0
-
 ### Perform spectral extraction, one image slice at a time
 ### Then extract corresponding arc spectra from the arc images
 ### So we have n stellar spectra from n image slices
@@ -124,7 +131,7 @@ for im_slice in image_slices:
         nsum = -100,\
         lower = -10.0,\
         upper = 10.0,\
-        b_sample = "-20:-8,8:20",\
+        b_sample = "-15:-8,8:15",\
         b_order = 1,\
         b_naverage = -3,\
         b_niterate = 0,\

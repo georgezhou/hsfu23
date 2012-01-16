@@ -6,6 +6,7 @@ import sys
 import os
 import functions
 import matplotlib.pyplot as plt
+from matplotlib.widgets import Slider, Button
 
 ###################
 ### Description ###
@@ -53,7 +54,7 @@ def find_required_apertures(input_list,starting_pos):
     i = 1
     while n <= no_apertures-1:
         dist = abs(input_list[len(input_list)-i][0] - starting_pos)
-        if dist <= float(no_apertures) /2:
+        if dist <= float(no_apertures):
             sequence.append(input_list[len(input_list)-i][0])
             i = i+1
             n = n+1
@@ -75,6 +76,8 @@ file_path_temp = file_path + "temp/"
 file_path_reduced = file_path + "reduced/"
 
 file_name = sys.argv[2]
+
+interactive = functions.read_config_file("INTERACT")
 
 image_slices_list = functions.read_ascii(file_path_temp + "slice_" + file_name+".txt")
 image_slices_list = functions.read_table(image_slices_list)
@@ -105,13 +108,11 @@ for image_slice in image_slices_list:
 spatial_image = array(spatial_image)
 
 xpos,ypos = find_max_in_array(spatial_image)
-
+print xpos,ypos
 ## xpos is image slice no.
 ### ypos is yaxis position on an image slice
 
 ### Now find no_apertures image slices in order of brightness
-
-#ysequence = find_required_apertures(spatial_image[xpos],ypos)
 xsequence = find_required_apertures(transpose(spatial_image)[ypos],xpos)
 
 stellar_apertures = open(file_path_temp + "stellar_apertures.txt","w")
@@ -119,52 +120,58 @@ for i in xsequence:
     stellar_apertures.write(str(i) + "\n")
 stellar_apertures.close()
 
-# star_spectra_pos = []
-# for i in xsequence:
-#     for j in ysequence:
-#         star_spectra_pos.append([i,j])
-
-# stellar_apertures = open(file_path_temp + "stellar_apertures.txt","w")
-# functions.write_table(star_spectra_pos,stellar_apertures)
-# stellar_apertures.close()
-
-# ### Define the background regions used for extraction
-# def find_background(input_list):
-#     background = []
-#     for i in range(len(input_list)):
-#         if abs(input_list[i] - median(input_list)) < 0.1 * std(input_list):
-#             background.append(int(i))
-#     return background
-
-# ybackground = []
-# for i in xsequence:
-#     ybackground_i = find_background(spatial_image[i])
-#     ybackground_i = [list(ones(len(ybackground_i)) * i),ybackground_i]
-#     ybackground_i = transpose(ybackground_i)
-#     ybackground.extend(ybackground_i)
-
-# background_apertures = open(file_path_temp + "background_apertures.txt","w")
-# functions.write_table(ybackground,background_apertures)
-# background_apertures.close()
-
-# ################################################
-# ### Create spatial plot for future reference ###
-# ################################################
-
-# def fill_positions(input_coords,input_color):
-#     for i in input_coords:
-#         plt.fill([i[1],i[1]+1,i[1]+1,i[1]],[i[0],i[0],i[0]+1,i[0]+1],color=input_color,alpha=0.5)
-
 os.system("rm " + file_path_reduced + "spatial_" + file_name + ".pdf")
 
-plt.clf()
-plt.figure(figsize=(17.25,5))
-plt.contourf(spatial_image)
-plt.scatter(ypos,xpos,color="k",marker="+",s=20)
-# fill_positions(star_spectra_pos,"k")
-# fill_positions(ybackground,"white")
+###################
+### Plot figure ###
+###################
 
-plt.title(file_name + " " + object_name)
-plt.savefig(file_path_reduced + "spatial_" + file_name + ".pdf")
-# plt.show()
+plt.clf()
+plt.figure(figsize=(17.25,6))
+plt.contourf(log10(spatial_image))
+p, = plt.plot(ypos,xpos,color="red",linestyle="None",marker="+",markersize=100)
+
+### If interactive, allow user to define image slice
+if interactive=="true":
+
+    axcolor = 'lightgoldenrodyellow'
+    ax_y = plt.axes([0.16, 0.05, 0.7, 0.03], axisbg=axcolor)
+    ax_x  = plt.axes([0.16, 0.0, 0.7, 0.03], axisbg=axcolor)
+
+    yval = Slider(ax_y,'yval', 0., 38., valinit=ypos)
+    xval = Slider(ax_x,'xval', 0., 10., valinit=xpos)
+
+    def update(val):
+        ypos = int(round(yval.val))
+        xpos = int(round(xval.val))
+        p.set_xdata(ypos)
+        p.set_ydata(xpos)
+        plt.draw()
+    xval.on_changed(update)
+    yval.on_changed(update)
+
+    bottonax = plt.axes([0.05, 0.5, 0.05, 0.04])
+    button = Button(bottonax, 'Set', color=axcolor, hovercolor='0.975')
+
+    def setpos(event):
+        xpos = int(round(xval.val))
+        ypos = int(round(yval.val))
+        print "New position:",xpos,ypos
+        os.system("rm " + file_path_reduced + "spatial_" + file_name + ".pdf")
+        plt.savefig(file_path_reduced + "spatial_" + file_name + ".pdf")
+
+        ### Save the xpos
+        xsequence = find_required_apertures(transpose(spatial_image)[ypos],xpos)
+
+        stellar_apertures = open(file_path_temp + "stellar_apertures.txt","w")
+        for i in xsequence:
+            stellar_apertures.write(str(i) + "\n")
+        stellar_apertures.close()
+
+    button.on_clicked(setpos)
+
+    plt.show()
+
+else:
+    plt.savefig(file_path_reduced + "spatial_" + file_name + ".pdf")
 

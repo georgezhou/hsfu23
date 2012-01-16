@@ -52,6 +52,9 @@ if camera == "blue":
     region1 = functions.read_param_file("BLUE_REGION1")
     region2 = functions.read_param_file("BLUE_REGION2")
 
+grating = functions.read_config_file("GRATING")
+dichroic = functions.read_config_file("DICHROIC")
+
 ########################
 ### Start of program ###
 ########################
@@ -73,7 +76,8 @@ ccdlist_match = functions.ccdlist_identify(ccdlist_info,"bias")
 os.system("rm " + file_path_temp + "master_bias.fits")
 
 if len(ccdlist_match) < 1:
-    print "Error: No Bias frames found"
+    print "!!!!!!! No Bias frames found, using default bias !!!!!!!"
+    os.system("cp default_cal_frames/bias.fits " + file_path_temp + "master_bias.fits")
 if len(ccdlist_match) >= 1:
     input_list = ""
     for i in range(len(ccdlist_match)):
@@ -123,9 +127,10 @@ if functions.read_config_file("DIVIDE_FLAT") == "true" and (not object_name == "
     os.system("rm " + file_path_temp + "master_flat.fits")
 
     if len(ccdlist_match) < 1:
-        print "Error: No flat frames found"
-        flatcor_option = 0
-        flat_option = ""
+        print "!!!!!! No flat frames found, using default flat !!!!!!!!"
+        os.system("cp default_cal_frames/" + grating + "_" + dichroic +"_flat.fits " + file_path_temp + "master_flat.fits")
+        flatcor_option = 1
+        flat_option = file_path_temp + "master_flat.fits"
     if len(ccdlist_match) >= 1:
         flatcor_option = 1
         flat_option = file_path_temp + "master_flat.fits"

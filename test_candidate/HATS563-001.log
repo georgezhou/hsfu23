@@ -1,0 +1,46 @@
+
+
+*******************************************************************************
+Mon Jan 16 02:26:20 2012
+
+
+FIT:    data read from candfile using ((($1-tc)/period)-(floor(($1-tc)/period))):2
+	y range restricted to [-500.000 : 500.000]
+        #datapoints = 6
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+fitted parameters initialized with current variable values
+
+
+
+ Iteration 0
+ WSSR        : 1323.6            delta(WSSR)/WSSR   : 0
+ delta(WSSR) : 0                 limit for stopping : 1e-05
+ lambda	  : 0.832682
+
+initial set of free parameter values
+
+K               = 1
+R0              = 1
+
+After 3 iterations the fit converged.
+final sum of squares of residuals : 79.3908
+rel. change during last iteration : -3.3514e-06
+
+degrees of freedom    (FIT_NDF)                        : 4
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 4.45508
+variance of residuals (reduced chisquare) = WSSR/ndf   : 19.8477
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+
+K               = 14.8296          +/- 2.94         (19.82%)
+R0              = 13.4446          +/- 1.828        (13.6%)
+
+
+correlation matrix of the fit parameters:
+
+               K      R0     
+K               1.000 
+R0              0.100  1.000 

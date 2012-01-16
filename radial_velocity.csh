@@ -39,7 +39,7 @@ if ($test == "True") then
     ### finds the ith image from file RV_Standard_list
     set RV_i = `gawk "NR==$i {print}" $RV_Standard_list` 
 
-    ls $file_path/reduced/n_d_{$RV_i}* >& /dev/null
+    ls $file_path/reduced/normspec_{$RV_i}* >& /dev/null
     if ( $status == 0 ) then
         echo $RV_i has already been reduced
     else
@@ -52,15 +52,11 @@ if ($test == "True") then
     ### Apply fxcor
     echo Applying iraf.fxcor
     python fxcor.py $file_path $file_name
+    python calculate_RV.py $file_path $file_name
 
-    # ### Write output of fxcor to reduced/RV_out.dat
-    # python RV_tabulate.py $file_path $file_name
-
-    # ### Write output to candidate_path
-    # set record_rv = `grep RECORD_RV config_file | awk '{print $2}'`
-    # if ($record_rv == true) then 
-    #   python RV_distribute_2.py $file_path $file_name $candidate_path $display
-    # endif
+    ### Calculate CCF width and BIS
+    python generate_ccf.py $file_path $file_name
+    python analyse_ccf.py $file_path $file_name
 
 else
     echo ERROR No RV standards exist

@@ -62,11 +62,11 @@ def run_fxcor(input_file,input_rv,lines,output,fitshead_update,write_ccf):
         rsample = lines,\
         apodize = 0.2,\
         function = "gaussian",\
-        width = 7.0,\
+        width = 9.0,\
         height= 0.,\
         peak = 0,\
-        minwidth = 7.0,\
-        maxwidth = 7.0,\
+        minwidth = 9.0,\
+        maxwidth = 9.0,\
         weights = 1.,\
         background = "INDEF",\
         window = "INDEF",\
@@ -117,7 +117,7 @@ file_name = sys.argv[2]
 
 ### Read in spectral regions for RV cc
 stellar_region = functions.read_param_file("STELLAR_REGION")
-
+print stellar_region
 ### Find out number of apertures used
 if functions.read_config_file("COMBINE_APERTURES") == "false":
     no_apertures = int(functions.read_config_file("NO_APERTURES"))
@@ -251,12 +251,13 @@ if len(RV_list) > 0:
     iraf.unlearn(iraf.keywpars)
     iraf.filtpars.setParam("f_type","square",check=1,exact=1)
     iraf.filtpars.setParam("cuton",50,check=1,exact=1)
-    iraf.filtpars.setParam("cutoff",1500,check=1,exact=1)
+    iraf.filtpars.setParam("cutoff",5000,check=1,exact=1)
 
     ### Then apply fxcor to the stellar regions for RV measurement
     os.system("rm fxcor_stellar*")
     run_fxcor("normspec_" + file_name,RV_Standards,stellar_region,"fxcor_stellar",0,False)
 
+    os.system("cat fxcor_stellar.txt")
     os.chdir(program_dir) #Change directory back to the program directory
 
 else:

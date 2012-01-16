@@ -91,13 +91,13 @@ def chisq(numpy.ndarray[double,ndim=2] data_spectrum,numpy.ndarray[double,ndim=2
     data_flux = data_spectrum[1]
     template_flux = template_spectrum[1]
 
-    sigma_error = numpy.median(abs(data_flux - template_flux))
+    #sigma_error = numpy.median(abs(data_flux - template_flux))
 
     sum_list = []
     for i in range(len(data_flux)):
         numerator = (data_flux[i] - template_flux[i])**2
-        # denom = template_flux[i]
-        denom = sigma_error
+        denom = template_flux[i]
+        # denom = sigma_error
         if not numerator == 0:
             sum_list.append(numerator / denom)
 

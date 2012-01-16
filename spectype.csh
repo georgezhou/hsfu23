@@ -14,10 +14,6 @@
 
 ### Usage: ./spectype.csh file_path file_name
 
-#############
-### To Do ###
-#############
-
 #####################
 ### Load settings ###
 #####################
@@ -56,7 +52,7 @@ if ($test == "True") then
     ### finds the ith image from file SpecPhot_list
     set SP_i = `gawk "NR==$i {print}" $SpecPhot_list` 
 
-    ls $file_path/temp/s_d_{$SP_i}* >& /dev/null
+    ls $file_path/temp/fluxcal_{$SP_i}* >& /dev/null
     if ( $status == 0 ) then
         echo $SP_i has already been reduced
     else
@@ -86,3 +82,10 @@ if ($ONLY_FLUX == false) then
     python deredden.py $file_path $file_name
 endif
 
+###############################
+### Perform spectral typing ###
+###############################
+set PERFORM_SPEC_MATCH = `grep PERFORM_SPEC_MATCH config_file | awk '{print $2}'`
+if ($PERFORM_SPEC_MATCH == true) then
+    python spectype_main.py $file_path $file_name
+endif

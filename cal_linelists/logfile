@@ -18,3 +18,11 @@ AUTOIDENTIFY: NOAO/IRAF V2.14.1 george@maggot Thu 15:46:12 01-Dec-2011
 AUTOIDENTIFY: NOAO/IRAF V2.14.1 george@maggot Thu 15:56:30 01-Dec-2011
   Spectrum                 # Found   Midpoint Dispersion        RMS
   calibrated_I7000_RT615_template - Ap 1         34   7934.882      0.567    0.00624
+
+AUTOIDENTIFY: NOAO/IRAF V2.14.1 george@maggot Mon 21:49:12 09-Jan-2012
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  R3000_RT560_template - Ap 1          7   9188.322     -0.267     0.0418
+
+REIDENTIFY: NOAO/IRAF V2.14.1 george@maggot Mon 22:07:54 09-Jan-2012
+
+REIDENTIFY: NOAO/IRAF V2.14.1 george@maggot Mon 22:08:29 09-Jan-2012

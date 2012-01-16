@@ -234,19 +234,20 @@ model_path_norm = functions.read_param_file("MODEL_PATH_NORM")
 flux_normalise_w1 = eval(functions.read_param_file("NORM_REGION_w1"))
 flux_normalise_w2 = eval(functions.read_param_file("NORM_REGION_w2"))
 
-program_dir = os.getcwd() + "/" #Save the current working directory
-
-### Change directory to reduced/
-os.chdir(file_path_reduced) #Change to ../reduced/ dir
-
 ### Find initial estimate of properties
 hdulist = pyfits.open(file_path + file_name)
 object_name = hdulist[0].header["OBJECT"]
 hdulist.close()
 
-teff_ini = 6000
-logg_ini = 4.0
+hscand_connect = functions.read_config_file("HSCAND_CONNECT")
+default_teff = float(functions.read_config_file("TEFF_ESTIMATE"))
+default_logg = float(functions.read_config_file("LOGG_ESTIMATE"))
+teff_ini,logg_ini = functions.estimate_teff_logg(object_name,hscand_connect,default_teff,default_logg)
 feh_ini = 0.0
+
+### Change directory to reduced/
+program_dir = os.getcwd() + "/" #Save the current working directory
+os.chdir(file_path_reduced) #Change to ../reduced/ dir
 
 ### Load in spectra
 flux_spectrum = functions.read_ascii("fluxcal_" + file_name + ".dat")

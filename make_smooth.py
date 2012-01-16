@@ -49,7 +49,10 @@ def make_string_from_list(input_list):
 ########################
 
 file_path = "/mimsy/george/wifes/"
-folders_to_search = ["17Sep2011/spectype/blue/","18Sep2011/spectype/blue/"]
+folders_to_search = ["17Sep2011/spectype/red/","18Sep2011/spectype/red/"]
+
+grating = functions.read_config_file("GRATING")
+dichroic = functions.read_config_file("DICHROIC")
 
 program_dir = os.getcwd() + "/" #Save the current working directory
 
@@ -192,4 +195,4 @@ iraf.continuum(
     grow = 1,\
     ask = "no",)
 
-os.system("mv continuum_fit.fits master_smooth.fits")
+os.system("mv continuum_fit.fits " + grating + "_" + dichroic + "_smooth.fits")

@@ -118,3 +118,52 @@ def sort_array(input_array,column):
     for index in sorted_indicies:
         temp_array.append(input_array[index])
     return temp_array
+
+### Round value
+### eg. round 2456 to nearest 250: round_value(2456,250) = 2500
+def round_value(value,round_step):
+    value = value / round_step
+    value = round(value)
+    value = value * round_step
+    return value
+    
+### Calculate teff from J-K Colour
+### Connect to HSCAND database in princeton
+import mysql_query
+def teff_from_colour(candidate):
+    print "Connecting to HSCAND to retrieve J-K colour to estimate teff"
+    query_command = "select HATSmagJ, HATSmagK from HATS where HATSname = \'"+ candidate + "\'"
+    query_output = mysql_query.query_hscand(query_command)
+
+    if len(query_output) > 1:
+        magJ = query_output[1][0]
+        magK = query_output[1][1]
+
+        ### Use thesis results to calculate teff
+        teff = -3590. * (magJ - magK) + 7290.
+        return teff
+        
+    else:
+        print "ERROR: Cannot connect or candidate does not exist"
+        return "INDEF"
+
+### Determine the best estimate of teff and logg
+### Priority of source
+### 2.3m follow-up teff and logg
+### J-K colour for teff, and default logg
+### Default teff and logg from config_file
+### Inputs: estimate_teff_logg(candidate,hscand_connect,default_teff,default_logg)
+def estimate_teff_logg(candidate,hscand_connect,default_teff,default_logg):
+    ### If dont connect with hscand
+    if hscand_connect == "false":
+        print "Using default teff and logg"
+        return int(round_value(default_teff,250)), round_value(default_logg,0.5)
+
+    ### If using hscand
+    if hscand_connect == "true":
+        print "Estimating teff via J-K Colour"
+        teff = teff_from_colour(candidate)
+        if not teff == "INDEF":
+            return int(round_value(teff,250)),round_value(default_logg,0.5)
+        else:
+            return int(round_value(default_teff,250)),round_value(default_logg,0.5)

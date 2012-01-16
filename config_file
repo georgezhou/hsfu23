@@ -2,17 +2,17 @@
 ### File locations ###
 ######################
 
-FILE_NAME b0061.fits #The image name to be reduced
+FILE_NAME r0055.fits #The image name to be reduced
 
-FILE_PATH /mimsy/george/wifes/program_test/spectype/blue/ #The filepath of the raw images
+FILE_PATH /priv/miner3/hat-south/george/Honours/data/wifes/2011/25Mar2011/red/ #The filepath of the raw images
 
 ###########################
 ### Instrument settings ###
 ###########################
 
-CAMERA blue ### WiFeS camera (red/blue)
-GRATING B3000 ### WiFeS grating (B3000/R7000/I7000)
-DICHROIC RT560 ### WiFeS dichroic (RT480/RT560/RT615)
+CAMERA red ### WiFeS camera (red/blue)
+GRATING R7000 ### WiFeS grating (B3000/R3000/R7000/I7000)
+DICHROIC RT480 ### WiFeS dichroic (RT480/RT560/RT615)
 
 #########################
 ### Reduction options ###
@@ -20,13 +20,19 @@ DICHROIC RT560 ### WiFeS dichroic (RT480/RT560/RT615)
 DELETE_ALL true ### Delete all previous reductions (true/false)
 DIVIDE_FLAT true ### Divide by flat field (true/false)
 
-INTERACT true ### Interactive? (true/false)
-NO_APERTURES 2 ### Number of apertures to extract (integer)
+INTERACT false ### Interactive? (true/false)
+NO_APERTURES 3 ### Number of apertures to extract (integer)
 
-COMBINE_APERTURES true ### Combine data from image slices? (true/false)
+COMBINE_APERTURES false ### Combine data from image slices? (true/false)
 
 ########################
 ### Analysis options ###
 ########################
 
-TASK SPECTYPE ### What to do with the data (RV/SPECTYPE/NONE)
+TASK RV ### What to do with the data (RV/SPECTYPE/NONE)
+
+HSCAND_CONNECT true ### Attempt to connect to hscand on hatsouth@princeton? (true/false)
+TEFF_ESTIMATE 5500. ### Estimate Teff of target (float, in Kelvin)
+LOGG_ESTIMATE 4.5 ### Estimate logg of target (float, between 0 and 5)
+
+PERFORM_SPEC_MATCH false ### If spectral typing, perform chisq grid match? (true/false)

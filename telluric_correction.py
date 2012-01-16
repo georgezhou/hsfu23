@@ -94,7 +94,6 @@ dichroic = functions.read_config_file("DICHROIC")
 
 telluric_region = functions.read_param_file("TELLURIC_REGION")
 
-print "This script applies NeAr arc image to calibrate the object spectrum " +file_name
 ### Copy telluric line spectra to working directory
 telluric_fits = grating + "_telluric.fits"
 os.system("cp -f telluric_fits/" + telluric_fits + " " + file_path_temp+"telluric.fits")
@@ -114,7 +113,6 @@ os.chdir(file_path_temp) #Change to ../temp/ dir
 for im_slice in image_slices:
     print "CC with telluric for wavelength calibration"
     os.system("rm apshift*")
-    skylines = "a6882-6906"
 
     ### Makesure keywpars is set at default
     iraf.unlearn(iraf.keywpars)
@@ -129,6 +127,9 @@ for im_slice in image_slices:
     vel_shift = str(vel_shift[0][11])
     print "Applying pixel shift of (km/s)"
     print vel_shift
+
+    if vel_shift == "INDEF":
+        vel_shift = 0.0
 
     ###################
     ### Apply shift ###
