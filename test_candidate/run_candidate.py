@@ -3,7 +3,7 @@ import functions
 import os
 import sys
 
-candidate = "HATS563-001"
+candidate = "HATS562-002"
 #parent_dir = "/priv/miner3/hat-south/george/Honours/data/wifes/2011/"
 parent_dir = "/mimsy/george/wifes/"
 

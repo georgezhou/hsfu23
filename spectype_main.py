@@ -46,7 +46,7 @@ def find_shift(data_type,data_spectrum,teff,logg,feh,start_lambda,end_lambda):
     template_spectrum = transpose(array(template_spectrum))
 
     if data_type=="flux":
-        template_spectrum = spectype_functions.normalise(template_spectrum,flux_normalise_w1,flux_normalise_w2)
+        template_spectrum =spectype_functions.normalise(template_spectrum,flux_normalise_w1,flux_normalise_w2)
 
     ### Chop both spectra
     data_region = spectype_numerical_functions.chop_spectrum(data_spectrum,start_lambda,end_lambda)
@@ -157,12 +157,12 @@ def loop_teff_logg(data_type,data_spectrum,teff,logg,feh,start_lambda,end_lambda
     logg_min = logg_space[logg_min]
 
     # ### Normalise the array
-    # chisq_space = exp(- chisq_space **2 / 2)
-    # chisq_space = spectype_functions.normalise_array(chisq_space)
+    #chisq_space = exp(- chisq_space **2 / 2)
+    #chisq_space = spectype_functions.normalise_array(chisq_space)
     # print chisq_space
 
     ### Crop the chisq space immediately surrounding the absolute min
-    teff_space_cropped,logg_space_cropped,cropped_space =spectype_functions.chop_array(teff_space,logg_space,chisq_space,teff_min,logg_min,250,1.0)
+    teff_space_cropped,logg_space_cropped,cropped_space =spectype_functions.chop_array(teff_space,logg_space,chisq_space,teff_min,logg_min,500,1.0)
     cropped_space = log(cropped_space)
     cropped_space = -1 *(cropped_space - cropped_space.max())
 
@@ -171,6 +171,12 @@ def loop_teff_logg(data_type,data_spectrum,teff,logg,feh,start_lambda,end_lambda
     gauss_height = gauss_fit[0]
     gauss_width_x = gauss_fit[3]
     gauss_width_y = gauss_fit[4]
+
+    ### Check if the gaussian fit makes sense
+    if gauss_height > 100 or gauss_width_x > 20 or gauss_width_y > 20:
+        gauss_height = 0.01
+        gauss_width_x = 99999.
+        gauss_width_y = 99999.
     
     # plt.clf()
     # plt.contourf(teff_space,logg_space,chisq_space,20,cmap=plt.get_cmap("jet"))
@@ -197,8 +203,11 @@ def calculate_chisq_from_input_regions(data_type,data_spectrum,teff,logg,feh,reg
     height_weights = []
 
     ### For each region, calculate a chisq array and weights
-    for region in logg_regions:
-        teff_space,logg_space,chisq_space,gauss_height,gauss_width_x,gauss_width_y=loop_teff_logg("norm",norm_spectrum,teff,logg,feh,region[0],region[1])
+    for region in region_list:
+        if data_type == "norm":
+            teff_space,logg_space,chisq_space,gauss_height,gauss_width_x,gauss_width_y=loop_teff_logg("norm",norm_spectrum,teff,logg,feh,region[0],region[1])
+        if data_type == "flux":
+            teff_space,logg_space,chisq_space,gauss_height,gauss_width_x,gauss_width_y=loop_teff_logg("flux",flux_spectrum,teff,logg,feh,region[0],region[1])
         chisq_space_list.append(chisq_space)
         x_weights.append(gauss_width_x)
         y_weights.append(gauss_width_y)
@@ -209,6 +218,8 @@ def calculate_chisq_from_input_regions(data_type,data_spectrum,teff,logg,feh,reg
     height_weights = array(height_weights)
 
     weights = (1./3.)*((height_weights**2/sum(height_weights**2))+(1/x_weights**2)/sum(1/x_weights**2)+(1/y_weights**2)/sum(1/y_weights**2))
+    #weights=((height_weights**2/sum(height_weights**2))+(sum(x_weights**2)/x_weights**2)+(sum(y_weights**2)/y_weights**2))
+    
     master_chisq = zeros([len(chisq_space_list[0]),len(chisq_space_list[0][0])])
     for i in range(len(chisq_space_list)):
         chisq_space_list[i] = chisq_space_list[i] * weights[i]
@@ -238,6 +249,8 @@ flux_normalise_w2 = eval(functions.read_param_file("NORM_REGION_w2"))
 hdulist = pyfits.open(file_path + file_name)
 object_name = hdulist[0].header["OBJECT"]
 hdulist.close()
+
+print "Analysing ",object_name
 
 hscand_connect = functions.read_config_file("HSCAND_CONNECT")
 default_teff = float(functions.read_config_file("TEFF_ESTIMATE"))
@@ -278,6 +291,8 @@ if teff_ini < 6000:
 if teff_ini >= 6000:
     teff_regions = [[3850,3900],[3900,4500],[5500,5900]]
 
+#logg_regions = [[]]
+#teff_regions = [[3500,5900]]
 #################
 ### Make axes ###
 #################
@@ -318,8 +333,10 @@ os.system("rm spectype_plots/" + object_name + "*.pdf")
 ##########################################################
 ### Calculate a master chisq array for normalised data ###
 ##########################################################
-
-master_norm_array = calculate_chisq_from_input_regions("norm",norm_spectrum,teff_ini,logg_ini,feh_ini,logg_regions)
+if len(logg_regions[0]) == 0:
+    master_norm_array = zeros([len(logg_space),len(teff_space)])
+else:
+    master_norm_array = calculate_chisq_from_input_regions("norm",norm_spectrum,teff_ini,logg_ini,feh_ini,logg_regions)
 
 ###############################################################################
 ### Calculate the corresponding chisq array for a range of reddening values ###
@@ -366,7 +383,7 @@ for chisq_space in reddening_chisq_list:
     logg_min = logg_space[logg_min]
 
     ### Crop the chisq space immediately surrounding the absolute min
-    teff_space_cropped,logg_space_cropped,cropped_space =spectype_functions.chop_array(teff_space,logg_space,chisq_space,teff_min,logg_min,250,1.0)
+    teff_space_cropped,logg_space_cropped,cropped_space =spectype_functions.chop_array(teff_space,logg_space,chisq_space,teff_min,logg_min,500,1.0)
     cropped_space = log(cropped_space)
     cropped_space = -1 *(cropped_space - cropped_space.max())
 
@@ -376,6 +393,12 @@ for chisq_space in reddening_chisq_list:
     gauss_width_x = gauss_fit[3]
     gauss_width_y = gauss_fit[4]
 
+    ### Check if the gaussian fit makes sense
+    if gauss_height > 100 or gauss_width_x > 20 or gauss_width_y > 20:
+        gauss_height = 0.01
+        gauss_width_x = 99999.
+        gauss_width_y = 99999.
+
     height_weights.append(gauss_height)
     x_weights.append(gauss_width_x)
     y_weights.append(gauss_width_y)
@@ -384,6 +407,8 @@ x_weights = array(x_weights)
 y_weights = array(y_weights)
 height_weights = array(height_weights)
 weights = (1./3.)*((height_weights**2/sum(height_weights**2))+(1/x_weights**2)/sum(1/x_weights**2)+(1/y_weights**2)/sum(1/y_weights**2))
+#weights=((height_weights**2/sum(height_weights**2))+(sum(x_weights**2)/x_weights**2)+(sum(y_weights**2)/y_weights**2))
+
 
 ### Weighted sum
 master_logg_teff =zeros([len(reddening_chisq_list[0]),len(reddening_chisq_list[0][0])])
@@ -394,15 +419,29 @@ for i in range(len(reddening_chisq_list)):
 #####################################
 ### Analysis of teff - logg space ###
 #####################################
-### Find min
+### Find absolute min
 teff_min,logg_min = spectype_functions.find_2d_min(master_logg_teff)
 teff_min_array_index = teff_min
 logg_min_array_index = logg_min
 teff_min = teff_space[teff_min]
 logg_min = logg_space[logg_min]
 
-print "Best fitting Teff is " + str(teff_min)
-print "Best fitting Logg is " + str(logg_min)
+### Perform gaussian fit to the minimum
+### Crop the chisq space immediately surrounding the absolute min
+teff_space_cropped,logg_space_cropped,master_cropped_space=spectype_functions.chop_array(teff_space,logg_space,master_logg_teff,teff_min,logg_min,500,1.0)
+master_cropped_space = log(master_cropped_space)
+master_cropped_space = -1 *(master_cropped_space - master_cropped_space.max())
+
+### Use scipy to fit a least sq 2D gaussian to the cropped region
+gauss_fit = spectype_functions.fitgaussian(cropped_space)
+logg_err = 0.5*gauss_fit[3]
+teff_err = 250*gauss_fit[4]
+
+teff_min = min(teff_space_cropped) + gauss_fit[2] * 250
+logg_min = min(logg_space_cropped) + gauss_fit[1] * 0.5 
+
+print "Best fitting Teff is " + str(teff_min) + "+/-" + str(teff_err)
+print "Best fitting Logg is " + str(logg_min) + "+/-" + str(logg_err)
 
 ### Also find best reddening
 reddening_chisq_min_list = []
@@ -417,31 +456,59 @@ for i in range(len(reddening_values)):
 
 print "The best reddening estimate is E(B-V) = " + str(best_reddening)
 
+round_teff_min = int(spectype_functions.round_value(teff_min,250))
+if round_teff_min < 3500:
+    round_teff_min = 3500
+if round_teff_min > 9000:
+    round_teff_min = 9000
+
+round_logg_min = spectype_functions.round_value(logg_min,0.5)
+if round_logg_min < 0.0:
+    round_logg_min = 0.0
+if round_logg_min > 5.0:
+    round_logg_min = 5.0
 #############################
 ### Plotting logg vs teff ###
 #############################
 os.chdir(file_path_reduced)
-spectype_functions.plot_contour(object_name,teff_space,logg_space,log10(master_logg_teff),teff_min,0,logg_min,0)
+probability_array = log10(master_logg_teff)
+probability_array = exp(-1* probability_array /2)
+probability_array = probability_array / probability_array.sum()
+spectype_functions.plot_contour(object_name,teff_space,logg_space,probability_array,teff_min,teff_err,logg_min,logg_err,program_dir)
 
 ######################
 ### Analyse [Fe/H] ###
 ######################
-### Load in flux spectrum of best reddening value
-flux_spectrum = file_path_reduced + "deredden/deredden_"+str(best_reddening)+"_"+file_name+".dat"
-flux_spectrum = functions.read_ascii(flux_spectrum)
-flux_spectrum = functions.read_table(flux_spectrum)
-flux_spectrum = transpose(array(flux_spectrum))
-flux_spectrum = spectype_functions.normalise(flux_spectrum,flux_normalise_w1,flux_normalise_w2)
+feh_region = [4500,5500]
 
-### Find shift
-shift  = find_shift("flux",flux_spectrum,teff_min,logg_min,0.0,min(flux_spectrum[0]),max(flux_spectrum[0]))
+# ### Load in flux spectrum of best reddening value
+# flux_spectrum = file_path_reduced + "deredden/deredden_"+str(best_reddening)+"_"+file_name+".dat"
+# flux_spectrum = functions.read_ascii(flux_spectrum)
+# flux_spectrum = functions.read_table(flux_spectrum)
+# flux_spectrum = transpose(array(flux_spectrum))
+# flux_spectrum = spectype_functions.normalise(flux_spectrum,flux_normalise_w1,flux_normalise_w2)
 
+# ### Find shift
+# shift  = find_shift("flux",flux_spectrum,round_teff_min,round_logg_min,0.0,min(flux_spectrum[0]),max(flux_spectrum[0]))
+
+# feh_chisq_list = []
+# feh_list = []
+# feh = -2.5
+# while feh <= 0.5:
+#     feh_list.append(feh)
+#     feh_chisq_list.append(test_template("flux",flux_spectrum,round_teff_min,round_logg_min,feh,min(flux_spectrum[0]),max(flux_spectrum[0]),shift))
+#     feh = feh + 0.5
+
+
+
+### Load in normalised spectrum and use that for feh determination
+shift =find_shift("norm",norm_spectrum,round_teff_min,round_logg_min,0.0,feh_region[0],feh_region[1])
 feh_chisq_list = []
 feh_list = []
 feh = -2.5
 while feh <= 0.5:
     feh_list.append(feh)
-    feh_chisq_list.append(test_template("flux",flux_spectrum,teff_min,logg_min,feh,min(flux_spectrum[0]),max(flux_spectrum[0]),shift))
+    feh_chisq_list.append(test_template("norm",norm_spectrum,round_teff_min,round_logg_min,feh,feh_region[0],feh_region[1],shift))
     feh = feh + 0.5
 
 ### Find best fitting feh
@@ -450,6 +517,12 @@ for i in range(len(feh_list)):
         feh_min = feh_list[i]
 
 print "Best fitting [Fe/H] is " + str(feh_min)
+
+plt.clf()
+plt.plot(feh_list,feh_chisq_list)
+plt.xlabel("[Fe/H]")
+plt.ylabel("X^2")
+plt.savefig("spectype_plots/" + object_name + "_feh.pdf")
 
 ########################################
 ### Plot data and model in same plot ###
@@ -465,7 +538,7 @@ flux_spectrum = spectype_functions.normalise(flux_spectrum,flux_normalise_w1,flu
 flux_wave = flux_spectrum[0]
 flux_flux = flux_spectrum[1]
 
-template_spectrum = "template_" + str(teff_min) + "_" + str(logg_min) + "_" + str(feh_min) +".dat"
+template_spectrum = "template_" + str(round_teff_min) + "_" + str(round_logg_min) + "_" + str(feh_min) +".dat"
 template_spectrum = functions.read_ascii(model_path_flux + template_spectrum)
 template_spectrum = functions.read_table(template_spectrum)
 template_spectrum = transpose(array(template_spectrum))
@@ -481,7 +554,13 @@ plt.xlim(min(flux_wave),max(flux_wave))
 plt.xlabel("Wavelength (A)")
 plt.ylabel("Flux")
 plt.xlim(min(flux_wave),max(flux_wave))
-plt.title(object_name +" Template Teff=" + str(teff_min) + " logg=" + str(logg_min) +" feh=" + str(feh_min) + " reddening=" + str(best_reddening))
+plt.title(object_name +" Template Teff=" + str(int(round(teff_min))) + " logg=" + str(round(logg_min,1)) +" feh=" + str(feh_min) + " reddening=" + str(best_reddening))
 plt.legend()
 plt.savefig("spectype_plots/" + object_name + "_spectrum.pdf")
 #plt.show()
+
+### Log data into spectype.txt
+spectype_log = open("spectype.txt","a")
+entry = file_name + " " + object_name + " " + str(int(round(teff_min))) + " 0.0 " + str(round(logg_min,1)) + " 0.0 " + str(feh_min) + " 0.0\n"
+spectype_log.write(entry)
+spectype_log.close()

@@ -93,7 +93,7 @@ for im_slice in image_slices:
     os.system("rm database/*" + im_slice + "_" + string.split(arc_name,".")[0]+ "*")
  
     print "Dispersion correcting the central row of pixels"
-    
+
     iraf.reidentify(
         reference = template, \
         images = im_slice + "_" + arc_name,\

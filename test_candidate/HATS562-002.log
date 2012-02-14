@@ -1,7 +1,7 @@
 
 
 *******************************************************************************
-Wed Jan 11 15:58:32 2012
+Thu Jan 19 17:10:40 2012
 
 
 FIT:    data read from candfile using ((($1-tc)/period)-(floor(($1-tc)/period))):2
@@ -15,32 +15,32 @@ fitted parameters initialized with current variable values
 
 
  Iteration 0
- WSSR        : 8291.09           delta(WSSR)/WSSR   : 0
+ WSSR        : 7852.81           delta(WSSR)/WSSR   : 0
  delta(WSSR) : 0                 limit for stopping : 1e-05
- lambda	  : 0.88743
+ lambda	  : 0.891113
 
 initial set of free parameter values
 
 K               = 1
 R0              = 1
 
-After 37 iterations the fit converged.
-final sum of squares of residuals : 402.78
-rel. change during last iteration : -3.92347e-06
+After 9 iterations the fit converged.
+final sum of squares of residuals : 38.7032
+rel. change during last iteration : -2.34749e-06
 
 degrees of freedom    (FIT_NDF)                        : 15
-rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 5.18189
-variance of residuals (reduced chisquare) = WSSR/ndf   : 26.852
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 1.60631
+variance of residuals (reduced chisquare) = WSSR/ndf   : 2.58022
 
 Final set of parameters            Asymptotic Standard Error
 =======================            ==========================
 
-K               = 0.000471601      +/- 1.66         (3.519e+05%)
-R0              = 22.4993          +/- 1.259        (5.594%)
+K               = 0.00139546       +/- 0.5089       (3.647e+04%)
+R0              = 22.4714          +/- 0.3903       (1.737%)
 
 
 correlation matrix of the fit parameters:
 
                K      R0     
 K               1.000 
-R0             -0.053  1.000 
+R0             -0.061  1.000 

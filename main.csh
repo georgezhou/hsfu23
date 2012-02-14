@@ -44,12 +44,15 @@ if ($delete_all == true) then
     endif
 endif
 
+
 ### Remove previous reductions of FILE_NAME
+if ($1 == "") then
 set file_name_short = `basename $file_name .fits`
 rm -f $file_path/temp/*$file_name_short*
 rm -f $file_path/reduced/*$file_name_short*
 rm -f $file_path/temp/database/*$file_name_short*
 rm -f $file_path/reduced/database/*$file_name_short*
+endif
 
 #######################
 ### Begin reduction ###
@@ -74,4 +77,13 @@ endif
 rm logfile
 rm tmp*.fits
 
-rm -f $file_path/temp/*
+# #rm -f $file_path/temp/*
+# ### Remove temporary files
+# if $1 == "" then
+#     set file_name_short = `basename $file_name .fits`
+#     rm -f $file_path/temp/*$file_name_short*
+#     rm -f $file_path/temp/database/*$file_name_short*
+# endif
+
+### Remove temporary files
+python cleanup.py $file_path

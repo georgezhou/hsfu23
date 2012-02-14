@@ -126,15 +126,29 @@ def find_2d_min(input_array):
             break
     return j,i
 
-def plot_contour(object_name,teff_space,logg_space,chisq_space,teff_min,teff_err,logg_min,logg_err):
+def plot_isochrones(program_dir,style,lwidth):
+    isochrones = functions.read_ascii(program_dir + "isochrone.dat")
+    isochrones = functions.read_table(isochrones)
+
+    isochrones = isochrones[:len(isochrones)-1]
+
+    isochrones = transpose(isochrones)
+    teff = 10**array(isochrones[4])
+    logg = array(isochrones[5])
+
+    plt.plot(teff,logg,style,linewidth=lwidth)
+
+def plot_contour(object_name,teff_space,logg_space,chisq_space,teff_min,teff_err,logg_min,logg_err,iso_dir):
 
     plt.clf()
+    plot_isochrones(iso_dir,"k-",0.5)
     contour_plot = plt.contourf(teff_space,logg_space,chisq_space,25,cmap=plt.get_cmap("jet"))
     plt.errorbar(teff_min,logg_min,xerr=teff_err,yerr=logg_err,color="r",marker="o")
     #plt.scatter(teff_min,logg_min,s=50,color="r",marker="x")
     #plt.text(teff_min,logg_min,"+",size="xx-large",color="r")
     cbar = plt.colorbar(contour_plot)
-    cbar.ax.set_ylabel("Log(Chi^2)")
+    #cbar.ax.set_ylabel("Log(Chi^2)")
+    cbar.ax.set_ylabel("Probability")
     plt.xlabel("T_eff")
     plt.ylabel("logg")
     plt.xlim(max(teff_space),min(teff_space))
@@ -155,18 +169,6 @@ def collapse_array(input_array):
     for line in input_array:
         array_to_list = array_to_list + list(line)
     return array_to_list
-
-def plot_isochrones(program_dir,style,lwidth):
-    isochrones = functions.read_ascii(program_dir + "spectraltyping/isochrone.dat")
-    isochrones = functions.read_table(isochrones)
-
-    isochrones = isochrones[:len(isochrones)-1]
-
-    isochrones = transpose(isochrones)
-    teff = 10**array(isochrones[4])
-    logg = array(isochrones[5])
-
-    plt.plot(teff,logg,style,linewidth=lwidth)
 
 def gen_gaussian(height, center_x, center_y, width_x, width_y):
     """Returns a gaussian function with the given parameters"""

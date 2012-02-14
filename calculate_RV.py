@@ -214,9 +214,14 @@ def calc_RV(RV_out,file_name):
             stellar_height_list = array(stellar_height_list)
             flux_weights_list = array(flux_weights_list)
 
+            poisson_factor = (1/flux_weights_list) * (err_list/sum(err_list) +(1/stellar_height_list)/sum(1/stellar_height_list))
+            poisson_factor = 1 / poisson_factor
+            poisson_factor = poisson_factor / max(poisson_factor)
+            poisson_factor = sqrt(sum(poisson_factor))
+
             v_err = std(v_list)
             velocity = waverage(v_list,(1/flux_weights_list) * (err_list/sum(err_list) + (1/stellar_height_list)/sum(1/stellar_height_list)))
-            error = sqrt(waverage(err_list,1/flux_weights_list)**2 + v_err**2)
+            error = sqrt(waverage(err_list,1/flux_weights_list)**2 + v_err**2)/poisson_factor 
             return JD[0],velocity,error,average(stellar_height_list)
 
 ###################################

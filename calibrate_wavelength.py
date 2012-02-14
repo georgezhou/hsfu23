@@ -142,7 +142,7 @@ for im_slice in image_slices:
         radius = 10.0,\
         threshold = 0.0,\
         nfind = 1,\
-        ylevel = 0.5,\
+        ylevel = 0.3,\
         peak = 1,\
         bkg = 1,\
         t_nsum = 100,\

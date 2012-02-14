@@ -1,2171 +1,300 @@
 
-Nov 28 17:11: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/RV/red/r0001.fits
-  /mimsy/george/wifes/program_test/RV/red/r0002.fits
-  /mimsy/george/wifes/program_test/RV/red/r0003.fits
-
-  Output image = /mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits, ncombine = 3
-
-Nov 28 17:11: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/RV/red/r0078.fits
-  /mimsy/george/wifes/program_test/RV/red/r0079.fits
-  /mimsy/george/wifes/program_test/RV/red/r0080.fits
-
-  Output image = /mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits, ncombine = 3
-/mimsy/george/wifes/program_test/RV/red/temp/r0022.fits: Nov 28 17:11 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/RV/red/temp/r0022.fits: Nov 28 17:11 Overscan section is [4163:4180,1:1024] with mean=711.8971
-/mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits: Nov 28 17:11 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits: Nov 28 17:11 Overscan section is [4163:4180,1:1024] with mean=717.8122
-/mimsy/george/wifes/program_test/RV/red/temp/r0022.fits: Nov 28 17:11 Zero level correction image is /mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits
-/mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits: Nov 28 17:11 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits: Nov 28 17:11 Overscan section is [4163:4180,1:1024] with mean=710.3571
-/mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits: Nov 28 17:11 Zero level correction image is /mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits
-/mimsy/george/wifes/program_test/RV/red/temp/r0022.fits: Nov 28 17:11 Flat field image is /mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits with scale=4262.272
-
-Nov 28 17:11: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/RV/red/r0001.fits
-  /mimsy/george/wifes/program_test/RV/red/r0002.fits
-  /mimsy/george/wifes/program_test/RV/red/r0003.fits
-
-  Output image = /mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits, ncombine = 3
-
-Nov 28 17:11: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/RV/red/r0078.fits
-  /mimsy/george/wifes/program_test/RV/red/r0079.fits
-  /mimsy/george/wifes/program_test/RV/red/r0080.fits
-
-  Output image = /mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits, ncombine = 3
-/mimsy/george/wifes/program_test/RV/red/temp/r0023.fits: Nov 28 17:11 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/RV/red/temp/r0023.fits: Nov 28 17:11 Overscan section is [4163:4180,1:1024] with mean=712.3751
-/mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits: Nov 28 17:11 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits: Nov 28 17:11 Overscan section is [4163:4180,1:1024] with mean=717.8122
-/mimsy/george/wifes/program_test/RV/red/temp/r0023.fits: Nov 28 17:11 Zero level correction image is /mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits
-/mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits: Nov 28 17:11 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits: Nov 28 17:11 Overscan section is [4163:4180,1:1024] with mean=710.3571
-/mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits: Nov 28 17:11 Zero level correction image is /mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits
-/mimsy/george/wifes/program_test/RV/red/temp/r0023.fits: Nov 28 17:12 Flat field image is /mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits with scale=4262.272
-
-Nov 28 17:12: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/RV/red/r0001.fits
-  /mimsy/george/wifes/program_test/RV/red/r0002.fits
-  /mimsy/george/wifes/program_test/RV/red/r0003.fits
-
-  Output image = /mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits, ncombine = 3
-
-Nov 28 17:12: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/RV/red/r0078.fits
-  /mimsy/george/wifes/program_test/RV/red/r0079.fits
-  /mimsy/george/wifes/program_test/RV/red/r0080.fits
-
-  Output image = /mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits, ncombine = 3
-/mimsy/george/wifes/program_test/RV/red/temp/r0021.fits: Nov 28 17:12 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/RV/red/temp/r0021.fits: Nov 28 17:12 Overscan section is [4163:4180,1:1024] with mean=711.4374
-/mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits: Nov 28 17:12 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits: Nov 28 17:12 Overscan section is [4163:4180,1:1024] with mean=717.8122
-/mimsy/george/wifes/program_test/RV/red/temp/r0021.fits: Nov 28 17:12 Zero level correction image is /mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits
-/mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits: Nov 28 17:12 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits: Nov 28 17:12 Overscan section is [4163:4180,1:1024] with mean=710.3571
-/mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits: Nov 28 17:12 Zero level correction image is /mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits
-/mimsy/george/wifes/program_test/RV/red/temp/r0021.fits: Nov 28 17:12 Flat field image is /mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits with scale=4262.272
-
-Nov 28 17:12: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/RV/red/r0001.fits
-  /mimsy/george/wifes/program_test/RV/red/r0002.fits
-  /mimsy/george/wifes/program_test/RV/red/r0003.fits
-
-  Output image = /mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits, ncombine = 3
-
-Nov 28 17:12: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/RV/red/r0078.fits
-  /mimsy/george/wifes/program_test/RV/red/r0079.fits
-  /mimsy/george/wifes/program_test/RV/red/r0080.fits
-
-  Output image = /mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits, ncombine = 3
-/mimsy/george/wifes/program_test/RV/red/temp/r0022.fits: Nov 28 17:12 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/RV/red/temp/r0022.fits: Nov 28 17:12 Overscan section is [4163:4180,1:1024] with mean=711.8971
-/mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits: Nov 28 17:12 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits: Nov 28 17:12 Overscan section is [4163:4180,1:1024] with mean=717.8122
-/mimsy/george/wifes/program_test/RV/red/temp/r0022.fits: Nov 28 17:12 Zero level correction image is /mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits
-/mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits: Nov 28 17:12 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits: Nov 28 17:12 Overscan section is [4163:4180,1:1024] with mean=710.3571
-/mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits: Nov 28 17:12 Zero level correction image is /mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits
-/mimsy/george/wifes/program_test/RV/red/temp/r0022.fits: Nov 28 17:12 Flat field image is /mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits with scale=4262.272
-
-Nov 28 17:13: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/RV/red/r0001.fits
-  /mimsy/george/wifes/program_test/RV/red/r0002.fits
-  /mimsy/george/wifes/program_test/RV/red/r0003.fits
-
-  Output image = /mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits, ncombine = 3
-
-Nov 28 17:13: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/RV/red/r0078.fits
-  /mimsy/george/wifes/program_test/RV/red/r0079.fits
-  /mimsy/george/wifes/program_test/RV/red/r0080.fits
-
-  Output image = /mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits, ncombine = 3
-/mimsy/george/wifes/program_test/RV/red/temp/r0023.fits: Nov 28 17:13 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/RV/red/temp/r0023.fits: Nov 28 17:13 Overscan section is [4163:4180,1:1024] with mean=712.3751
-/mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits: Nov 28 17:13 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits: Nov 28 17:13 Overscan section is [4163:4180,1:1024] with mean=717.8122
-/mimsy/george/wifes/program_test/RV/red/temp/r0023.fits: Nov 28 17:13 Zero level correction image is /mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits
-/mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits: Nov 28 17:13 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits: Nov 28 17:13 Overscan section is [4163:4180,1:1024] with mean=710.3571
-/mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits: Nov 28 17:13 Zero level correction image is /mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits
-/mimsy/george/wifes/program_test/RV/red/temp/r0023.fits: Nov 28 17:13 Flat field image is /mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits with scale=4262.272
-
-Nov 28 17:13: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/RV/red/r0001.fits
-  /mimsy/george/wifes/program_test/RV/red/r0002.fits
-  /mimsy/george/wifes/program_test/RV/red/r0003.fits
-
-  Output image = /mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits, ncombine = 3
-
-Nov 28 17:13: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/RV/red/r0078.fits
-  /mimsy/george/wifes/program_test/RV/red/r0079.fits
-  /mimsy/george/wifes/program_test/RV/red/r0080.fits
-
-  Output image = /mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits, ncombine = 3
-/mimsy/george/wifes/program_test/RV/red/temp/r0021.fits: Nov 28 17:13 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/RV/red/temp/r0021.fits: Nov 28 17:13 Overscan section is [4163:4180,1:1024] with mean=711.4374
-/mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits: Nov 28 17:13 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits: Nov 28 17:13 Overscan section is [4163:4180,1:1024] with mean=717.8122
-/mimsy/george/wifes/program_test/RV/red/temp/r0021.fits: Nov 28 17:13 Zero level correction image is /mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits
-/mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits: Nov 28 17:13 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits: Nov 28 17:13 Overscan section is [4163:4180,1:1024] with mean=710.3571
-/mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits: Nov 28 17:13 Zero level correction image is /mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits
-/mimsy/george/wifes/program_test/RV/red/temp/r0021.fits: Nov 28 17:13 Flat field image is /mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits with scale=4262.272
-
-Nov 28 19:43: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/RV/red/r0001.fits
-  /mimsy/george/wifes/program_test/RV/red/r0002.fits
-  /mimsy/george/wifes/program_test/RV/red/r0003.fits
-
-  Output image = /mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits, ncombine = 3
-
-Nov 28 19:43: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/RV/red/r0078.fits
-  /mimsy/george/wifes/program_test/RV/red/r0079.fits
-  /mimsy/george/wifes/program_test/RV/red/r0080.fits
-
-  Output image = /mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits, ncombine = 3
-/mimsy/george/wifes/program_test/RV/red/temp/r0022.fits: Nov 28 19:43 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/RV/red/temp/r0022.fits: Nov 28 19:43 Overscan section is [4163:4180,1:1024] with mean=711.8971
-/mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits: Nov 28 19:43 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits: Nov 28 19:43 Overscan section is [4163:4180,1:1024] with mean=717.8122
-/mimsy/george/wifes/program_test/RV/red/temp/r0022.fits: Nov 28 19:43 Zero level correction image is /mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits
-/mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits: Nov 28 19:43 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits: Nov 28 19:43 Overscan section is [4163:4180,1:1024] with mean=710.3571
-/mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits: Nov 28 19:43 Zero level correction image is /mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits
-/mimsy/george/wifes/program_test/RV/red/temp/r0022.fits: Nov 28 19:43 Flat field image is /mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits with scale=4262.272
-
-Nov 28 19:43: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/RV/red/r0001.fits
-  /mimsy/george/wifes/program_test/RV/red/r0002.fits
-  /mimsy/george/wifes/program_test/RV/red/r0003.fits
-
-  Output image = /mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits, ncombine = 3
-
-Nov 28 19:43: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/RV/red/r0078.fits
-  /mimsy/george/wifes/program_test/RV/red/r0079.fits
-  /mimsy/george/wifes/program_test/RV/red/r0080.fits
-
-  Output image = /mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits, ncombine = 3
-/mimsy/george/wifes/program_test/RV/red/temp/r0023.fits: Nov 28 19:43 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/RV/red/temp/r0023.fits: Nov 28 19:43 Overscan section is [4163:4180,1:1024] with mean=712.3751
-/mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits: Nov 28 19:43 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits: Nov 28 19:43 Overscan section is [4163:4180,1:1024] with mean=717.8122
-/mimsy/george/wifes/program_test/RV/red/temp/r0023.fits: Nov 28 19:44 Zero level correction image is /mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits
-/mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits: Nov 28 19:44 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits: Nov 28 19:44 Overscan section is [4163:4180,1:1024] with mean=710.3571
-/mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits: Nov 28 19:44 Zero level correction image is /mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits
-/mimsy/george/wifes/program_test/RV/red/temp/r0023.fits: Nov 28 19:44 Flat field image is /mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits with scale=4262.272
-
-Nov 28 19:44: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/RV/red/r0001.fits
-  /mimsy/george/wifes/program_test/RV/red/r0002.fits
-  /mimsy/george/wifes/program_test/RV/red/r0003.fits
-
-  Output image = /mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits, ncombine = 3
-
-Nov 28 19:44: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/RV/red/r0078.fits
-  /mimsy/george/wifes/program_test/RV/red/r0079.fits
-  /mimsy/george/wifes/program_test/RV/red/r0080.fits
-
-  Output image = /mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits, ncombine = 3
-/mimsy/george/wifes/program_test/RV/red/temp/r0021.fits: Nov 28 19:44 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/RV/red/temp/r0021.fits: Nov 28 19:44 Overscan section is [4163:4180,1:1024] with mean=711.4374
-/mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits: Nov 28 19:44 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits: Nov 28 19:44 Overscan section is [4163:4180,1:1024] with mean=717.8122
-/mimsy/george/wifes/program_test/RV/red/temp/r0021.fits: Nov 28 19:44 Zero level correction image is /mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits
-/mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits: Nov 28 19:44 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits: Nov 28 19:44 Overscan section is [4163:4180,1:1024] with mean=710.3571
-/mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits: Nov 28 19:44 Zero level correction image is /mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits
-/mimsy/george/wifes/program_test/RV/red/temp/r0021.fits: Nov 28 19:44 Flat field image is /mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits with scale=4262.272
-
-Nov 29 10:58: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/RV/red/r0001.fits
-  /mimsy/george/wifes/program_test/RV/red/r0002.fits
-  /mimsy/george/wifes/program_test/RV/red/r0003.fits
-
-  Output image = /mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits, ncombine = 3
-
-Nov 29 10:58: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/RV/red/r0078.fits
-  /mimsy/george/wifes/program_test/RV/red/r0079.fits
-  /mimsy/george/wifes/program_test/RV/red/r0080.fits
-
-  Output image = /mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits, ncombine = 3
-/mimsy/george/wifes/program_test/RV/red/temp/r0022.fits: Nov 29 10:58 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/RV/red/temp/r0022.fits: Nov 29 10:58 Overscan section is [4163:4180,1:1024] with mean=711.8971
-/mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits: Nov 29 10:58 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits: Nov 29 10:58 Overscan section is [4163:4180,1:1024] with mean=717.8122
-/mimsy/george/wifes/program_test/RV/red/temp/r0022.fits: Nov 29 10:58 Zero level correction image is /mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits
-/mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits: Nov 29 10:58 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits: Nov 29 10:58 Overscan section is [4163:4180,1:1024] with mean=710.3571
-/mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits: Nov 29 10:58 Zero level correction image is /mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits
-/mimsy/george/wifes/program_test/RV/red/temp/r0022.fits: Nov 29 10:58 Flat field image is /mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits with scale=4262.272
-
-Nov 29 10:59: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/RV/red/r0001.fits
-  /mimsy/george/wifes/program_test/RV/red/r0002.fits
-  /mimsy/george/wifes/program_test/RV/red/r0003.fits
-
-  Output image = /mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits, ncombine = 3
-
-Nov 29 10:59: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/RV/red/r0078.fits
-  /mimsy/george/wifes/program_test/RV/red/r0079.fits
-  /mimsy/george/wifes/program_test/RV/red/r0080.fits
-
-  Output image = /mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits, ncombine = 3
-/mimsy/george/wifes/program_test/RV/red/temp/r0023.fits: Nov 29 10:59 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/RV/red/temp/r0023.fits: Nov 29 10:59 Overscan section is [4163:4180,1:1024] with mean=712.3751
-/mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits: Nov 29 10:59 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits: Nov 29 10:59 Overscan section is [4163:4180,1:1024] with mean=717.8122
-/mimsy/george/wifes/program_test/RV/red/temp/r0023.fits: Nov 29 10:59 Zero level correction image is /mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits
-/mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits: Nov 29 10:59 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits: Nov 29 10:59 Overscan section is [4163:4180,1:1024] with mean=710.3571
-/mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits: Nov 29 10:59 Zero level correction image is /mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits
-/mimsy/george/wifes/program_test/RV/red/temp/r0023.fits: Nov 29 10:59 Flat field image is /mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits with scale=4262.272
-
-Nov 29 10:59: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/RV/red/r0001.fits
-  /mimsy/george/wifes/program_test/RV/red/r0002.fits
-  /mimsy/george/wifes/program_test/RV/red/r0003.fits
-
-  Output image = /mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits, ncombine = 3
-
-Nov 29 10:59: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/RV/red/r0078.fits
-  /mimsy/george/wifes/program_test/RV/red/r0079.fits
-  /mimsy/george/wifes/program_test/RV/red/r0080.fits
-
-  Output image = /mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits, ncombine = 3
-/mimsy/george/wifes/program_test/RV/red/temp/r0021.fits: Nov 29 10:59 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/RV/red/temp/r0021.fits: Nov 29 10:59 Overscan section is [4163:4180,1:1024] with mean=711.4374
-/mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits: Nov 29 10:59 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits: Nov 29 10:59 Overscan section is [4163:4180,1:1024] with mean=717.8122
-/mimsy/george/wifes/program_test/RV/red/temp/r0021.fits: Nov 29 10:59 Zero level correction image is /mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits
-/mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits: Nov 29 10:59 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits: Nov 29 10:59 Overscan section is [4163:4180,1:1024] with mean=710.3571
-/mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits: Nov 29 10:59 Zero level correction image is /mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits
-/mimsy/george/wifes/program_test/RV/red/temp/r0021.fits: Nov 29 10:59 Flat field image is /mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits with scale=4262.272
-
-Nov 29 11:02: IMCOMBINE
+Feb 14 15:59: IMCOMBINE
   combine = average, scale = none, zero = none, weight = none
   reject = sigclip, mclip = yes, nkeep = 1
   lsigma = 3., hsigma = 3.
   blank = 0.
                 Images     Exp
-  /mimsy/george/wifes/program_test/spectype/blue/b0002.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0003.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0004.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0005.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0006.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0081.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0082.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0083.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0084.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0085.fits   30.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0012.fits  100.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0013.fits  100.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0014.fits  100.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0093.fits   20.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0094.fits   20.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0095.fits   20.0
 
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits, ncombine = 10
+  Output image = /mimsy/george/wifes/27Mar2011/RV/red/temp/master_bias.fits, ncombine = 6
 
-Nov 29 11:02: IMCOMBINE
+Feb 14 15:59: IMCOMBINE
   combine = average, scale = none, zero = none, weight = none
   reject = sigclip, mclip = yes, nkeep = 1
   lsigma = 3., hsigma = 3.
   blank = 0.
                 Images 
-  /mimsy/george/wifes/program_test/spectype/blue/b0013.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0014.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0015.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0078.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0079.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0080.fits
+  /mimsy/george/wifes/27Mar2011/RV/red/r0090.fits
+  /mimsy/george/wifes/27Mar2011/RV/red/r0091.fits
+  /mimsy/george/wifes/27Mar2011/RV/red/r0092.fits
 
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits, ncombine = 6
+  Output image = /mimsy/george/wifes/27Mar2011/RV/red/temp/master_flat.fits, ncombine = 3
+/mimsy/george/wifes/27Mar2011/RV/red/temp/r0038.fits: Feb 14 15:59 Trim data section is [63:4160,1:1024]
+/mimsy/george/wifes/27Mar2011/RV/red/temp/r0038.fits: Feb 14 15:59 Overscan section is [4163:4180,1:1024] with mean=716.7487
+/mimsy/george/wifes/27Mar2011/RV/red/temp/master_bias.fits: Feb 14 15:59 Trim data section is [63:4160,1:1024]
+/mimsy/george/wifes/27Mar2011/RV/red/temp/master_bias.fits: Feb 14 15:59 Overscan section is [4163:4180,1:1024] with mean=717.9374
+/mimsy/george/wifes/27Mar2011/RV/red/temp/r0038.fits: Feb 14 15:59 Zero level correction image is /mimsy/george/wifes/27Mar2011/RV/red/temp/master_bias.fits
+/mimsy/george/wifes/27Mar2011/RV/red/temp/master_flat.fits: Feb 14 15:59 Trim data section is [63:4160,1:1024]
+/mimsy/george/wifes/27Mar2011/RV/red/temp/master_flat.fits: Feb 14 15:59 Overscan section is [4163:4180,1:1024] with mean=717.2947
+/mimsy/george/wifes/27Mar2011/RV/red/temp/master_flat.fits: Feb 14 15:59 Zero level correction image is /mimsy/george/wifes/27Mar2011/RV/red/temp/master_bias.fits
+/mimsy/george/wifes/27Mar2011/RV/red/temp/r0038.fits: Feb 14 15:59 Flat field image is /mimsy/george/wifes/27Mar2011/RV/red/temp/master_flat.fits with scale=6689.317
 
-Nov 29 11:03: IMCOMBINE
+Feb 14 15:59: IMCOMBINE
   combine = average, scale = none, zero = none, weight = none
   reject = sigclip, mclip = yes, nkeep = 1
   lsigma = 3., hsigma = 3.
   blank = 0.
                 Images     Exp
-  /mimsy/george/wifes/program_test/spectype/blue/b0002.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0003.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0004.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0005.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0006.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0081.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0082.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0083.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0084.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0085.fits   30.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0012.fits  100.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0013.fits  100.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0014.fits  100.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0093.fits   20.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0094.fits   20.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0095.fits   20.0
 
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits, ncombine = 10
+  Output image = /mimsy/george/wifes/27Mar2011/RV/red/temp/master_bias.fits, ncombine = 6
+/mimsy/george/wifes/27Mar2011/RV/red/temp/r0039.fits: Feb 14 15:59 Trim data section is [63:4160,1:1024]
+/mimsy/george/wifes/27Mar2011/RV/red/temp/r0039.fits: Feb 14 15:59 Overscan section is [4163:4180,1:1024] with mean=716.4376
+/mimsy/george/wifes/27Mar2011/RV/red/temp/master_bias.fits: Feb 14 15:59 Trim data section is [63:4160,1:1024]
+/mimsy/george/wifes/27Mar2011/RV/red/temp/master_bias.fits: Feb 14 15:59 Overscan section is [4163:4180,1:1024] with mean=717.9374
+/mimsy/george/wifes/27Mar2011/RV/red/temp/r0039.fits: Feb 14 15:59 Zero level correction image is /mimsy/george/wifes/27Mar2011/RV/red/temp/master_bias.fits
 
-Nov 29 11:03: IMCOMBINE
+Feb 14 15:59: IMCOMBINE
+  combine = average, scale = none, zero = none, weight = none
+  reject = sigclip, mclip = yes, nkeep = 1
+  lsigma = 3., hsigma = 3.
+  blank = 0.
+                Images     Exp
+  /mimsy/george/wifes/27Mar2011/RV/red/r0012.fits  100.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0013.fits  100.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0014.fits  100.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0093.fits   20.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0094.fits   20.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0095.fits   20.0
+
+  Output image = /mimsy/george/wifes/27Mar2011/RV/red/temp/master_bias.fits, ncombine = 6
+/mimsy/george/wifes/27Mar2011/RV/red/temp/r0044.fits: Feb 14 15:59 Trim data section is [63:4160,1:1024]
+/mimsy/george/wifes/27Mar2011/RV/red/temp/r0044.fits: Feb 14 15:59 Overscan section is [4163:4180,1:1024] with mean=717.5611
+/mimsy/george/wifes/27Mar2011/RV/red/temp/master_bias.fits: Feb 14 15:59 Trim data section is [63:4160,1:1024]
+/mimsy/george/wifes/27Mar2011/RV/red/temp/master_bias.fits: Feb 14 15:59 Overscan section is [4163:4180,1:1024] with mean=717.9374
+/mimsy/george/wifes/27Mar2011/RV/red/temp/r0044.fits: Feb 14 15:59 Zero level correction image is /mimsy/george/wifes/27Mar2011/RV/red/temp/master_bias.fits
+
+Feb 14 16:00: IMCOMBINE
+  combine = average, scale = none, zero = none, weight = none
+  reject = sigclip, mclip = yes, nkeep = 1
+  lsigma = 3., hsigma = 3.
+  blank = 0.
+                Images     Exp
+  /mimsy/george/wifes/27Mar2011/RV/red/r0012.fits  100.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0013.fits  100.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0014.fits  100.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0093.fits   20.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0094.fits   20.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0095.fits   20.0
+
+  Output image = /mimsy/george/wifes/27Mar2011/RV/red/temp/master_bias.fits, ncombine = 6
+
+Feb 14 16:00: IMCOMBINE
   combine = average, scale = none, zero = none, weight = none
   reject = sigclip, mclip = yes, nkeep = 1
   lsigma = 3., hsigma = 3.
   blank = 0.
                 Images 
-  /mimsy/george/wifes/program_test/spectype/blue/b0013.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0014.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0015.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0078.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0079.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0080.fits
+  /mimsy/george/wifes/27Mar2011/RV/red/r0090.fits
+  /mimsy/george/wifes/27Mar2011/RV/red/r0091.fits
+  /mimsy/george/wifes/27Mar2011/RV/red/r0092.fits
 
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits, ncombine = 6
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 29 11:03 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 29 11:03 Overscan section is [4163:4180,1:1024] with mean=657.3182
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 29 11:03 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 29 11:03 Overscan section is [4163:4180,1:1024] with mean=657.5242
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 29 11:03 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 29 11:03 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 29 11:04 Overscan section is [4163:4180,1:1024] with mean=657.7271
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 29 11:04 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 29 11:04 Flat field image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits with scale=1461.981
+  Output image = /mimsy/george/wifes/27Mar2011/RV/red/temp/master_flat.fits, ncombine = 3
+/mimsy/george/wifes/27Mar2011/RV/red/temp/r0043.fits: Feb 14 16:00 Trim data section is [63:4160,1:1024]
+/mimsy/george/wifes/27Mar2011/RV/red/temp/r0043.fits: Feb 14 16:00 Overscan section is [4163:4180,1:1024] with mean=717.104
+/mimsy/george/wifes/27Mar2011/RV/red/temp/master_bias.fits: Feb 14 16:00 Trim data section is [63:4160,1:1024]
+/mimsy/george/wifes/27Mar2011/RV/red/temp/master_bias.fits: Feb 14 16:00 Overscan section is [4163:4180,1:1024] with mean=717.9374
+/mimsy/george/wifes/27Mar2011/RV/red/temp/r0043.fits: Feb 14 16:00 Zero level correction image is /mimsy/george/wifes/27Mar2011/RV/red/temp/master_bias.fits
+/mimsy/george/wifes/27Mar2011/RV/red/temp/master_flat.fits: Feb 14 16:00 Trim data section is [63:4160,1:1024]
+/mimsy/george/wifes/27Mar2011/RV/red/temp/master_flat.fits: Feb 14 16:00 Overscan section is [4163:4180,1:1024] with mean=717.2947
+/mimsy/george/wifes/27Mar2011/RV/red/temp/master_flat.fits: Feb 14 16:00 Zero level correction image is /mimsy/george/wifes/27Mar2011/RV/red/temp/master_bias.fits
+/mimsy/george/wifes/27Mar2011/RV/red/temp/r0043.fits: Feb 14 16:00 Flat field image is /mimsy/george/wifes/27Mar2011/RV/red/temp/master_flat.fits with scale=6689.317
 
-Nov 29 11:04: IMCOMBINE
+Feb 14 16:00: IMCOMBINE
   combine = average, scale = none, zero = none, weight = none
   reject = sigclip, mclip = yes, nkeep = 1
   lsigma = 3., hsigma = 3.
   blank = 0.
                 Images     Exp
-  /mimsy/george/wifes/program_test/spectype/blue/b0002.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0003.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0004.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0005.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0006.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0081.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0082.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0083.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0084.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0085.fits   30.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0012.fits  100.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0013.fits  100.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0014.fits  100.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0093.fits   20.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0094.fits   20.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0095.fits   20.0
 
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits, ncombine = 10
+  Output image = /mimsy/george/wifes/27Mar2011/RV/red/temp/master_bias.fits, ncombine = 6
+/mimsy/george/wifes/27Mar2011/RV/red/temp/r0046.fits: Feb 14 16:00 Trim data section is [63:4160,1:1024]
+/mimsy/george/wifes/27Mar2011/RV/red/temp/r0046.fits: Feb 14 16:00 Overscan section is [4163:4180,1:1024] with mean=716.9598
+/mimsy/george/wifes/27Mar2011/RV/red/temp/master_bias.fits: Feb 14 16:00 Trim data section is [63:4160,1:1024]
+/mimsy/george/wifes/27Mar2011/RV/red/temp/master_bias.fits: Feb 14 16:00 Overscan section is [4163:4180,1:1024] with mean=717.9374
+/mimsy/george/wifes/27Mar2011/RV/red/temp/r0046.fits: Feb 14 16:00 Zero level correction image is /mimsy/george/wifes/27Mar2011/RV/red/temp/master_bias.fits
 
-Nov 29 11:04: IMCOMBINE
+Feb 14 16:01: IMCOMBINE
+  combine = average, scale = none, zero = none, weight = none
+  reject = sigclip, mclip = yes, nkeep = 1
+  lsigma = 3., hsigma = 3.
+  blank = 0.
+                Images     Exp
+  /mimsy/george/wifes/27Mar2011/RV/red/r0012.fits  100.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0013.fits  100.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0014.fits  100.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0093.fits   20.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0094.fits   20.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0095.fits   20.0
+
+  Output image = /mimsy/george/wifes/27Mar2011/RV/red/temp/master_bias.fits, ncombine = 6
+
+Feb 14 16:01: IMCOMBINE
   combine = average, scale = none, zero = none, weight = none
   reject = sigclip, mclip = yes, nkeep = 1
   lsigma = 3., hsigma = 3.
   blank = 0.
                 Images 
-  /mimsy/george/wifes/program_test/spectype/blue/b0013.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0014.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0015.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0078.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0079.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0080.fits
+  /mimsy/george/wifes/27Mar2011/RV/red/r0090.fits
+  /mimsy/george/wifes/27Mar2011/RV/red/r0091.fits
+  /mimsy/george/wifes/27Mar2011/RV/red/r0092.fits
 
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits, ncombine = 6
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0062.fits: Nov 29 11:04 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0062.fits: Nov 29 11:04 Overscan section is [4163:4180,1:1024] with mean=657.5228
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 29 11:04 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 29 11:04 Overscan section is [4163:4180,1:1024] with mean=657.5242
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0062.fits: Nov 29 11:04 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 29 11:04 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 29 11:04 Overscan section is [4163:4180,1:1024] with mean=657.7271
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 29 11:04 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0062.fits: Nov 29 11:04 Flat field image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits with scale=1461.981
+  Output image = /mimsy/george/wifes/27Mar2011/RV/red/temp/master_flat.fits, ncombine = 3
+/mimsy/george/wifes/27Mar2011/RV/red/temp/r0045.fits: Feb 14 16:01 Trim data section is [63:4160,1:1024]
+/mimsy/george/wifes/27Mar2011/RV/red/temp/r0045.fits: Feb 14 16:01 Overscan section is [4163:4180,1:1024] with mean=717.5181
+/mimsy/george/wifes/27Mar2011/RV/red/temp/master_bias.fits: Feb 14 16:01 Trim data section is [63:4160,1:1024]
+/mimsy/george/wifes/27Mar2011/RV/red/temp/master_bias.fits: Feb 14 16:01 Overscan section is [4163:4180,1:1024] with mean=717.9374
+/mimsy/george/wifes/27Mar2011/RV/red/temp/r0045.fits: Feb 14 16:01 Zero level correction image is /mimsy/george/wifes/27Mar2011/RV/red/temp/master_bias.fits
+/mimsy/george/wifes/27Mar2011/RV/red/temp/master_flat.fits: Feb 14 16:01 Trim data section is [63:4160,1:1024]
+/mimsy/george/wifes/27Mar2011/RV/red/temp/master_flat.fits: Feb 14 16:01 Overscan section is [4163:4180,1:1024] with mean=717.2947
+/mimsy/george/wifes/27Mar2011/RV/red/temp/master_flat.fits: Feb 14 16:01 Zero level correction image is /mimsy/george/wifes/27Mar2011/RV/red/temp/master_bias.fits
+/mimsy/george/wifes/27Mar2011/RV/red/temp/r0045.fits: Feb 14 16:01 Flat field image is /mimsy/george/wifes/27Mar2011/RV/red/temp/master_flat.fits with scale=6689.317
 
-Nov 29 11:23: IMCOMBINE
+Feb 14 16:02: IMCOMBINE
   combine = average, scale = none, zero = none, weight = none
   reject = sigclip, mclip = yes, nkeep = 1
   lsigma = 3., hsigma = 3.
   blank = 0.
                 Images     Exp
-  /mimsy/george/wifes/program_test/spectype/blue/b0002.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0003.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0004.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0005.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0006.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0081.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0082.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0083.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0084.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0085.fits   30.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0012.fits  100.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0013.fits  100.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0014.fits  100.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0093.fits   20.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0094.fits   20.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0095.fits   20.0
 
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits, ncombine = 10
+  Output image = /mimsy/george/wifes/27Mar2011/RV/red/temp/master_bias.fits, ncombine = 6
 
-Nov 29 11:23: IMCOMBINE
+Feb 14 16:02: IMCOMBINE
   combine = average, scale = none, zero = none, weight = none
   reject = sigclip, mclip = yes, nkeep = 1
   lsigma = 3., hsigma = 3.
   blank = 0.
                 Images 
-  /mimsy/george/wifes/program_test/spectype/blue/b0013.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0014.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0015.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0078.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0079.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0080.fits
+  /mimsy/george/wifes/27Mar2011/RV/red/r0090.fits
+  /mimsy/george/wifes/27Mar2011/RV/red/r0091.fits
+  /mimsy/george/wifes/27Mar2011/RV/red/r0092.fits
 
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits, ncombine = 6
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 29 11:23 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 29 11:23 Overscan section is [4163:4180,1:1024] with mean=657.3182
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 29 11:23 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 29 11:23 Overscan section is [4163:4180,1:1024] with mean=657.5242
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 29 11:23 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 29 11:23 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 29 11:23 Overscan section is [4163:4180,1:1024] with mean=657.7271
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 29 11:23 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 29 11:23 Flat field image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits with scale=1461.981
+  Output image = /mimsy/george/wifes/27Mar2011/RV/red/temp/master_flat.fits, ncombine = 3
+/mimsy/george/wifes/27Mar2011/RV/red/temp/r0047.fits: Feb 14 16:02 Trim data section is [63:4160,1:1024]
+/mimsy/george/wifes/27Mar2011/RV/red/temp/r0047.fits: Feb 14 16:02 Overscan section is [4163:4180,1:1024] with mean=716.6832
+/mimsy/george/wifes/27Mar2011/RV/red/temp/master_bias.fits: Feb 14 16:02 Trim data section is [63:4160,1:1024]
+/mimsy/george/wifes/27Mar2011/RV/red/temp/master_bias.fits: Feb 14 16:02 Overscan section is [4163:4180,1:1024] with mean=717.9374
+/mimsy/george/wifes/27Mar2011/RV/red/temp/r0047.fits: Feb 14 16:02 Zero level correction image is /mimsy/george/wifes/27Mar2011/RV/red/temp/master_bias.fits
+/mimsy/george/wifes/27Mar2011/RV/red/temp/master_flat.fits: Feb 14 16:02 Trim data section is [63:4160,1:1024]
+/mimsy/george/wifes/27Mar2011/RV/red/temp/master_flat.fits: Feb 14 16:02 Overscan section is [4163:4180,1:1024] with mean=717.2947
+/mimsy/george/wifes/27Mar2011/RV/red/temp/master_flat.fits: Feb 14 16:02 Zero level correction image is /mimsy/george/wifes/27Mar2011/RV/red/temp/master_bias.fits
+/mimsy/george/wifes/27Mar2011/RV/red/temp/r0047.fits: Feb 14 16:02 Flat field image is /mimsy/george/wifes/27Mar2011/RV/red/temp/master_flat.fits with scale=6689.317
 
-Nov 29 11:23: IMCOMBINE
+Feb 14 16:02: IMCOMBINE
   combine = average, scale = none, zero = none, weight = none
   reject = sigclip, mclip = yes, nkeep = 1
   lsigma = 3., hsigma = 3.
   blank = 0.
                 Images     Exp
-  /mimsy/george/wifes/program_test/spectype/blue/b0002.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0003.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0004.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0005.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0006.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0081.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0082.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0083.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0084.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0085.fits   30.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0012.fits  100.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0013.fits  100.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0014.fits  100.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0093.fits   20.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0094.fits   20.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0095.fits   20.0
 
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits, ncombine = 10
+  Output image = /mimsy/george/wifes/27Mar2011/RV/red/temp/master_bias.fits, ncombine = 6
+/mimsy/george/wifes/27Mar2011/RV/red/temp/r0048.fits: Feb 14 16:02 Trim data section is [63:4160,1:1024]
+/mimsy/george/wifes/27Mar2011/RV/red/temp/r0048.fits: Feb 14 16:02 Overscan section is [4163:4180,1:1024] with mean=716.5848
+/mimsy/george/wifes/27Mar2011/RV/red/temp/master_bias.fits: Feb 14 16:02 Trim data section is [63:4160,1:1024]
+/mimsy/george/wifes/27Mar2011/RV/red/temp/master_bias.fits: Feb 14 16:02 Overscan section is [4163:4180,1:1024] with mean=717.9374
+/mimsy/george/wifes/27Mar2011/RV/red/temp/r0048.fits: Feb 14 16:02 Zero level correction image is /mimsy/george/wifes/27Mar2011/RV/red/temp/master_bias.fits
 
-Nov 29 11:23: IMCOMBINE
+Feb 14 16:03: IMCOMBINE
+  combine = average, scale = none, zero = none, weight = none
+  reject = sigclip, mclip = yes, nkeep = 1
+  lsigma = 3., hsigma = 3.
+  blank = 0.
+                Images     Exp
+  /mimsy/george/wifes/27Mar2011/RV/red/r0012.fits  100.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0013.fits  100.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0014.fits  100.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0093.fits   20.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0094.fits   20.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0095.fits   20.0
+
+  Output image = /mimsy/george/wifes/27Mar2011/RV/red/temp/master_bias.fits, ncombine = 6
+
+Feb 14 16:03: IMCOMBINE
   combine = average, scale = none, zero = none, weight = none
   reject = sigclip, mclip = yes, nkeep = 1
   lsigma = 3., hsigma = 3.
   blank = 0.
                 Images 
-  /mimsy/george/wifes/program_test/spectype/blue/b0013.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0014.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0015.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0078.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0079.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0080.fits
+  /mimsy/george/wifes/27Mar2011/RV/red/r0090.fits
+  /mimsy/george/wifes/27Mar2011/RV/red/r0091.fits
+  /mimsy/george/wifes/27Mar2011/RV/red/r0092.fits
 
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits, ncombine = 6
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0062.fits: Nov 29 11:23 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0062.fits: Nov 29 11:23 Overscan section is [4163:4180,1:1024] with mean=657.5228
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 29 11:23 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 29 11:23 Overscan section is [4163:4180,1:1024] with mean=657.5242
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0062.fits: Nov 29 11:23 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 29 11:23 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 29 11:23 Overscan section is [4163:4180,1:1024] with mean=657.7271
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 29 11:23 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0062.fits: Nov 29 11:23 Flat field image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits with scale=1461.981
+  Output image = /mimsy/george/wifes/27Mar2011/RV/red/temp/master_flat.fits, ncombine = 3
+/mimsy/george/wifes/27Mar2011/RV/red/temp/r0088.fits: Feb 14 16:03 Trim data section is [63:4160,1:1024]
+/mimsy/george/wifes/27Mar2011/RV/red/temp/r0088.fits: Feb 14 16:03 Overscan section is [4163:4180,1:1024] with mean=715.7499
+/mimsy/george/wifes/27Mar2011/RV/red/temp/master_bias.fits: Feb 14 16:03 Trim data section is [63:4160,1:1024]
+/mimsy/george/wifes/27Mar2011/RV/red/temp/master_bias.fits: Feb 14 16:03 Overscan section is [4163:4180,1:1024] with mean=717.9374
+/mimsy/george/wifes/27Mar2011/RV/red/temp/r0088.fits: Feb 14 16:03 Zero level correction image is /mimsy/george/wifes/27Mar2011/RV/red/temp/master_bias.fits
+/mimsy/george/wifes/27Mar2011/RV/red/temp/master_flat.fits: Feb 14 16:03 Trim data section is [63:4160,1:1024]
+/mimsy/george/wifes/27Mar2011/RV/red/temp/master_flat.fits: Feb 14 16:03 Overscan section is [4163:4180,1:1024] with mean=717.2947
+/mimsy/george/wifes/27Mar2011/RV/red/temp/master_flat.fits: Feb 14 16:03 Zero level correction image is /mimsy/george/wifes/27Mar2011/RV/red/temp/master_bias.fits
+/mimsy/george/wifes/27Mar2011/RV/red/temp/r0088.fits: Feb 14 16:03 Flat field image is /mimsy/george/wifes/27Mar2011/RV/red/temp/master_flat.fits with scale=6689.317
 
-Nov 29 12:45: IMCOMBINE
+Feb 14 16:03: IMCOMBINE
   combine = average, scale = none, zero = none, weight = none
   reject = sigclip, mclip = yes, nkeep = 1
   lsigma = 3., hsigma = 3.
   blank = 0.
                 Images     Exp
-  /mimsy/george/wifes/program_test/spectype/blue/b0002.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0003.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0004.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0005.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0006.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0081.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0082.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0083.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0084.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0085.fits   30.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0012.fits  100.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0013.fits  100.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0014.fits  100.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0093.fits   20.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0094.fits   20.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0095.fits   20.0
 
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits, ncombine = 10
+  Output image = /mimsy/george/wifes/27Mar2011/RV/red/temp/master_bias.fits, ncombine = 6
+/mimsy/george/wifes/27Mar2011/RV/red/temp/r0089.fits: Feb 14 16:03 Trim data section is [63:4160,1:1024]
+/mimsy/george/wifes/27Mar2011/RV/red/temp/r0089.fits: Feb 14 16:03 Overscan section is [4163:4180,1:1024] with mean=715.6887
+/mimsy/george/wifes/27Mar2011/RV/red/temp/master_bias.fits: Feb 14 16:03 Trim data section is [63:4160,1:1024]
+/mimsy/george/wifes/27Mar2011/RV/red/temp/master_bias.fits: Feb 14 16:03 Overscan section is [4163:4180,1:1024] with mean=717.9374
+/mimsy/george/wifes/27Mar2011/RV/red/temp/r0089.fits: Feb 14 16:03 Zero level correction image is /mimsy/george/wifes/27Mar2011/RV/red/temp/master_bias.fits
 
-Nov 29 12:45: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/spectype/blue/b0013.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0014.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0015.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0078.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0079.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0080.fits
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits, ncombine = 6
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 29 12:45 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 29 12:45 Overscan section is [4163:4180,1:1024] with mean=657.3182
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 29 12:45 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 29 12:45 Overscan section is [4163:4180,1:1024] with mean=657.5242
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 29 12:45 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 29 12:45 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 29 12:45 Overscan section is [4163:4180,1:1024] with mean=657.7271
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 29 12:45 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 29 12:45 Flat field image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits with scale=1461.981
-
-Nov 29 12:45: IMCOMBINE
+Feb 14 16:04: IMCOMBINE
   combine = average, scale = none, zero = none, weight = none
   reject = sigclip, mclip = yes, nkeep = 1
   lsigma = 3., hsigma = 3.
   blank = 0.
                 Images     Exp
-  /mimsy/george/wifes/program_test/spectype/blue/b0002.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0003.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0004.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0005.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0006.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0081.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0082.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0083.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0084.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0085.fits   30.0
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits, ncombine = 10
-
-Nov 29 12:45: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/spectype/blue/b0013.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0014.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0015.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0078.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0079.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0080.fits
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits, ncombine = 6
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0062.fits: Nov 29 12:45 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0062.fits: Nov 29 12:45 Overscan section is [4163:4180,1:1024] with mean=657.5228
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 29 12:45 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 29 12:45 Overscan section is [4163:4180,1:1024] with mean=657.5242
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0062.fits: Nov 29 12:46 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 29 12:46 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 29 12:46 Overscan section is [4163:4180,1:1024] with mean=657.7271
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 29 12:46 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0062.fits: Nov 29 12:46 Flat field image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits with scale=1461.981
-
-Nov 29 14:57: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images     Exp
-  /mimsy/george/wifes/program_test/spectype/blue/b0002.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0003.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0004.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0005.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0006.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0081.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0082.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0083.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0084.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0085.fits   30.0
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits, ncombine = 10
-
-Nov 29 14:57: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/spectype/blue/b0013.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0014.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0015.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0078.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0079.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0080.fits
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits, ncombine = 6
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 29 14:58 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 29 14:58 Overscan section is [4163:4180,1:1024] with mean=657.3182
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 29 14:58 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 29 14:58 Overscan section is [4163:4180,1:1024] with mean=657.5242
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 29 14:58 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 29 14:58 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 29 14:58 Overscan section is [4163:4180,1:1024] with mean=657.7271
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 29 14:58 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 29 14:58 Flat field image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits with scale=1461.981
-
-Nov 29 14:58: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images     Exp
-  /mimsy/george/wifes/program_test/spectype/blue/b0002.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0003.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0004.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0005.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0006.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0081.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0082.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0083.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0084.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0085.fits   30.0
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits, ncombine = 10
-
-Nov 29 14:58: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/spectype/blue/b0013.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0014.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0015.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0078.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0079.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0080.fits
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits, ncombine = 6
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0073.fits: Nov 29 14:58 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0073.fits: Nov 29 14:58 Overscan section is [4163:4180,1:1024] with mean=655.7515
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 29 14:58 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 29 14:58 Overscan section is [4163:4180,1:1024] with mean=657.5242
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0073.fits: Nov 29 14:58 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 29 14:58 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 29 14:58 Overscan section is [4163:4180,1:1024] with mean=657.7271
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 29 14:58 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0073.fits: Nov 29 14:58 Flat field image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits with scale=1461.981
-
-Nov 29 15:36: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images     Exp
-  /mimsy/george/wifes/program_test/spectype/blue/b0002.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0003.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0004.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0005.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0006.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0081.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0082.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0083.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0084.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0085.fits   30.0
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits, ncombine = 10
-
-Nov 29 15:36: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/spectype/blue/b0013.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0014.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0015.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0078.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0079.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0080.fits
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits, ncombine = 6
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 29 15:36 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 29 15:36 Overscan section is [4163:4180,1:1024] with mean=657.3182
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 29 15:36 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 29 15:36 Overscan section is [4163:4180,1:1024] with mean=657.5242
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 29 15:36 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 29 15:36 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 29 15:36 Overscan section is [4163:4180,1:1024] with mean=657.7271
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 29 15:36 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 29 15:36 Flat field image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits with scale=1461.981
-
-Nov 29 15:36: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images     Exp
-  /mimsy/george/wifes/program_test/spectype/blue/b0002.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0003.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0004.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0005.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0006.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0081.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0082.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0083.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0084.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0085.fits   30.0
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits, ncombine = 10
-
-Nov 29 15:36: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/spectype/blue/b0013.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0014.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0015.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0078.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0079.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0080.fits
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits, ncombine = 6
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0073.fits: Nov 29 15:36 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0073.fits: Nov 29 15:36 Overscan section is [4163:4180,1:1024] with mean=655.7515
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 29 15:36 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 29 15:36 Overscan section is [4163:4180,1:1024] with mean=657.5242
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0073.fits: Nov 29 15:36 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 29 15:36 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 29 15:36 Overscan section is [4163:4180,1:1024] with mean=657.7271
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 29 15:36 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0073.fits: Nov 29 15:37 Flat field image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits with scale=1461.981
-
-Nov 29 15:58: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images     Exp
-  /mimsy/george/wifes/program_test/spectype/blue/b0002.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0003.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0004.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0005.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0006.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0081.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0082.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0083.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0084.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0085.fits   30.0
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits, ncombine = 10
-
-Nov 29 15:58: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/spectype/blue/b0013.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0014.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0015.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0078.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0079.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0080.fits
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits, ncombine = 6
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 29 15:58 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 29 15:58 Overscan section is [4163:4180,1:1024] with mean=657.3182
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 29 15:58 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 29 15:58 Overscan section is [4163:4180,1:1024] with mean=657.5242
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 29 15:58 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 29 15:58 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 29 15:58 Overscan section is [4163:4180,1:1024] with mean=657.7271
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 29 15:58 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 29 15:58 Flat field image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits with scale=1461.981
-
-Nov 29 15:59: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images     Exp
-  /mimsy/george/wifes/program_test/spectype/blue/b0002.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0003.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0004.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0005.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0006.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0081.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0082.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0083.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0084.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0085.fits   30.0
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits, ncombine = 10
-
-Nov 29 15:59: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/spectype/blue/b0013.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0014.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0015.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0078.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0079.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0080.fits
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits, ncombine = 6
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0073.fits: Nov 29 15:59 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0073.fits: Nov 29 15:59 Overscan section is [4163:4180,1:1024] with mean=655.7515
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 29 15:59 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 29 15:59 Overscan section is [4163:4180,1:1024] with mean=657.5242
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0073.fits: Nov 29 15:59 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 29 15:59 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 29 15:59 Overscan section is [4163:4180,1:1024] with mean=657.7271
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 29 15:59 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0073.fits: Nov 29 15:59 Flat field image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits with scale=1461.981
-
-Nov 29 17:11: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images     Exp
-  /mimsy/george/wifes/program_test/spectype/blue/b0002.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0003.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0004.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0005.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0006.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0081.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0082.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0083.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0084.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0085.fits   30.0
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits, ncombine = 10
-
-Nov 29 17:12: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/spectype/blue/b0013.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0014.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0015.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0078.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0079.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0080.fits
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits, ncombine = 6
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 29 17:12 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 29 17:12 Overscan section is [4163:4180,1:1024] with mean=657.3182
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 29 17:12 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 29 17:12 Overscan section is [4163:4180,1:1024] with mean=657.5242
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 29 17:12 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 29 17:12 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 29 17:12 Overscan section is [4163:4180,1:1024] with mean=657.7271
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 29 17:12 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 29 17:12 Flat field image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits with scale=1461.981
-
-Nov 29 17:12: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images     Exp
-  /mimsy/george/wifes/program_test/spectype/blue/b0002.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0003.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0004.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0005.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0006.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0081.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0082.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0083.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0084.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0085.fits   30.0
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits, ncombine = 10
-
-Nov 29 17:12: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/spectype/blue/b0013.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0014.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0015.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0078.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0079.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0080.fits
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits, ncombine = 6
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0073.fits: Nov 29 17:12 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0073.fits: Nov 29 17:12 Overscan section is [4163:4180,1:1024] with mean=655.7515
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 29 17:12 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 29 17:12 Overscan section is [4163:4180,1:1024] with mean=657.5242
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0073.fits: Nov 29 17:12 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 29 17:12 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 29 17:12 Overscan section is [4163:4180,1:1024] with mean=657.7271
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 29 17:12 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0073.fits: Nov 29 17:12 Flat field image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits with scale=1461.981
-
-Nov 29 17:42: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images     Exp
-  /mimsy/george/wifes/program_test/spectype/blue/b0002.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0003.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0004.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0005.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0006.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0081.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0082.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0083.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0084.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0085.fits   30.0
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits, ncombine = 10
-
-Nov 29 17:42: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/spectype/blue/b0013.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0014.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0015.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0078.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0079.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0080.fits
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits, ncombine = 6
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 29 17:42 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 29 17:42 Overscan section is [4163:4180,1:1024] with mean=657.3182
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 29 17:42 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 29 17:42 Overscan section is [4163:4180,1:1024] with mean=657.5242
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 29 17:42 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 29 17:42 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 29 17:42 Overscan section is [4163:4180,1:1024] with mean=657.7271
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 29 17:42 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 29 17:42 Flat field image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits with scale=1461.981
-
-Nov 29 17:42: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images     Exp
-  /mimsy/george/wifes/program_test/spectype/blue/b0002.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0003.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0004.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0005.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0006.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0081.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0082.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0083.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0084.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0085.fits   30.0
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits, ncombine = 10
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0073.fits: Nov 29 17:43 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0073.fits: Nov 29 17:43 Overscan section is [4163:4180,1:1024] with mean=655.7515
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 29 17:43 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 29 17:43 Overscan section is [4163:4180,1:1024] with mean=657.5242
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0073.fits: Nov 29 17:43 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-
-Nov 29 19:32: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images     Exp
-  /mimsy/george/wifes/program_test/spectype/blue/b0002.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0003.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0004.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0005.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0006.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0081.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0082.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0083.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0084.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0085.fits   30.0
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits, ncombine = 10
-
-Nov 29 19:32: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/spectype/blue/b0013.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0014.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0015.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0078.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0079.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0080.fits
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits, ncombine = 6
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 29 19:32 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 29 19:32 Overscan section is [4163:4180,1:1024] with mean=657.3182
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 29 19:32 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 29 19:32 Overscan section is [4163:4180,1:1024] with mean=657.5242
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 29 19:32 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 29 19:32 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 29 19:32 Overscan section is [4163:4180,1:1024] with mean=657.7271
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 29 19:32 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 29 19:32 Flat field image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits with scale=1461.981
-
-Nov 29 19:32: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images     Exp
-  /mimsy/george/wifes/program_test/spectype/blue/b0002.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0003.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0004.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0005.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0006.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0081.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0082.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0083.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0084.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0085.fits   30.0
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits, ncombine = 10
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0073.fits: Nov 29 19:33 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0073.fits: Nov 29 19:33 Overscan section is [4163:4180,1:1024] with mean=655.7515
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 29 19:33 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 29 19:33 Overscan section is [4163:4180,1:1024] with mean=657.5242
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0073.fits: Nov 29 19:33 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-
-Nov 29 19:59: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images     Exp
-  /mimsy/george/wifes/program_test/spectype/blue/b0002.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0003.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0004.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0005.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0006.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0081.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0082.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0083.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0084.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0085.fits   30.0
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits, ncombine = 10
-
-Nov 29 19:59: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/spectype/blue/b0013.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0014.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0015.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0078.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0079.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0080.fits
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits, ncombine = 6
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 29 19:59 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 29 19:59 Overscan section is [4163:4180,1:1024] with mean=657.3182
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 29 19:59 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 29 19:59 Overscan section is [4163:4180,1:1024] with mean=657.5242
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 29 19:59 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 29 19:59 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 29 19:59 Overscan section is [4163:4180,1:1024] with mean=657.7271
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 29 19:59 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 29 19:59 Flat field image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits with scale=1461.981
-
-Nov 29 19:59: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images     Exp
-  /mimsy/george/wifes/program_test/spectype/blue/b0002.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0003.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0004.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0005.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0006.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0081.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0082.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0083.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0084.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0085.fits   30.0
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits, ncombine = 10
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0073.fits: Nov 29 19:59 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0073.fits: Nov 29 19:59 Overscan section is [4163:4180,1:1024] with mean=655.7515
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 29 19:59 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 29 19:59 Overscan section is [4163:4180,1:1024] with mean=657.5242
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0073.fits: Nov 29 19:59 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-
-Nov 29 20:51: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/RV/red/r0001.fits
-  /mimsy/george/wifes/program_test/RV/red/r0002.fits
-  /mimsy/george/wifes/program_test/RV/red/r0003.fits
-
-  Output image = /mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits, ncombine = 3
-
-Nov 29 20:51: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/RV/red/r0078.fits
-  /mimsy/george/wifes/program_test/RV/red/r0079.fits
-  /mimsy/george/wifes/program_test/RV/red/r0080.fits
-
-  Output image = /mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits, ncombine = 3
-/mimsy/george/wifes/program_test/RV/red/temp/r0022.fits: Nov 29 20:51 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/RV/red/temp/r0022.fits: Nov 29 20:51 Overscan section is [4163:4180,1:1024] with mean=711.8971
-/mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits: Nov 29 20:51 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits: Nov 29 20:51 Overscan section is [4163:4180,1:1024] with mean=717.8122
-/mimsy/george/wifes/program_test/RV/red/temp/r0022.fits: Nov 29 20:51 Zero level correction image is /mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits
-/mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits: Nov 29 20:51 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits: Nov 29 20:51 Overscan section is [4163:4180,1:1024] with mean=710.3571
-/mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits: Nov 29 20:51 Zero level correction image is /mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits
-/mimsy/george/wifes/program_test/RV/red/temp/r0022.fits: Nov 29 20:51 Flat field image is /mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits with scale=4262.272
-
-Nov 29 20:51: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/RV/red/r0001.fits
-  /mimsy/george/wifes/program_test/RV/red/r0002.fits
-  /mimsy/george/wifes/program_test/RV/red/r0003.fits
-
-  Output image = /mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits, ncombine = 3
-/mimsy/george/wifes/program_test/RV/red/temp/r0023.fits: Nov 29 20:51 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/RV/red/temp/r0023.fits: Nov 29 20:51 Overscan section is [4163:4180,1:1024] with mean=712.3751
-/mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits: Nov 29 20:51 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits: Nov 29 20:51 Overscan section is [4163:4180,1:1024] with mean=717.8122
-/mimsy/george/wifes/program_test/RV/red/temp/r0023.fits: Nov 29 20:51 Zero level correction image is /mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits
-
-Nov 29 20:51: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/RV/red/r0001.fits
-  /mimsy/george/wifes/program_test/RV/red/r0002.fits
-  /mimsy/george/wifes/program_test/RV/red/r0003.fits
-
-  Output image = /mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits, ncombine = 3
-/mimsy/george/wifes/program_test/RV/red/temp/r0021.fits: Nov 29 20:51 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/RV/red/temp/r0021.fits: Nov 29 20:51 Overscan section is [4163:4180,1:1024] with mean=711.4374
-/mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits: Nov 29 20:51 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits: Nov 29 20:51 Overscan section is [4163:4180,1:1024] with mean=717.8122
-/mimsy/george/wifes/program_test/RV/red/temp/r0021.fits: Nov 29 20:51 Zero level correction image is /mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits
-
-Nov 30 10:56: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images     Exp
-  /mimsy/george/wifes/program_test/spectype/blue/b0002.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0003.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0004.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0005.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0006.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0081.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0082.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0083.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0084.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0085.fits   30.0
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits, ncombine = 10
-
-Nov 30 10:56: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/spectype/blue/b0013.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0014.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0015.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0078.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0079.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0080.fits
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits, ncombine = 6
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 30 10:56 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 30 10:56 Overscan section is [4163:4180,1:1024] with mean=657.3182
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 30 10:56 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 30 10:56 Overscan section is [4163:4180,1:1024] with mean=657.5242
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 30 10:56 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 30 10:56 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 30 10:56 Overscan section is [4163:4180,1:1024] with mean=657.7271
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 30 10:56 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 30 10:57 Flat field image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits with scale=1461.981
-
-Nov 30 10:57: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images     Exp
-  /mimsy/george/wifes/program_test/spectype/blue/b0002.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0003.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0004.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0005.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0006.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0081.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0082.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0083.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0084.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0085.fits   30.0
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits, ncombine = 10
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0073.fits: Nov 30 10:57 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0073.fits: Nov 30 10:57 Overscan section is [4163:4180,1:1024] with mean=655.7515
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 30 10:57 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 30 10:57 Overscan section is [4163:4180,1:1024] with mean=657.5242
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0073.fits: Nov 30 10:57 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-
-Nov 30 11:09: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images     Exp
-  /mimsy/george/wifes/program_test/spectype/blue/b0002.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0003.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0004.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0005.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0006.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0081.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0082.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0083.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0084.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0085.fits   30.0
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits, ncombine = 10
-
-Nov 30 11:09: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/spectype/blue/b0013.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0014.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0015.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0078.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0079.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0080.fits
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits, ncombine = 6
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 30 11:09 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 30 11:09 Overscan section is [4163:4180,1:1024] with mean=657.3182
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 30 11:09 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 30 11:09 Overscan section is [4163:4180,1:1024] with mean=657.5242
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 30 11:09 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 30 11:09 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 30 11:09 Overscan section is [4163:4180,1:1024] with mean=657.7271
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 30 11:09 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 30 11:09 Flat field image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits with scale=1461.981
-
-Nov 30 11:09: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images     Exp
-  /mimsy/george/wifes/program_test/spectype/blue/b0002.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0003.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0004.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0005.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0006.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0081.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0082.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0083.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0084.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0085.fits   30.0
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits, ncombine = 10
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0073.fits: Nov 30 11:09 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0073.fits: Nov 30 11:09 Overscan section is [4163:4180,1:1024] with mean=655.7515
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 30 11:09 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 30 11:09 Overscan section is [4163:4180,1:1024] with mean=657.5242
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0073.fits: Nov 30 11:09 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-
-Nov 30 11:13: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images     Exp
-  /mimsy/george/wifes/program_test/spectype/blue/b0002.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0003.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0004.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0005.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0006.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0081.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0082.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0083.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0084.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0085.fits   30.0
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits, ncombine = 10
-
-Nov 30 11:13: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/spectype/blue/b0013.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0014.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0015.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0078.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0079.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0080.fits
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits, ncombine = 6
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 30 11:13 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 30 11:13 Overscan section is [4163:4180,1:1024] with mean=657.3182
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 30 11:13 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 30 11:13 Overscan section is [4163:4180,1:1024] with mean=657.5242
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 30 11:13 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 30 11:13 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 30 11:13 Overscan section is [4163:4180,1:1024] with mean=657.7271
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 30 11:13 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 30 11:13 Flat field image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits with scale=1461.981
-
-Nov 30 11:13: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images     Exp
-  /mimsy/george/wifes/program_test/spectype/blue/b0002.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0003.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0004.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0005.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0006.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0081.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0082.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0083.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0084.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0085.fits   30.0
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits, ncombine = 10
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0073.fits: Nov 30 11:13 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0073.fits: Nov 30 11:13 Overscan section is [4163:4180,1:1024] with mean=655.7515
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 30 11:13 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 30 11:13 Overscan section is [4163:4180,1:1024] with mean=657.5242
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0073.fits: Nov 30 11:13 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-
-Nov 30 11:15: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images     Exp
-  /mimsy/george/wifes/program_test/spectype/blue/b0002.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0003.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0004.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0005.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0006.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0081.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0082.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0083.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0084.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0085.fits   30.0
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits, ncombine = 10
-
-Nov 30 11:15: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/spectype/blue/b0013.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0014.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0015.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0078.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0079.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0080.fits
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits, ncombine = 6
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 30 11:15 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 30 11:15 Overscan section is [4163:4180,1:1024] with mean=657.3182
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 30 11:15 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 30 11:15 Overscan section is [4163:4180,1:1024] with mean=657.5242
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 30 11:15 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 30 11:15 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 30 11:15 Overscan section is [4163:4180,1:1024] with mean=657.7271
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 30 11:15 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 30 11:15 Flat field image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits with scale=1461.981
-
-Nov 30 11:15: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images     Exp
-  /mimsy/george/wifes/program_test/spectype/blue/b0002.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0003.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0004.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0005.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0006.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0081.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0082.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0083.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0084.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0085.fits   30.0
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits, ncombine = 10
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0073.fits: Nov 30 11:15 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0073.fits: Nov 30 11:15 Overscan section is [4163:4180,1:1024] with mean=655.7515
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 30 11:15 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 30 11:15 Overscan section is [4163:4180,1:1024] with mean=657.5242
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0073.fits: Nov 30 11:15 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-
-Nov 30 11:51: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images     Exp
-  /mimsy/george/wifes/program_test/spectype/blue/b0002.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0003.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0004.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0005.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0006.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0081.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0082.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0083.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0084.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0085.fits   30.0
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits, ncombine = 10
-
-Nov 30 11:51: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/spectype/blue/b0013.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0014.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0015.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0078.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0079.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0080.fits
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits, ncombine = 6
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 30 11:51 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 30 11:51 Overscan section is [4163:4180,1:1024] with mean=657.3182
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 30 11:51 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 30 11:51 Overscan section is [4163:4180,1:1024] with mean=657.5242
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 30 11:51 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 30 11:51 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 30 11:51 Overscan section is [4163:4180,1:1024] with mean=657.7271
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 30 11:51 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 30 11:51 Flat field image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits with scale=1461.981
-
-Nov 30 11:51: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images     Exp
-  /mimsy/george/wifes/program_test/spectype/blue/b0002.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0003.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0004.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0005.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0006.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0081.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0082.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0083.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0084.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0085.fits   30.0
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits, ncombine = 10
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0073.fits: Nov 30 11:51 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0073.fits: Nov 30 11:51 Overscan section is [4163:4180,1:1024] with mean=655.7515
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 30 11:51 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 30 11:51 Overscan section is [4163:4180,1:1024] with mean=657.5242
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0073.fits: Nov 30 11:51 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-
-Nov 30 11:55: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images     Exp
-  /mimsy/george/wifes/program_test/spectype/blue/b0002.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0003.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0004.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0005.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0006.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0081.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0082.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0083.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0084.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0085.fits   30.0
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits, ncombine = 10
-
-Nov 30 11:55: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/spectype/blue/b0013.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0014.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0015.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0078.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0079.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0080.fits
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits, ncombine = 6
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 30 11:56 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 30 11:56 Overscan section is [4163:4180,1:1024] with mean=657.3182
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 30 11:56 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 30 11:56 Overscan section is [4163:4180,1:1024] with mean=657.5242
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 30 11:56 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 30 11:56 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 30 11:56 Overscan section is [4163:4180,1:1024] with mean=657.7271
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 30 11:56 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 30 11:56 Flat field image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits with scale=1461.981
-
-Nov 30 11:56: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images     Exp
-  /mimsy/george/wifes/program_test/spectype/blue/b0002.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0003.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0004.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0005.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0006.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0081.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0082.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0083.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0084.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0085.fits   30.0
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits, ncombine = 10
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0073.fits: Nov 30 11:56 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0073.fits: Nov 30 11:56 Overscan section is [4163:4180,1:1024] with mean=655.7515
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 30 11:56 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 30 11:56 Overscan section is [4163:4180,1:1024] with mean=657.5242
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0073.fits: Nov 30 11:56 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-
-Nov 30 11:56: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images     Exp
-  /mimsy/george/wifes/program_test/spectype/blue/b0002.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0003.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0004.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0005.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0006.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0081.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0082.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0083.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0084.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0085.fits   30.0
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits, ncombine = 10
-
-Nov 30 11:57: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/spectype/blue/b0013.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0014.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0015.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0078.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0079.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0080.fits
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits, ncombine = 6
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 30 11:57 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 30 11:57 Overscan section is [4163:4180,1:1024] with mean=657.3182
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 30 11:57 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 30 11:57 Overscan section is [4163:4180,1:1024] with mean=657.5242
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 30 11:57 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 30 11:57 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 30 11:57 Overscan section is [4163:4180,1:1024] with mean=657.7271
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 30 11:57 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 30 11:57 Flat field image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits with scale=1461.981
-
-Nov 30 11:57: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images     Exp
-  /mimsy/george/wifes/program_test/spectype/blue/b0002.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0003.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0004.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0005.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0006.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0081.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0082.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0083.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0084.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0085.fits   30.0
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits, ncombine = 10
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0073.fits: Nov 30 11:57 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0073.fits: Nov 30 11:57 Overscan section is [4163:4180,1:1024] with mean=655.7515
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 30 11:57 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 30 11:57 Overscan section is [4163:4180,1:1024] with mean=657.5242
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0073.fits: Nov 30 11:57 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-
-Nov 30 12:00: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images     Exp
-  /mimsy/george/wifes/program_test/spectype/blue/b0002.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0003.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0004.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0005.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0006.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0081.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0082.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0083.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0084.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0085.fits   30.0
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits, ncombine = 10
-
-Nov 30 12:00: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/spectype/blue/b0013.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0014.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0015.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0078.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0079.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0080.fits
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits, ncombine = 6
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 30 12:00 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 30 12:00 Overscan section is [4163:4180,1:1024] with mean=657.3182
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 30 12:00 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 30 12:00 Overscan section is [4163:4180,1:1024] with mean=657.5242
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 30 12:00 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 30 12:00 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 30 12:00 Overscan section is [4163:4180,1:1024] with mean=657.7271
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 30 12:00 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 30 12:00 Flat field image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits with scale=1461.981
-
-Nov 30 12:01: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images     Exp
-  /mimsy/george/wifes/program_test/spectype/blue/b0002.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0003.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0004.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0005.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0006.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0081.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0082.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0083.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0084.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0085.fits   30.0
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits, ncombine = 10
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0073.fits: Nov 30 12:01 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0073.fits: Nov 30 12:01 Overscan section is [4163:4180,1:1024] with mean=655.7515
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 30 12:01 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 30 12:01 Overscan section is [4163:4180,1:1024] with mean=657.5242
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0073.fits: Nov 30 12:01 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-
-Nov 30 12:03: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images     Exp
-  /mimsy/george/wifes/program_test/spectype/blue/b0002.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0003.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0004.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0005.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0006.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0081.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0082.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0083.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0084.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0085.fits   30.0
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits, ncombine = 10
-
-Nov 30 12:03: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/spectype/blue/b0013.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0014.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0015.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0078.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0079.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0080.fits
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits, ncombine = 6
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 30 12:03 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 30 12:03 Overscan section is [4163:4180,1:1024] with mean=657.3182
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 30 12:03 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 30 12:03 Overscan section is [4163:4180,1:1024] with mean=657.5242
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 30 12:04 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 30 12:04 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 30 12:04 Overscan section is [4163:4180,1:1024] with mean=657.7271
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 30 12:04 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 30 12:04 Flat field image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits with scale=1461.981
-
-Nov 30 12:04: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images     Exp
-  /mimsy/george/wifes/program_test/spectype/blue/b0002.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0003.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0004.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0005.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0006.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0081.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0082.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0083.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0084.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0085.fits   30.0
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits, ncombine = 10
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0073.fits: Nov 30 12:04 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0073.fits: Nov 30 12:04 Overscan section is [4163:4180,1:1024] with mean=655.7515
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 30 12:04 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 30 12:04 Overscan section is [4163:4180,1:1024] with mean=657.5242
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0073.fits: Nov 30 12:04 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-
-Nov 30 12:05: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images     Exp
-  /mimsy/george/wifes/program_test/spectype/blue/b0002.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0003.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0004.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0005.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0006.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0081.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0082.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0083.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0084.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0085.fits   30.0
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits, ncombine = 10
-
-Nov 30 12:05: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/spectype/blue/b0013.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0014.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0015.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0078.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0079.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0080.fits
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits, ncombine = 6
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 30 12:05 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 30 12:05 Overscan section is [4163:4180,1:1024] with mean=657.3182
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 30 12:05 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 30 12:05 Overscan section is [4163:4180,1:1024] with mean=657.5242
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 30 12:05 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 30 12:05 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 30 12:05 Overscan section is [4163:4180,1:1024] with mean=657.7271
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 30 12:05 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 30 12:05 Flat field image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits with scale=1461.981
-
-Nov 30 12:06: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images     Exp
-  /mimsy/george/wifes/program_test/spectype/blue/b0002.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0003.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0004.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0005.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0006.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0081.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0082.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0083.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0084.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0085.fits   30.0
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits, ncombine = 10
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0073.fits: Nov 30 12:06 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0073.fits: Nov 30 12:06 Overscan section is [4163:4180,1:1024] with mean=655.7515
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 30 12:06 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 30 12:06 Overscan section is [4163:4180,1:1024] with mean=657.5242
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0073.fits: Nov 30 12:06 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-
-Nov 30 12:07: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images     Exp
-  /mimsy/george/wifes/program_test/spectype/blue/b0002.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0003.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0004.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0005.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0006.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0081.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0082.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0083.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0084.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0085.fits   30.0
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits, ncombine = 10
-
-Nov 30 12:07: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/spectype/blue/b0013.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0014.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0015.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0078.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0079.fits
-  /mimsy/george/wifes/program_test/spectype/blue/b0080.fits
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits, ncombine = 6
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 30 12:07 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 30 12:07 Overscan section is [4163:4180,1:1024] with mean=657.3182
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 30 12:07 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 30 12:07 Overscan section is [4163:4180,1:1024] with mean=657.5242
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 30 12:07 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 30 12:07 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 30 12:07 Overscan section is [4163:4180,1:1024] with mean=657.7271
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits: Nov 30 12:07 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0061.fits: Nov 30 12:07 Flat field image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_flat.fits with scale=1461.981
-
-Nov 30 12:08: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images     Exp
-  /mimsy/george/wifes/program_test/spectype/blue/b0002.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0003.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0004.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0005.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0006.fits    5.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0081.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0082.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0083.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0084.fits   30.0
-  /mimsy/george/wifes/program_test/spectype/blue/b0085.fits   30.0
-
-  Output image = /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits, ncombine = 10
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0073.fits: Nov 30 12:08 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0073.fits: Nov 30 12:08 Overscan section is [4163:4180,1:1024] with mean=655.7515
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 30 12:08 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits: Nov 30 12:08 Overscan section is [4163:4180,1:1024] with mean=657.5242
-/mimsy/george/wifes/program_test/spectype/blue/temp/b0073.fits: Nov 30 12:08 Zero level correction image is /mimsy/george/wifes/program_test/spectype/blue/temp/master_bias.fits
-
-Nov 30 12:09: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/RV/red/r0001.fits
-  /mimsy/george/wifes/program_test/RV/red/r0002.fits
-  /mimsy/george/wifes/program_test/RV/red/r0003.fits
-
-  Output image = /mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits, ncombine = 3
-
-Nov 30 12:09: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/RV/red/r0078.fits
-  /mimsy/george/wifes/program_test/RV/red/r0079.fits
-  /mimsy/george/wifes/program_test/RV/red/r0080.fits
-
-  Output image = /mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits, ncombine = 3
-/mimsy/george/wifes/program_test/RV/red/temp/r0022.fits: Nov 30 12:09 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/RV/red/temp/r0022.fits: Nov 30 12:09 Overscan section is [4163:4180,1:1024] with mean=711.8971
-/mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits: Nov 30 12:09 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits: Nov 30 12:09 Overscan section is [4163:4180,1:1024] with mean=717.8122
-/mimsy/george/wifes/program_test/RV/red/temp/r0022.fits: Nov 30 12:09 Zero level correction image is /mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits
-/mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits: Nov 30 12:09 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits: Nov 30 12:09 Overscan section is [4163:4180,1:1024] with mean=710.3571
-/mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits: Nov 30 12:09 Zero level correction image is /mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits
-/mimsy/george/wifes/program_test/RV/red/temp/r0022.fits: Nov 30 12:09 Flat field image is /mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits with scale=4262.272
-
-Nov 30 12:09: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/RV/red/r0001.fits
-  /mimsy/george/wifes/program_test/RV/red/r0002.fits
-  /mimsy/george/wifes/program_test/RV/red/r0003.fits
-
-  Output image = /mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits, ncombine = 3
-/mimsy/george/wifes/program_test/RV/red/temp/r0023.fits: Nov 30 12:09 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/RV/red/temp/r0023.fits: Nov 30 12:09 Overscan section is [4163:4180,1:1024] with mean=712.3751
-/mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits: Nov 30 12:09 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits: Nov 30 12:09 Overscan section is [4163:4180,1:1024] with mean=717.8122
-/mimsy/george/wifes/program_test/RV/red/temp/r0023.fits: Nov 30 12:09 Zero level correction image is /mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits
-
-Nov 30 12:09: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/RV/red/r0001.fits
-  /mimsy/george/wifes/program_test/RV/red/r0002.fits
-  /mimsy/george/wifes/program_test/RV/red/r0003.fits
-
-  Output image = /mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits, ncombine = 3
-/mimsy/george/wifes/program_test/RV/red/temp/r0021.fits: Nov 30 12:10 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/RV/red/temp/r0021.fits: Nov 30 12:10 Overscan section is [4163:4180,1:1024] with mean=711.4374
-/mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits: Nov 30 12:10 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits: Nov 30 12:10 Overscan section is [4163:4180,1:1024] with mean=717.8122
-/mimsy/george/wifes/program_test/RV/red/temp/r0021.fits: Nov 30 12:10 Zero level correction image is /mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits
-
-Nov 30 12:15: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/RV/red/r0001.fits
-  /mimsy/george/wifes/program_test/RV/red/r0002.fits
-  /mimsy/george/wifes/program_test/RV/red/r0003.fits
-
-  Output image = /mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits, ncombine = 3
-
-Nov 30 12:15: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/RV/red/r0078.fits
-  /mimsy/george/wifes/program_test/RV/red/r0079.fits
-  /mimsy/george/wifes/program_test/RV/red/r0080.fits
-
-  Output image = /mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits, ncombine = 3
-/mimsy/george/wifes/program_test/RV/red/temp/r0022.fits: Nov 30 12:15 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/RV/red/temp/r0022.fits: Nov 30 12:15 Overscan section is [4163:4180,1:1024] with mean=711.8971
-/mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits: Nov 30 12:15 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits: Nov 30 12:15 Overscan section is [4163:4180,1:1024] with mean=717.8122
-/mimsy/george/wifes/program_test/RV/red/temp/r0022.fits: Nov 30 12:15 Zero level correction image is /mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits
-/mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits: Nov 30 12:15 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits: Nov 30 12:15 Overscan section is [4163:4180,1:1024] with mean=710.3571
-/mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits: Nov 30 12:15 Zero level correction image is /mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits
-/mimsy/george/wifes/program_test/RV/red/temp/r0022.fits: Nov 30 12:15 Flat field image is /mimsy/george/wifes/program_test/RV/red/temp/master_flat.fits with scale=4262.272
-
-Nov 30 12:15: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/RV/red/r0001.fits
-  /mimsy/george/wifes/program_test/RV/red/r0002.fits
-  /mimsy/george/wifes/program_test/RV/red/r0003.fits
-
-  Output image = /mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits, ncombine = 3
-/mimsy/george/wifes/program_test/RV/red/temp/r0023.fits: Nov 30 12:15 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/RV/red/temp/r0023.fits: Nov 30 12:15 Overscan section is [4163:4180,1:1024] with mean=712.3751
-/mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits: Nov 30 12:15 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits: Nov 30 12:15 Overscan section is [4163:4180,1:1024] with mean=717.8122
-/mimsy/george/wifes/program_test/RV/red/temp/r0023.fits: Nov 30 12:15 Zero level correction image is /mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits
-
-Nov 30 12:15: IMCOMBINE
-  combine = average, scale = none, zero = none, weight = none
-  reject = sigclip, mclip = yes, nkeep = 1
-  lsigma = 3., hsigma = 3.
-  blank = 0.
-                Images 
-  /mimsy/george/wifes/program_test/RV/red/r0001.fits
-  /mimsy/george/wifes/program_test/RV/red/r0002.fits
-  /mimsy/george/wifes/program_test/RV/red/r0003.fits
-
-  Output image = /mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits, ncombine = 3
-/mimsy/george/wifes/program_test/RV/red/temp/r0021.fits: Nov 30 12:15 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/RV/red/temp/r0021.fits: Nov 30 12:15 Overscan section is [4163:4180,1:1024] with mean=711.4374
-/mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits: Nov 30 12:15 Trim data section is [63:4160,1:1024]
-/mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits: Nov 30 12:15 Overscan section is [4163:4180,1:1024] with mean=717.8122
-/mimsy/george/wifes/program_test/RV/red/temp/r0021.fits: Nov 30 12:15 Zero level correction image is /mimsy/george/wifes/program_test/RV/red/temp/master_bias.fits
+  /mimsy/george/wifes/27Mar2011/RV/red/r0012.fits  100.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0013.fits  100.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0014.fits  100.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0093.fits   20.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0094.fits   20.0
+  /mimsy/george/wifes/27Mar2011/RV/red/r0095.fits   20.0
+
+  Output image = /mimsy/george/wifes/27Mar2011/RV/red/temp/master_bias.fits, ncombine = 6
+/mimsy/george/wifes/27Mar2011/RV/red/temp/r0087.fits: Feb 14 16:04 Trim data section is [63:4160,1:1024]
+/mimsy/george/wifes/27Mar2011/RV/red/temp/r0087.fits: Feb 14 16:04 Overscan section is [4163:4180,1:1024] with mean=716.1253
+/mimsy/george/wifes/27Mar2011/RV/red/temp/master_bias.fits: Feb 14 16:04 Trim data section is [63:4160,1:1024]
+/mimsy/george/wifes/27Mar2011/RV/red/temp/master_bias.fits: Feb 14 16:04 Overscan section is [4163:4180,1:1024] with mean=717.9374
+/mimsy/george/wifes/27Mar2011/RV/red/temp/r0087.fits: Feb 14 16:04 Zero level correction image is /mimsy/george/wifes/27Mar2011/RV/red/temp/master_bias.fits

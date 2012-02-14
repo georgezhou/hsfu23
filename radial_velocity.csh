@@ -58,6 +58,9 @@ if ($test == "True") then
     python generate_ccf.py $file_path $file_name
     python analyse_ccf.py $file_path $file_name
 
+    ### Log RV into database
+    python update_RV.py $file_path $file_name
+
 else
     echo ERROR No RV standards exist
 endif

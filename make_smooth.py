@@ -49,7 +49,7 @@ def make_string_from_list(input_list):
 ########################
 
 file_path = "/mimsy/george/wifes/"
-folders_to_search = ["17Sep2011/spectype/red/","18Sep2011/spectype/red/"]
+folders_to_search = ["17Sep2011/spectype/blue/","18Sep2011/spectype/blue/"]
 
 grating = functions.read_config_file("GRATING")
 dichroic = functions.read_config_file("DICHROIC")
@@ -104,6 +104,7 @@ iraf.imcombine(
     input = smooth_files_list,\
     output = "master_smooth.fits",\
     combine = "sum",\
+    reject = "none",\
     mode = "ql")
 
 ### Normalise the smooth spectrum
@@ -124,7 +125,7 @@ smooth_min = iraf.imstat(
 iraf.imarith(
     operand1 = "master_smooth.fits",\
     op = "-",\
-    operand2 = str(float(smooth_min[1])),\
+    operand2 = smooth_min[1],\
     result = "temp_master_smooth.fits",\
     title = "",\
     divzero = 0.,\
@@ -155,7 +156,7 @@ smooth_max = iraf.imstat(
 iraf.imarith(
     operand1 = "master_smooth.fits",\
     op = "/",\
-    operand2 = str(float(smooth_max[1])),\
+    operand2 = smooth_max[1],\
     result = "temp_master_smooth.fits",\
     title = "",\
     divzero = 0.,\
@@ -177,8 +178,8 @@ iraf.hedit(images="master_smooth",fields = "SFIT",value="",add=0,delete=1,verify
 iraf.continuum(
     input = "master_smooth.fits",\
     output = "continuum_fit.fits",\
-    lines = 1,\
-    bands = 1,\
+    lines = "*",\
+    bands = "*",\
     type = "fit",\
     replace = 0,\
     wavescale = 1,\

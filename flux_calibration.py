@@ -214,6 +214,35 @@ iraf.calibrate(
     fnu = 0,\
     mode = "al")
 
+### Apply high/low rejection again to remove cosmic rays
+os.system("rm temp.fits")
+iraf.continuum(
+    input = "fluxcal_"+ file_name,\
+    output = "temp.fits",\
+    ask = "no",\
+    lines = "*",\
+    bands = "*",\
+    type = "data",\
+    replace = 1,\
+    wavescale = 1,\
+    logscale = 0,\
+    override = 1,\
+    listonly = 0,\
+    logfiles = "logfile",\
+    interactive = 0,\
+    sample = "*",\
+    naverage = 1,\
+    function = "spline3",\
+    order = 15,\
+    low_reject = 10.0,\
+    high_reject = 5.0,\
+    niterate = 10,\
+    grow = 1.0)
+
+os.system("rm fluxcal_" + file_name)
+os.system("mv temp.fits fluxcal_" + file_name)
+
+### Move spectrum to reduced/
 os.system("rm " + file_path_reduced + "spec_" + file_name)
 os.system("cp -f " + "fluxcal_" + file_name + " " + file_path_reduced)
 
