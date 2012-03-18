@@ -88,5 +88,11 @@ endif
 set PERFORM_SPEC_MATCH = `grep PERFORM_SPEC_MATCH config_file | awk '{print $2}'`
 if ($PERFORM_SPEC_MATCH == true) then
     python spectype_main.py $file_path $file_name
-    python update_spectype.py $file_path $file_name
+    
+    set write_to_database = `grep WRITE_TO_DATABASE config_file | awk '{print $2}'`
+    if ($write_to_database == true) then
+	### Log spectype into database
+	python update_spectype.py $file_path $file_name
+    endif
+
 endif

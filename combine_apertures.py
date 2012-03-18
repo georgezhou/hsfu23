@@ -51,6 +51,10 @@ dichroic = functions.read_config_file("DICHROIC")
 spectrum_w1 = functions.read_param_file(grating+"_"+dichroic+"_w1")
 spectrum_w2 = functions.read_param_file(grating+"_"+dichroic+"_w2")
 
+sample_w1 = functions.read_param_file("FLUX_NORMALISE_w1")
+sample_w2 = functions.read_param_file("FLUX_NORMALISE_w2")
+sample_region = "a"+sample_w1+"-"+sample_w2
+
 combine_apertures = functions.read_config_file("COMBINE_APERTURES")
 
 program_dir = os.getcwd() + "/" #Save the current working directory
@@ -167,24 +171,24 @@ if combine_apertures == "true":
         logfile = "STDOUT",\
         apertures = "*",\
         group = "all",\
-        combine = "sum",\
-        reject = "none",\
+        combine = "average",\
+        reject = "minmax",\
         first = 1,\
         w1 = spectrum_w1,\
         w2 = spectrum_w2,\
         dw = "INDEF",\
         nw = "INDEF",\
         log = 0,\
-        scale = "none",\
+        scale = "median",\
         zero = "none",\
-        weight = "none",\
-        sample = "",\
+        weight = "median",\
+        sample = sample_region,\
         nlow = 1,\
         nhigh = 1,\
         nkeep = 1,\
-        mclip = 0,\
-        lsigma = 3.0,\
-        hsigma = 3.0,\
+        mclip = 1,\
+        lsigma = 2.0,\
+        hsigma = 2.0,\
         rdnoise = 0,\
         gain = 1,\
         snoise = 0,\

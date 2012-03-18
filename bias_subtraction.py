@@ -55,6 +55,8 @@ if camera == "blue":
 grating = functions.read_config_file("GRATING")
 dichroic = functions.read_config_file("DICHROIC")
 
+print trimsec_value, biassec_value, region1, region2
+
 ########################
 ### Start of program ###
 ########################

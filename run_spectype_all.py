@@ -23,5 +23,5 @@ for file_name in file_list:
     print "******"
     print file_name
     os.system("python spectype_main.py " + file_path + " " + file_name)
-
+    os.system("python update_spectype.py " + file_path + " " + file_name)
 

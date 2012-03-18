@@ -240,7 +240,8 @@ if len(RV_list) > 0:
                         merge = 0,\
                         rebin = 0,\
                         verbose = 1)
-                    RV_Standards_templist = RV_Standards_templist + str(i) + "_" + star + ","
+                    if os.path.exists(str(i)+"_"+star):
+                        RV_Standards_templist = RV_Standards_templist + str(i) + "_" + star + ","
             RV_Standards = RV_Standards_templist
 
     #################

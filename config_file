@@ -2,9 +2,9 @@
 ### File locations ###
 ######################
 
-FILE_NAME r0029.fits #The image name to be reduced
+FILE_NAME r0047.fits #The image name to be reduced
 
-FILE_PATH /mimsy/george/wifes/27Mar2011/RV/red/ #The filepath of the raw images
+FILE_PATH /mimsy/george/wifes/14Mar2012/RV/red/ #The filepath of the raw images
 
 ###########################
 ### Instrument settings ###
@@ -21,7 +21,7 @@ DELETE_ALL false ### Delete all previous reductions (true/false)
 DIVIDE_FLAT true ### Divide by flat field (true/false)
 
 INTERACT false ### Interactive? (true/false)
-NO_APERTURES 3 ### Number of apertures to extract (integer)
+NO_APERTURES 2 ### Number of apertures to extract (integer)
 
 COMBINE_APERTURES false ### Combine data from image slices? (true/false)
 
@@ -30,9 +30,14 @@ COMBINE_APERTURES false ### Combine data from image slices? (true/false)
 ########################
 
 TASK RV ### What to do with the data (RV/SPECTYPE/NONE)
+WRITE_TO_DATABASE true ### Write results of reduction to HSMSO database (true/false)
 
-HSCAND_CONNECT true ### Attempt to connect to hscand on hatsouth@princeton? (true/false)
-TEFF_ESTIMATE 5750. ### Estimate Teff of target (float, in Kelvin)
+HSMSO_CONNECT true ### Attempt to connect to hsmso at marble to establish candidate properties (true/false)
+HSCAND_CONNECT true ### Attempt to connect to hscand on hatsouth@princeton to establish candidate properties (true/false)
+TEFF_ESTIMATE 5500. ### Estimate Teff of target (float, in Kelvin)
 LOGG_ESTIMATE 4.5 ### Estimate logg of target (float, between 0 and 5)
 
 PERFORM_SPEC_MATCH true ### If spectral typing, perform chisq grid match? (true/false)
+
+OPEN_RESULT_PDFS true ### Open (with xpdf) any resulting plots (pdfs) that were created (true/false)
+CLEAN_UP true ### Remove temporary files (true/false)

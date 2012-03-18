@@ -32,6 +32,8 @@ iraf.imred.kpnoslit()
 #################
 
 def reduce_image(file_path,file_name,file_path_reduced,smooth_files_list,count):
+    os.system("rm -rf " + file_path_reduced + "*")
+    os.system("rm -rf " + file_path + "temp/*")
     os.system("./reduce_image.csh " + file_path + " " + file_name)
     os.system("cp " + file_path_reduced + "spec_" + file_name+" smooth_dir/smooth_" + str(count) + ".fits")
     smooth_files_list.append("smooth_" + str(count) + ".fits")
@@ -49,7 +51,7 @@ def make_string_from_list(input_list):
 ########################
 
 file_path = "/mimsy/george/wifes/"
-folders_to_search = ["17Sep2011/spectype/blue/","18Sep2011/spectype/blue/"]
+folders_to_search = ["16Dec2011/spectype/blue/","17Dec2011/spectype/blue/","18Dec2011/spectype/blue/","19Dec2011/spectype/blue/"]
 
 grating = functions.read_config_file("GRATING")
 dichroic = functions.read_config_file("DICHROIC")
@@ -57,7 +59,7 @@ dichroic = functions.read_config_file("DICHROIC")
 program_dir = os.getcwd() + "/" #Save the current working directory
 
 ### Remove existing files in the "smooth" directory
-os.system("rm -rf smooth_dir")
+#os.system("rm -rf smooth_dir")
 os.system("rm *smooth.fits")
 
 ### Create a folder of smooth images in program dir

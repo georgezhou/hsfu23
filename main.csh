@@ -44,7 +44,6 @@ if ($delete_all == true) then
     endif
 endif
 
-
 ### Remove previous reductions of FILE_NAME
 if ($1 == "") then
 set file_name_short = `basename $file_name .fits`
@@ -86,4 +85,7 @@ rm tmp*.fits
 # endif
 
 ### Remove temporary files
-python cleanup.py $file_path
+set clean_up = `grep CLEAN_UP config_file | awk '{print $2}'`
+if ($clean_up == true) then
+    python cleanup.py $file_path
+endif

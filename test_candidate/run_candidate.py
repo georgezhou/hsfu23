@@ -3,7 +3,7 @@ import functions
 import os
 import sys
 
-candidate = "HATS562-002"
+candidate = "HATS563-036"
 #parent_dir = "/priv/miner3/hat-south/george/Honours/data/wifes/2011/"
 parent_dir = "/mimsy/george/wifes/"
 
@@ -32,7 +32,7 @@ for exposure in database:
         month = month_list[int(month)-1]
         date = exposure[2][8:10]
         
-        folder = date + month + year + "/red/"
+        folder = date + month + year + "/RV/red/"
         file_path = parent_dir + folder
 
         print file_path + " " + file_name

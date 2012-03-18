@@ -54,10 +54,11 @@ RV_dat = functions.read_table(RV_dat)
 
 for entry in RV_dat:
     if entry[0] == object_name and entry[1] == file_name:
-        hjd = entry[2] + 50000
-        RV = entry[3]
-        RV_err = entry[4]
-        ccf_height = entry[5]
+        if functions.is_number(entry[2]):
+            hjd = entry[2] + 50000
+            RV = entry[3]
+            RV_err = entry[4]
+            ccf_height = entry[5]
 
 ccf_log = functions.read_ascii("ccf_log.txt")
 ccf_log = functions.read_table(ccf_log)

@@ -61,8 +61,11 @@ def shift_spectrum(data_spectrum,template_spectrum,shift):
             template_wave = data_wave
             template_flux = template_flux[:len(template_flux) - shift]
 
-        data_spectrum = transpose(array([data_wave,data_flux]))
-        template_spectrum = transpose(array([template_wave,template_flux]))
+        #data_spectrum = transpose(array([data_wave,data_flux]))
+        #template_spectrum = transpose(array([template_wave,template_flux]))
+        
+        data_spectrum = array([data_wave,data_flux])
+        template_spectrum = array([template_wave,template_flux])
 
         return data_spectrum,template_spectrum
 
@@ -126,6 +129,20 @@ def find_2d_min(input_array):
             break
     return j,i
 
+### Find the minimum of a 2D array
+def find_2d_max(input_array):
+    max_array = input_array.max()
+
+    for i in range(len(input_array)):
+        found_max = False
+        for j in range(len(input_array[i])):
+            if input_array[i,j] == max_array:
+                found_max = True
+                break
+        if found_max:
+            break
+    return j,i
+
 def plot_isochrones(program_dir,style,lwidth):
     isochrones = functions.read_ascii(program_dir + "isochrone.dat")
     isochrones = functions.read_table(isochrones)
@@ -142,7 +159,7 @@ def plot_contour(object_name,teff_space,logg_space,chisq_space,teff_min,teff_err
 
     plt.clf()
     plot_isochrones(iso_dir,"k-",0.5)
-    contour_plot = plt.contourf(teff_space,logg_space,chisq_space,25,cmap=plt.get_cmap("jet"))
+    contour_plot = plt.contourf(teff_space,logg_space,chisq_space,100,cmap=plt.get_cmap("jet"))
     plt.errorbar(teff_min,logg_min,xerr=teff_err,yerr=logg_err,color="r",marker="o")
     #plt.scatter(teff_min,logg_min,s=50,color="r",marker="x")
     #plt.text(teff_min,logg_min,"+",size="xx-large",color="r")

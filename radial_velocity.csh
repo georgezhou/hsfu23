@@ -58,8 +58,13 @@ if ($test == "True") then
     python generate_ccf.py $file_path $file_name
     python analyse_ccf.py $file_path $file_name
 
-    ### Log RV into database
-    python update_RV.py $file_path $file_name
+    set write_to_database = `grep WRITE_TO_DATABASE config_file | awk '{print $2}'`
+    if ($write_to_database == true) then 
+	### Log RV into database
+	python update_RV.py $file_path $file_name
+	### Plot RV phase curve
+	python plot_cand_RV.py -f $file_path $file_name
+    endif
 
 else
     echo ERROR No RV standards exist

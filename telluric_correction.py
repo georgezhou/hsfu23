@@ -38,7 +38,7 @@ iraf.astutil()
 ### Functions ###
 #################
 
-def run_fxcor(input_file,input_rv,lines,output,fitshead_update):
+def run_fxcor(input_file,input_rv,lines,output,fitshead_update,npoints,functiontype):
     iraf.fxcor(
         objects = input_file, \
         templates = input_rv, \
@@ -51,12 +51,12 @@ def run_fxcor(input_file,input_rv,lines,output,fitshead_update):
         osample = lines,\
         rsample = lines,\
         apodize = 0.2,\
-        function = "gaussian",\
-        width = 10.0,\
+        function = functiontype,\
+        width = npoints,\
         height= 0.,\
         peak = 0,\
-        minwidth = 15.0,\
-        maxwidth = 15.0,\
+        minwidth = npoints,\
+        maxwidth = npoints,\
         weights = 1.,\
         background = "INDEF",\
         window = "INDEF",\
@@ -114,21 +114,56 @@ for im_slice in image_slices:
     print "CC with telluric for wavelength calibration"
     os.system("rm apshift*")
 
-    ### Makesure keywpars is set at default
-    iraf.unlearn(iraf.keywpars)
+    good_correction = False
+    no_trials = 0
+    npoints = 20
 
-    iraf.filtpars.setParam("f_type","square",check=1,exact=1)
-    iraf.filtpars.setParam("cuton",50,check=1,exact=1)
-    iraf.filtpars.setParam("cutoff",10000,check=1,exact=1)
+    while (not good_correction) and no_trials < 5:
+        os.system("rm apshift*")
 
-    run_fxcor("norm_" + im_slice + "_" + file_name,"telluric.fits",telluric_region,"apshift",0)
-    vel_shift = functions.read_ascii("apshift.txt")
-    vel_shift = functions.read_table(vel_shift)
-    vel_shift = str(vel_shift[0][11])
+        ### Makesure keywpars is set at default
+        iraf.unlearn(iraf.keywpars)
+
+        iraf.filtpars.setParam("f_type","square",check=1,exact=1)
+        iraf.filtpars.setParam("cuton",50,check=1,exact=1)
+        iraf.filtpars.setParam("cutoff",10000,check=1,exact=1)
+
+        run_fxcor("norm_" + im_slice + "_" + file_name,"telluric.fits",telluric_region,"apshift",0,npoints,"gaussian")
+        vel_shift = functions.read_ascii("apshift.txt")
+        vel_shift = functions.read_table(vel_shift)
+        vel_shift = str(vel_shift[0][11])
+
+        if not vel_shift == "INDEF":
+            good_correction = True
+        else:
+            print "Fit did not converge, trying again with ",npoints,"n_points"
+            npoints = npoints + 10
+        no_trials = no_trials + 1
+
+    ### IF it still doesn't work, use a the centre1d function
+    if vel_shift == "INDEF":
+        os.system("rm apshift*")
+
+        ### Makesure keywpars is set at default
+        iraf.unlearn(iraf.keywpars)
+
+        iraf.filtpars.setParam("f_type","square",check=1,exact=1)
+        iraf.filtpars.setParam("cuton",50,check=1,exact=1)
+        iraf.filtpars.setParam("cutoff",10000,check=1,exact=1)
+
+        run_fxcor("norm_" + im_slice + "_" + file_name,"telluric.fits",telluric_region,"apshift",0,20,"center1d")
+        vel_shift = functions.read_ascii("apshift.txt")
+        vel_shift = functions.read_table(vel_shift)
+        vel_shift = str(vel_shift[0][11])
+
     print "Applying pixel shift of (km/s)"
     print vel_shift
 
+    ### If it is STILL not working, use vshift = 0km/s
     if vel_shift == "INDEF":
+        vel_shift = 0.0
+
+    if float(vel_shift) > 30:
         vel_shift = 0.0
 
     ###################

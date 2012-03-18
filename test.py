@@ -1,21 +1,17 @@
 import functions
 from numpy import *
-import MySQLdb
+import os
+import sys
 
-db=MySQLdb.connect(host="marbles.anu.edu.au",user="daniel",passwd="h@ts0uthDB",db="daniel1")
-print db
+#object_name = "HTR432-004"
+#os.system("xpdf /mimsy/george/wifes/candidates/RV_plots/HTR432-004.pdf &")
 
-object_name = 'HATStest'
-mjd = 55998.99
-rv = 99.9
+# hsmso_connect = functions.read_config_file("HSMSO_CONNECT")
+# hscand_connect = functions.read_config_file("HSCAND_CONNECT")
+# default_teff = float(functions.read_config_file("TEFF_ESTIMATE"))
+# default_logg = float(functions.read_config_file("LOGG_ESTIMATE"))
+# functions.estimate_teff_logg(object_name,hsmso_connect,hscand_connect,default_teff,default_logg)
 
-c = db.cursor()
-c.execute("""SELECT SPECid FROM SPEC WHERE SPECmjd=""" + str(mjd) + """ and SPECobject=\"%s\" """ % object_name)
 
-duplicate = c.fetchone()
-if duplicate == None:
-    print "Creating entry"
-    c.execute("""INSERT INTO SPEC (SPECobject,SPECtelescope,SPECinstrum,SPECmjd,SPECrv) VALUES (\"%s\" """ % object_name + ""","ANU23","WIFES",""" + str(mjd) + "," + str(rv) + """)""")
-else:
-    print "Updating entry"
-    c.execute("""UPDATE SPEC SET SPECrv=""" + str(rv) + """ WHERE SPECmjd=""" + str(mjd) + """ and SPECobject=\"%s\" """ % object_name)
+
+#print teff,logg
