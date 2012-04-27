@@ -207,7 +207,7 @@ for i in range(len(ccf)):
         max_pos = i
         break
 
-ccf = ccf[i-20:i+20]
+ccf = ccf[i-40:i+40]
 ccf = transpose(ccf)
 
 ### Define plotting axes

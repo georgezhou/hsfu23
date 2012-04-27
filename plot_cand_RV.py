@@ -41,7 +41,7 @@ if sys.argv[1] == "-o":
 plots_folder = functions.read_param_file("RV_PLOTS_FOLDER")
 
 ### Extract rv points from HSMSO
-query_entry = "select SPEChjd, SPECrv, SPECrv_err from SPEC where SPECtype=\"RV\" and SPECobject=\"%s\" " % object_name
+query_entry = "select SPEChjd, SPECrv, SPECrv_err from SPEC where SPECtype=\"RV\" and SPECinstrum=\"WiFeS\" and SPECobject=\"%s\" " % object_name
 RV_points = mysql_query.query_hsmso(query_entry)
 
 if len(RV_points) > 0:

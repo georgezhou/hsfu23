@@ -32,6 +32,7 @@ set file_name = $2
 
 ### Run bias subtraction and flat fielding on the object file
 echo Running bias subtraction on the object file $file_name
+python setairmass.py $file_path $file_name
 python bias_subtraction.py $file_path $file_name
 
 ### Find the image slices and chop each image slice into separate files

@@ -42,8 +42,11 @@ def try_webpage(url):
         return False
 
 def find_max_reddening(ra,dec):
+    print "Trying ",ra,dec
     page_url = "http://irsa.ipac.caltech.edu/cgi-bin/DUST/nph-dust?locstr="
     page_url = page_url + ra + "+" + dec + "+equ+j2000"
+
+    print page_url
 
     if try_webpage(page_url):
 
@@ -54,11 +57,15 @@ def find_max_reddening(ra,dec):
         schlegel = string.split(schlegel)
 
         max_reddening = float(schlegel[0])
+        if max_reddening < 0.2:
+            print "minimal reddening, imposing default value of 0.25"
+            max_reddening = 0.2
 
     else:
         print "Could not connect to Schlegel database"
         print "Default max reddening = 0.10"
-        max_reddening = 0.10
+        #max_reddening = 0.25
+        max_reddening = 0.2
 
     return max_reddening
 
@@ -94,15 +101,15 @@ hdulist.close()
 
 redden_max = find_max_reddening(ra,dec)
 print "Max reddening ", redden_max
-n = 10
+n = 20
 
-redden_step = redden_max / n
+redden_step = (redden_max-(-0.2)) / n
 
 ##################
 ### Start loop ###
 ##################
 
-redden = 0.0
+redden = -0.2
 while redden <= redden_max:
     redden_name = "deredden_" + str(redden) + "_" + file_name
     

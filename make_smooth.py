@@ -51,10 +51,12 @@ def make_string_from_list(input_list):
 ########################
 
 file_path = "/mimsy/george/wifes/"
-folders_to_search = ["16Dec2011/spectype/blue/","17Dec2011/spectype/blue/","18Dec2011/spectype/blue/","19Dec2011/spectype/blue/"]
+folders_to_search = ["26Jul2011/spectype/blue/","27Jul2011/spectype/blue/"]
 
 grating = functions.read_config_file("GRATING")
 dichroic = functions.read_config_file("DICHROIC")
+wave1 = functions.read_param_file(grating+"_"+dichroic+"_w1")
+wave2 = functions.read_param_file(grating+"_"+dichroic+"_w2")
 
 program_dir = os.getcwd() + "/" #Save the current working directory
 
@@ -64,6 +66,8 @@ os.system("rm *smooth.fits")
 
 ### Create a folder of smooth images in program dir
 os.system("mkdir smooth_dir")
+os.system("rm smooth_dir/master_smooth.fits")
+os.system("rm smooth_dir/smooth_*.fits")
 
 ### Go through the folders, identify and reduce each smooth image
 smooth_files_list = []
@@ -102,44 +106,92 @@ os.chdir("smooth_dir") #Change to smooth_dir
 os.system("rm master_smooth.fits")
 os.system("rm temp_master_smooth.fits")
 
-iraf.imcombine(
+# iraf.imcombine(
+#     input = smooth_files_list,\
+#     output = "master_smooth.fits",\
+#     combine = "sum",\
+#     reject = "none",\
+#     mode = "ql")
+
+print smooth_files_list
+iraf.scombine(
     input = smooth_files_list,\
     output = "master_smooth.fits",\
-    combine = "sum",\
+    apertures = "",\
+    group = "all",\
+    combine = "average",\
     reject = "none",\
-    mode = "ql")
+    first = 1,\
+    w1 = wave1,\
+    w2 = wave2,\
+    dw = "INDEF",\
+    nw = "INDEF",\
+    log = 0,\
+    scale = "median",\
+    zero = "none",\
+    weight = "median",\
+    sample = "",\
+    lthreshold="INDEF",\
+    hthreshold="INDEF",\
+    nlow = 1,\
+    nhigh = 1,\
+    nkeep = 1,\
+    mclip = 0,\
+    lsigma = 0,\
+    hsigma = 0,\
+    rdnoise = 0,\
+    gain = 1,\
+    snoise = 0,\
+    pclip = -0.5)
 
-### Normalise the smooth spectrum
-smooth_min = iraf.imstat(
-    images = "master_smooth.fits[*,1,1]",\
-    fields = "min",\
-    lower = "INDEF",\
-    upper = "INDEF",\
-    nclip = 1,\
-    lsigma = 5.0,\
-    usigma = 5.0,\
-    binwidth = 0.1,\
-    format = 1,\
-    cache = 1,\
-    mode = "al",\
-    Stdout = 1)
+iraf.scopy(
+    input = "master_smooth.fits",\
+    output = "master_smooth.fits",\
+    w1 = wave1,\
+    w2 = wave2,\
+    apertures = "",\
+    bands = "",\
+    beams = "",\
+    apmodulus = 0,\
+    format = "multispec",\
+    renumber = 0,\
+    clobber = 1,\
+    merge = 0,\
+    rebin = 1,\
+    verbose = 1)
 
-iraf.imarith(
-    operand1 = "master_smooth.fits",\
-    op = "-",\
-    operand2 = smooth_min[1],\
-    result = "temp_master_smooth.fits",\
-    title = "",\
-    divzero = 0.,\
-    hparams = "",\
-    pixtype = "",\
-    calctype = "",\
-    verbose = 1,\
-    noact = 0,\
-    mode = "ql")    
 
-os.system("rm " + "master_smooth.fits")
-os.system("mv " + "temp_master_smooth.fits master_smooth.fits")
+# ### Normalise the smooth spectrum
+# smooth_min = iraf.imstat(
+#     images = "master_smooth.fits[*,1,1]",\
+#     fields = "min",\
+#     lower = "INDEF",\
+#     upper = "INDEF",\
+#     nclip = 1,\
+#     lsigma = 5.0,\
+#     usigma = 5.0,\
+#     binwidth = 0.1,\
+#     format = 1,\
+#     cache = 1,\
+#     mode = "al",\
+#     Stdout = 1)
+
+# iraf.imarith(
+#     operand1 = "master_smooth.fits",\
+#     op = "-",\
+#     operand2 = smooth_min[1],\
+#     result = "temp_master_smooth.fits",\
+#     title = "",\
+#     divzero = 0.,\
+#     hparams = "",\
+#     pixtype = "",\
+#     calctype = "",\
+#     verbose = 1,\
+#     noact = 0,\
+#     mode = "ql")    
+
+# os.system("rm " + "master_smooth.fits")
+# os.system("mv " + "temp_master_smooth.fits master_smooth.fits")
 
 smooth_max = iraf.imstat(
     images = "master_smooth.fits[*,1,1]",\
@@ -186,16 +238,16 @@ iraf.continuum(
     replace = 0,\
     wavescale = 1,\
     logscale = 0,\
-    override = 0,\
+    override = 1,\
     listonly = 0,\
     logfiles = "logfile",\
-    interactive = 0,\
+    interactive = 1,\
     function  = "spline3",\
-    order = 15,\
-    low_reject = 2.0,\
-    high_reject = 2.0,\
+    order = 100,\
+    low_reject = 5.0,\
+    high_reject = 5.0,\
     niterate = 5,\
     grow = 1,\
-    ask = "no",)
+    ask = "yes",)
 
 os.system("mv continuum_fit.fits " + grating + "_" + dichroic + "_smooth.fits")

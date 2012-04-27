@@ -328,10 +328,10 @@ for f in data.splitlines():
 
 for lines in allinlines.splitlines():
     f = lines.split()
-    if candids.has_key(f[0]) and len(f) == 16:
+    if candids.has_key(f[0]) and len(f) == 17:
         idval=candids[f[0]]
         velline=f[1]
-        for g in f[2:16]:
+        for g in f[2:17]:
             velline=velline+" "+g
 
         inserturl=urllib.urlencode({'candidateid': idval})
@@ -358,13 +358,15 @@ for lines in allinlines.splitlines():
 
         data = handle.read()
         
-        res=""
-        for f2 in data.splitlines():
-            if re.search("Adding velocity at HJD", f2):
-                print "Inserted: "+lines
-                res="yes"
-        if res == "":
-            print "Failed to insert: "+lines
+        # res=""
+        # for f2 in data.splitlines():
+        #     if re.search("Adding velocity at HJD", f2):
+        #         print "Inserted: "+lines
+        #         res="yes"
+        # if res == "":
+        #     print "Failed to insert: "+lines
+
+	print "Inserted: ",lines
 
 exit()
             

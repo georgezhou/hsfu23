@@ -6,8 +6,8 @@ import sys
 import string
 import pyfits
 
-start_date = "2012-03-12"
-end_date = "2012-03-15"
+start_date = "2012-04-10"
+end_date = "2012-04-15"
 
 program_dir = os.getcwd() + "/" #Save the current working directory
 

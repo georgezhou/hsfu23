@@ -51,7 +51,7 @@ t1=$t1 # in hjd (time of first contact)
 set title\
 "K=$K km/s, \
 R_0=$R0 km/s" 
-K=$K 
+K=abs($K) 
 R0=$R0 
 set yrange [R0-K-20 to R0+K+20] # Enter RV range 
 #########################################

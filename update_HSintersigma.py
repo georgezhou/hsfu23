@@ -16,9 +16,9 @@ import pyfits
 ### Start of program ###
 ########################
 
-query_entry = "select SPECtype,SPECobject,SPECmjd,SPEChjd,SPECrv,SPECrv_err,SPECtelescope,SPECresolution,SPECteff,SPECteff_err,SPEClogg,SPEClogg_err,SPECfeh,SPECfeh_err,SPECccfheight,SPECexptime"
-query_entry = query_entry + " from SPEC where SPECutdate >= \"2010-01-01\" and SPECutdate <=\"2012-03-31\" and SPECobject like \"HTR%\""
-#query_entry = query_entry + " from SPEC where SPECobject = \"HATS563-003\" "
+query_entry = "select SPECtype,SPECobject,SPECmjd,SPEChjd,SPECrv,SPECrv_err,SPECtelescope,SPECresolution,SPECteff,SPECteff_err,SPEClogg,SPEClogg_err,SPECfeh,SPECfeh_err,SPECccfheight,SPECexptime,SPECsn"
+query_entry = query_entry + " from SPEC where SPECutdate >= \"2010-01-01\" and SPECutdate <=\"2012-04-16\" and SPECobject like \"HATS%\""
+#query_entry = query_entry + " from SPEC where SPECobject = \"HATS551-013\" "
 
 exposure_info = mysql_query.query_hsmso(query_entry)
 #print exposure_info
@@ -36,8 +36,9 @@ if len(exposure_info) > 0:
             output = output + str(entry[7]) + " " #res
             output = output + "0 0 0 0 0 0 0 0 " #teff terr logg loggerr feh feherr vrot vroterr
             output = output + str(entry[14]) + " " #ccfheight
-            output = output + str(entry[15]) + "\n" #exptime
-        
+            output = output + str(entry[15]) + " " #exptime
+            output = output + str(entry[16]) + "\n" #S/N
+
         if entry[0] == "ST":
             output = output + entry[1] + " " #name
             output = output + str(2400000 + entry[2]) + " " #mjd
@@ -49,12 +50,14 @@ if len(exposure_info) > 0:
             output = output + str(entry[10]) + " 0.3 " #logg
             #output = output + str(entry[11]) + " " 
             output = output + "0 0 0 0 0 " #feh feherr vrot vroterr ccfheight
-            output = output + str(entry[15]) + "\n" #exptime
+            output = output + str(entry[15]) + " " #exptime
+            output = output + str(entry[16]) + "\n" #S/N
 
     output_file = open("HSintersigma_output","w")
     output_file.write(output)
     output_file.close()
     print output
+    print "No. of observations: ",len(exposure_info)
     
     update = raw_input("Update hatsouth.intersigma webpage? (y/n): ")
     if update == "y":

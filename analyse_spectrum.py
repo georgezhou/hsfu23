@@ -35,6 +35,7 @@ slices = functions.read_table(slices)
 slice_to_use = slices[0][0]
 
 image_data = pyfits.getdata(file_path_temp + str(int(slice_to_use)) + "_" + file_name)
+slice_data = image_data
 
 ### Chop the 200 columns in the centre of the image
 image_data = transpose(image_data)
@@ -42,9 +43,18 @@ image_data = image_data[len(image_data)/2 - 100:len(image_data)/2 + 100]
 image_data = transpose(image_data)
 median_list = []
 for i in image_data:
-	median_list.append(median(i))
+    median_list.append(median(i))
 
-spectrum_maximum = max(median_list)
+for i in range(len(median_list)):
+    if median_list[i] == max(median_list):
+        max_column = i
+        break
+
+column_data = slice_data[i]
+column_data = sort(column_data)
+column_data = column_data[len(column_data)-200:]
+
+spectrum_maximum = median(column_data)
 
 ### Load the fits header information 
 hdulist = pyfits.open(file_path + file_name)
@@ -61,6 +71,9 @@ i_RN = 5
 gain = 0.9
 
 signal_noise = (gain*spectrum_maximum) / (sqrt((i_signal*gain) + (i_sky * exptime)**2 + (i_dark* exptime)**2 + i_RN**2))
+signal_noise = signal_noise * 2.3 ### convert from sn/pixel to sn/resolution element
+
+print "The signal to noise is ",signal_noise
 
 ### Write information to table
 ### Format

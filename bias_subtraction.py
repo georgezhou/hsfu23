@@ -13,6 +13,7 @@ import functions
 iraf.imred()
 iraf.imred.ccdred()
 iraf.imred.kpnoslit()
+iraf.astutil()
 
 ###################
 ### Description ###
@@ -187,6 +188,8 @@ os.system("cp -f " + file_path + file_name + " " + file_path_temp + file_name)
 ### Do this by using specphot
 print "Updating settings on specphot"
 iraf.setinstrument(instrument="specphot",site="kpno",directory="ccddb$",query="specphot",review=0)
+
+
 
 ### Remove image header information on image sections
 ### These may be wrong, since wifes data formats keep on changing
