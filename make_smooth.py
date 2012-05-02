@@ -51,7 +51,7 @@ def make_string_from_list(input_list):
 ########################
 
 file_path = "/mimsy/george/wifes/"
-folders_to_search = ["26Jul2011/spectype/blue/","27Jul2011/spectype/blue/"]
+folders_to_search = ["16Dec2011/spectype/blue/"]
 
 grating = functions.read_config_file("GRATING")
 dichroic = functions.read_config_file("DICHROIC")

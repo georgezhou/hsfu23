@@ -209,7 +209,7 @@ hsmso_connect = functions.read_config_file("HSMSO_CONNECT")
 hscand_connect = functions.read_config_file("HSCAND_CONNECT")
 default_teff = float(functions.read_config_file("TEFF_ESTIMATE"))
 default_logg = float(functions.read_config_file("LOGG_ESTIMATE"))
-teff,logg = functions.estimate_teff_logg(object_name,hsmso_connect,hscand_connect,default_teff,default_logg)
+teff,logg = functions.estimate_teff_logg(file_path,file_name,object_name,hsmso_connect,hscand_connect,default_teff,default_logg)
 
 ### Change directory to reduced/
 os.chdir(file_path_reduced) #Change to ../reduced/ dir

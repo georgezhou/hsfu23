@@ -168,7 +168,7 @@ def teff_from_colour(candidate):
 #         else:
 #             return int(round_value(default_teff,250)),round_value(default_logg,0.5)
 
-def estimate_teff_logg(candidate,hsmso_connect,hscand_connect,default_teff,default_logg):
+def estimate_teff_logg(file_path,file_name,candidate,hsmso_connect,hscand_connect,default_teff,default_logg):
     found_properties = False
 
     if hsmso_connect == "true":
@@ -190,6 +190,14 @@ def estimate_teff_logg(candidate,hsmso_connect,hscand_connect,default_teff,defau
     if not found_properties and hscand_connect == "true":
         print "Query HSCAND"
         teff = teff_from_colour(candidate)
+        if not teff == "INDEF":
+            found_properties = True
+            teff = int(round_value(teff,250))
+            logg = round_value(default_logg,0.5)
+
+    if not found_properties:
+        import twomass_colour
+        teff = twomass_colour.teff_from_2mass(file_path,file_name)
         if not teff == "INDEF":
             found_properties = True
             teff = int(round_value(teff,250))

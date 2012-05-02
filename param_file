@@ -64,8 +64,8 @@ ONLY_FLUXCAL false ### Perform only flux calibration, don't do the things (true/
 NORM_REGION_w1 4500 ### Start of normalised spectral region
 NORM_REGION_w2 5950 ### End of normalised spectral region
 
-FLUX_NORMALISE_w1 4100 ### Start of region where the flux calibrated spectrum is normalised
-FLUX_NORMALISE_w2 4200 ### End of region where the flux calibrated spectrum is normalised
+FLUX_NORMALISE_w1 4200 ### Start of region where the flux calibrated spectrum is normalised
+FLUX_NORMALISE_w2 4400 ### End of region where the flux calibrated spectrum is normalised
 
-MODEL_PATH_FLUX /priv/miner3/hat-south/george/Honours/template_spectra_marcs/ ###Path for flux corrected templates
-MODEL_PATH_NORM /priv/miner3/hat-south/george/Honours/template_normalised_spectra_marcs/ ###Path for normalised templates
+MODEL_PATH_FLUX /priv/miner3/hat-south/george/Honours/template_spectra_munari/ ###Path for flux corrected templates
+MODEL_PATH_NORM /priv/miner3/hat-south/george/Honours/template_normalised_spectra_munari/ ###Path for normalised templates

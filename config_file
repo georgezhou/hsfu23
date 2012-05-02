@@ -2,9 +2,9 @@
 ### File locations ###
 ######################
 
-FILE_NAME b0062.fits #The image name to be reduced
+FILE_NAME b0033.fits #The image name to be reduced
 
-FILE_PATH /mimsy/george/wifes/27Jul2011/spectype/blue/ #The filepath of the raw images
+FILE_PATH /mimsy/george/wifes/16Dec2011/spectype/blue/ #The filepath of the raw images
 
 ###########################
 ### Instrument settings ###
@@ -12,12 +12,12 @@ FILE_PATH /mimsy/george/wifes/27Jul2011/spectype/blue/ #The filepath of the raw 
 
 CAMERA blue ### WiFeS camera (red/blue)
 GRATING B3000 ### WiFeS grating (B3000/R3000/R7000/I7000)
-DICHROIC RT615 ### WiFeS dichroic (RT480/RT560/RT615)
+DICHROIC RT560 ### WiFeS dichroic (RT480/RT560/RT615)
 
 #########################
 ### Reduction options ###
 #########################
-DELETE_ALL true ### Delete all previous reductions (true/false)
+DELETE_ALL false ### Delete all previous reductions (true/false)
 DIVIDE_FLAT true ### Divide by flat field (true/false)
 
 INTERACT false ### Interactive? (true/false)

@@ -11,11 +11,12 @@ import pyfits
 from pyraf import iraf
 from scipy import interpolate
 import urllib
-from numpy.fft import rfft, irfft
+import time
 
 iraf.kpnoslit()
 iraf.noao()
 iraf.rv()
+iraf.onedspec()
 
 ###################
 ### Description ###
@@ -69,7 +70,7 @@ def isNaN(x):
     else:
         return False
 
-def run_fxcor(input_file,input_rv,lines,output,fitshead_update,npoints,functiontype):
+def run_fxcor(input_file,input_rv,lines,output,fitshead_update,npoints,functiontype,window,wincenter):
     iraf.fxcor(
         objects = input_file, \
         templates = input_rv, \
@@ -90,8 +91,8 @@ def run_fxcor(input_file,input_rv,lines,output,fitshead_update,npoints,functiont
         maxwidth = npoints,\
         weights = 1.,\
         background = "INDEF",\
-        window = "INDEF",\
-        wincenter = "INDEF",\
+        window = window,\
+        wincenter = wincenter,\
         output = output,\
         verbose = "long",\
         imupdate = fitshead_update,\
@@ -138,7 +139,7 @@ hsmso_connect = functions.read_config_file("HSMSO_CONNECT")
 hscand_connect = functions.read_config_file("HSCAND_CONNECT")
 default_teff = float(functions.read_config_file("TEFF_ESTIMATE"))
 default_logg = float(functions.read_config_file("LOGG_ESTIMATE"))
-teff_ini,logg_ini = functions.estimate_teff_logg(object_name,hsmso_connect,hscand_connect,default_teff,default_logg)
+teff_ini,logg_ini = functions.estimate_teff_logg(file_path,file_name,object_name,hsmso_connect,hscand_connect,default_teff,default_logg)
 feh_ini = 0.0
 ini_template_spectrum = "template_" + str(teff_ini) + "_" + str(logg_ini) + "_" + str(feh_ini)
 
@@ -146,64 +147,162 @@ print "Initial estimate of teff, logg: ",str(teff_ini),str(logg_ini)
 
 def calculate_spectral_params(teff_ini,logg_ini,feh_ini):
 
-    def find_shift(input1,input2,i1,i2):
-        shift_rms = []
-        shift_range = 0
-        shift_list = []
-        for shift in range(-1*shift_range,shift_range+1):
-            input1_cropped = input1[i1:i2]
-            input2_cropped = input2[i1+shift:i2+shift]
+    def find_shift(input1,input2,i1,i2,shift_range):
+        if abs(i2 - i1) < 300:
+            i1 = i1 - 150
+            i2 = i2 + 150
 
-            diff = input1_cropped/median(input1_cropped) - input2_cropped/median(input2_cropped)
-
-            rms = sqrt(sum(diff**2) /float(len(diff)))
-            shift_rms.append(rms)
-            shift_list.append(shift)
-
-        for i in range(len(shift_rms)):
-            if shift_rms[i] == min(shift_rms):
-                break
+        if i1 < 0:
+            i1 = 0
+            i2 = 300
+        if i2 > len(input1):
+            i2 = len(input1)
+            i1 = len(input1) - 300
+            
+        ### Use xcorr
+        currdir = os.getcwd()
+        os.chdir(file_path_reduced)
+        os.system("rm "+file_path_reduced+"shift_spec*")
+        input1_cropped = input1[i1:i2]/median(input1[i1:i2])
+        input2_cropped = input2[i1:i2]/median(input1[i1:i2])
+        wave_axis = arange(1,len(input1_cropped)+1)
         
-        #print "Applying a shift of ",shift_list[i]
-        return shift_list[i]
-        
+        shift_spec1 = open(file_path_reduced+"shift_spec1.txt","w")
+        functions.write_table(transpose([wave_axis,input1_cropped]),shift_spec1)
+        shift_spec1.close()
 
-    def loop_input_spectrum(input_wave,input_flux,folder,teff_space,logg_space,feh_space,w1,w2,perform_normalise):
+        shift_spec2 = open(file_path_reduced+"shift_spec2.txt","w")
+        functions.write_table(transpose([wave_axis,input2_cropped]),shift_spec2)
+        shift_spec2.close()
+        
+        iraf.rspectext(
+            input = file_path_reduced+"shift_spec1.txt",\
+            output = file_path_reduced+"shift_spec1.fits",\
+            title = "shift_spec1",\
+            flux = 0,\
+            dtype = "interp",\
+            crval1 = "",\
+            cdelt1 = "",\
+            fd1 = "",\
+            fd2 = "")
+
+        iraf.rspectext(
+            input = file_path_reduced+"shift_spec2.txt",\
+            output = file_path_reduced+"shift_spec2.fits",\
+            title = "shift_spec2",\
+            flux = 0,\
+            dtype = "interp",\
+            crval1 = "",\
+            cdelt1 = "",\
+            fd1 = "",\
+            fd2 = "")
+
+        time.sleep(0.5) 
+            
+        ### Find shift
+        os.system("rm apshift*")
+
+        ### Makesure keywpars is set at default
+        iraf.unlearn(iraf.keywpars)
+
+        cuton = len(input1_cropped)/25.
+        cutoff = len(input1_cropped)/2.5
+
+        iraf.filtpars.setParam("f_type","welch",check=1,exact=1)
+        iraf.filtpars.setParam("cuton",cuton,check=1,exact=1)
+        iraf.filtpars.setParam("cutoff",cutoff,check=1,exact=1)
+
+        run_fxcor(file_path_reduced+"shift_spec1.fits",file_path_reduced+"shift_spec2.fits","*","apshift",0,10,"gaussian","INDEF",0)
+        vel_shift = functions.read_ascii("apshift.txt")
+        vel_shift = functions.read_table(vel_shift)
+        vel_shift = vel_shift[0][6]
+        if vel_shift == "INDEF":
+            vel_shift = 0.0
+        if abs(vel_shift) > shift_range:
+            vel_shift = 0.0
+
+        print "best pixel shift of ",vel_shift
+
+        os.system("rm apshift*")
+        os.system("rm "+file_path_reduced+"shift_spec*")
+        os.chdir(currdir)
+        
+        #if i1 < shift_range:
+        #    i1 = shift_range
+        #if i2 > len(input1)-shift_range:
+        #    i2 = len(input1)-shift_range
+
+        # shift_rms = []
+        # shift_list = []
+        # for shift in range(-1*shift_range,shift_range+1):
+        #     input1_cropped = input1[i1+shift:i2+shift]
+        #     input2_cropped = input2[i1:i2]
+
+        #     diff = input1_cropped/median(input1_cropped) * input2_cropped/median(input2_cropped)
+        #     rms = sum(diff)
+        #     #rms = sqrt(sum(diff**2) /float(len(diff)))
+        #     shift_rms.append(rms)
+        #     shift_list.append(shift)
+            
+        # for i in range(len(shift_rms)):
+        #     if shift_rms[i] == max(shift_rms):
+        #         break
+        
+        # print "Applying a shift of ",shift_list[i]
+        # plt.clf()
+        # plt.plot(input1[i1+shift_list[i]:i2+shift_list[i]]/median(input1[i1+shift_list[i]:i2+shift_list[i]]),"b-")
+        # plt.plot(input1[i1:i2]/median(input1[i1:i2]),"r-")
+        # plt.plot(input2[i1:i2]/median(input2[i1:i2]),"g-")
+        # plt.show()
+
+        # return shift_list[i]
+        return int(round(vel_shift,0))
+
+    def loop_input_spectrum(input_wave,input_flux,folder,teff_space,logg_space,feh_space,w1,w2,perform_normalise,shift_range,fix_feh):
 
         i1 = w1 - min(input_wave)
         i2 = w2 - min(input_wave)
 
-        i = 0
-        for teff in teff_space:
-            for logg in logg_space:
-                for feh in feh_space:
-                    if teff == teff_ini and logg == logg_ini and feh == feh_ini:
-                        if folder == model_path_flux:
-                            template_flux = spec_database[i]
-                        if folder == model_path_norm:
-                            template_flux = normspec_database[i]
+        shift = 0
 
-                        shift = find_shift(input_flux,template_flux,i1,i2)
+        if shift_range > 0:
 
-                        break
-                    else:
-                        i = i+1
+            i = 0
+            for teff in teff_space:
+                for logg in logg_space:
+                    for feh in feh_space:
+                        if teff == teff_ini and logg == logg_ini and feh == feh_ini:
+                            if folder == model_path_flux:
+                                template_flux = spec_database[i]
+                            if folder == model_path_norm:
+                                template_flux = normspec_database[i]
+
+                            shift = find_shift(input_flux,template_flux,i1,i2,shift_range)
+                            break
+                        else:
+                            i = i+1
+
         i = 0
         data = []
         for teff in teff_space:
             for logg in logg_space:
                 for feh in feh_space:
 
+                    if fix_feh:
+                        feh_0_index = int((0 - feh)/0.5)
+                    else:
+                        feh_0_index = 0
+
                     if folder == model_path_flux:
-                        template_flux = spec_database[i]
+                        template_flux = spec_database[i+feh_0_index]
                     if folder == model_path_norm:
-                        template_flux = normspec_database[i]
+                        template_flux = normspec_database[i+feh_0_index]
 
-                    input_wave_cropped = input_wave[i1:i2]
-                    input_flux_cropped = input_flux[i1:i2]
-                    template_flux_cropped = template_flux[i1+shift:i2+shift]
+                    input_wave_cropped = input_wave[i1+shift:i2+shift]
+                    input_flux_cropped = input_flux[i1+shift:i2+shift]
+                    template_flux_cropped = template_flux[i1:i2]
 
-                    sigma = 5.0
+                    sigma = 10.0
 
                     if perform_normalise:
                         diff_flux = input_flux_cropped/median(input_flux_cropped) - template_flux_cropped/median(template_flux_cropped)
@@ -439,16 +538,17 @@ def calculate_spectral_params(teff_ini,logg_ini,feh_ini):
     if teff_ini > 4750 and teff_ini < 5750:
     #if teff_ini > 4750 and teff_ini < 6250:
         #logg_regions = [[5140,5235]]
-        logg_regions = [[3800,3900],[3900,4000],[4900,5100]]
+        logg_regions = [[5100,5400]]
     if teff_ini <= 4750 and teff_ini > 4250:
         logg_regions = [[4100,4200],[5100,5400]]
     if teff_ini <= 4250:
-        logg_regions = [[4720,4810]]
+        logg_regions = [[4720,4970]]
+        #logg_regions = [[3900,4000],[4100,4200],[4300,4400],[4500,4600],[4600,4700],[4700,4900],[4720,4810],[5100,5400]]
     if teff_ini >= 5750 and teff_ini < 6250:
         #logg_regions = [[3850,4500]]
-        logg_regions = [[3670,3715],[3900,4000],[4900,5100]]
+        logg_regions = [[3670,3715],[3900,4000],[5100,5400]]
     if teff_ini >= 6250:
-        logg_regions = [[3670,3715],[3800,3900],[3900,4000]]
+        logg_regions = [[3670,3715],[3900,4000]]
 
     ### logg_regions = [[4500,5800]]
     if teff_ini <= 4000:
@@ -461,7 +561,10 @@ def calculate_spectral_params(teff_ini,logg_ini,feh_ini):
         feh_regions = [[3900,4100],[4280,4320],[5100,5200]]
 
     ### Define the regions used in flux spectra matching
-    teff_regions = [[3900,5700]]
+    if teff_ini > 6000:
+        teff_regions = [[4835,4885],[4315,4365],[4075,4125],[3800,3900]]
+    if teff_ini <= 6000:
+        teff_regions = [[3900,5700]]
 
     feh_weights = ones(len(feh_space))
     logg_weights = ones(len(logg_space))
@@ -496,7 +599,7 @@ def calculate_spectral_params(teff_ini,logg_ini,feh_ini):
 
     os.system("cp "+model_path_norm+"fits_files/"+ini_template_spectrum+".fits .")
 
-    run_fxcor("norm_"+ file_name,ini_template_spectrum+".fits","*","apshift",0,15,"gaussian")
+    run_fxcor("norm_"+ file_name,ini_template_spectrum+".fits","*","apshift",0,15,"gaussian","INDEF","INDEF")
     vel_shift = functions.read_ascii("apshift.txt")
     vel_shift = functions.read_table(vel_shift)
     vel_shift = vel_shift[0][11]
@@ -520,7 +623,7 @@ def calculate_spectral_params(teff_ini,logg_ini,feh_ini):
     norm_wave = norm_wave / ((vel_shift / c) + 1)
 
     ### Interpolate onto a 1A grid
-    master_flux_wave = arange(3600,5900,1.)
+    master_flux_wave = arange(3500,5900,1.)
     master_norm_wave = arange(4550,5900,1.)
 
     flux_interp = interpolate.splrep(flux_wave,flux_flux,s=0)
@@ -582,14 +685,93 @@ def calculate_spectral_params(teff_ini,logg_ini,feh_ini):
                 feh_table_list.append(feh)
 
 
-    master_weight = min(loop_input_spectrum(master_flux_wave,flux_flux,model_path_flux,teff_space,logg_space,feh_space,3900,5700,False))
+    master_weight = min(array(loop_input_spectrum(master_flux_wave,flux_flux,model_path_flux,teff_space,logg_space,feh_space,3900,5700,False,0,False)))
+    master_weight = master_weight /2.
     print "Reference rms of ",master_weight 
-    ###################################################
-    ### Perform logg-weighted spectrum calculations ###
-    ###################################################
+
+    ### >= F and <= M stars often get fitted with lower Fe/H, so we first fix Fe/H to
+    ### get an idea of logg, before going through the usual routine.
+    if teff_ini >= 5000:
+
+        ##################################################################
+        ### Perform logg-weighted spectrum calculations - WITH FEH = 0 ###
+        ##################################################################
+        print "Calculating [Fe/H] fixed logg weighted rms"
+
+        rms_logg = zeros(len(teff_table_list))
+
+        logg_regions_min = []
+        logg_regions_weights = []
+
+        count = 1
+        for region in logg_regions:
+            w1 = region[0]
+            w2 = region[1]
+            if w1 <= 4000:
+                to_normalise = False
+            else:
+                to_normalise = True
+            if w1 < 3900 or master_weight > 1.0:
+                shift_range = 0
+            else:
+                shift_range = 10
+
+            if w1 < 4600:
+                folder = model_path_flux
+                input_wave = master_flux_wave
+                input_spec = flux_flux
+            else:
+                folder = model_path_norm
+                input_wave = master_norm_wave
+                input_spec = norm_flux
+
+            rms = array(loop_input_spectrum(input_wave,input_spec,folder,teff_space,logg_space,feh_space,w1,w2,to_normalise,shift_range,True))
+            i = find_min_index(rms)
+            print teff_table_list[i],logg_table_list[i],feh_table_list[i],rms[i]
+            #rms_logg = rms_logg + rms
+            logg_regions_min.append(logg_table_list[i])
+            logg_regions_weights.append(min(rms))
+            rms_logg = rms_logg + (master_weight / min(rms))*rms
+            count = count + 1
+
+        rms_logg = rms_logg / float(count)
+        i = find_min_index(rms_logg)
+        print teff_table_list[i],logg_table_list[i],0.0,rms_logg[i]
+        #logg_min = logg_table_list[i]
+
+        if teff_ini >= 5750 and teff_ini < 6250: ### There should be no giants here, so choose the largest logg measurement 
+            logg_min = max(logg_regions_min)
+        else:
+            logg_min = 1/array(logg_regions_weights)
+            logg_min = logg_min / sum(logg_min)
+            logg_min = sum(logg_min * array(logg_regions_min))
+            #logg_min = average(logg_regions_min)
+        print "[Fe/H] Fixed Logg sensitive regions identify best fit of ",logg_min
+        logg_min_index = (logg_min - min(logg_space))/0.5
+
+        for i in range(len(logg_weights)):
+            logg_weights[i] = (abs(i - logg_min_index)/5.)+1.
+
+        # rms_logg_table = transpose([teff_table_list,logg_table_list,feh_table_list,rms_logg])
+
+        # output_rms_table = open("temp_rms_table","w")
+        # functions.write_table(rms_logg_table,output_rms_table)
+        # output_rms_table.close()
+
+        # plot_spectrum("temp_rms_table","fluxcal_"+file_name+".dat")
+
+        # sys.exit()
+
+
+    ######################################################################
+    ### Perform logg-weighted spectrum calculations - WITH FEH VARYING ###
+    ######################################################################
     print "Calculating logg weighted rms"
 
     rms_logg = zeros(len(teff_table_list))
+
+    logg_regions_min = []
+    logg_regions_weights = []
 
     count = 1
     for region in logg_regions:
@@ -599,8 +781,12 @@ def calculate_spectral_params(teff_ini,logg_ini,feh_ini):
             to_normalise = False
         else:
             to_normalise = True
+        if w1 < 3900 or master_weight > 1.0:
+            shift_range = 0
+        else:
+            shift_range = 10
 
-        if w1 < 4550:
+        if w1 < 4600:
             folder = model_path_flux
             input_wave = master_flux_wave
             input_spec = flux_flux
@@ -608,22 +794,31 @@ def calculate_spectral_params(teff_ini,logg_ini,feh_ini):
             folder = model_path_norm
             input_wave = master_norm_wave
             input_spec = norm_flux
-
-        rms = array(loop_input_spectrum(input_wave,input_spec,folder,teff_space,logg_space,feh_space,w1,w2,to_normalise))
+            
+        rms = array(loop_input_spectrum(input_wave,input_spec,folder,teff_space,logg_space,feh_space,w1,w2,to_normalise,shift_range,False))
         i = find_min_index(rms)
         print teff_table_list[i],logg_table_list[i],feh_table_list[i],rms[i]
         #rms_logg = rms_logg + rms
+        logg_regions_min.append(logg_table_list[i])
+        logg_regions_weights.append(min(rms))
         rms_logg = rms_logg + (master_weight / min(rms))*rms
         count = count + 1
 
     rms_logg = rms_logg / float(count)
     i = find_min_index(rms_logg)
     print teff_table_list[i],logg_table_list[i],feh_table_list[i],rms_logg[i]
-    logg_min = logg_table_list[i]
-    logg_min_index = int((logg_min - min(logg_space))/0.5)
+    #logg_min = logg_table_list[i]
 
+    
+    logg_min = 1/array(logg_regions_weights)
+    logg_min = logg_min / sum(logg_min)
+    logg_min = sum(logg_min * array(logg_regions_min))
+    print "Logg sensitive regions identify best fit of ",logg_min
+    logg_min_index = int((logg_min - min(logg_space))/0.5)
+    
+    logg_weights = ones(len(logg_weights))
     for i in range(len(logg_weights)):
-        logg_weights[i] = (abs(i - logg_min_index)/15.)+1.
+        logg_weights[i] = (abs(i - logg_min_index)/10.)+1.
 
     # rms_logg_table = transpose([teff_table_list,logg_table_list,feh_table_list,rms_logg])
 
@@ -646,7 +841,7 @@ def calculate_spectral_params(teff_ini,logg_ini,feh_ini):
     for region in feh_regions:
         w1 = region[0]
         w2 = region[1]
-        if w1 < 4550:
+        if w1 < 4600:
             folder = model_path_flux
             input_wave = master_flux_wave
             input_spec = flux_flux
@@ -655,7 +850,12 @@ def calculate_spectral_params(teff_ini,logg_ini,feh_ini):
             input_wave = master_norm_wave
             input_spec = norm_flux
 
-        rms = array(loop_input_spectrum(input_wave,input_spec,folder,teff_space,logg_space,feh_space,w1,w2,True))
+        if w1 < 3900 or master_weight > 1.0:
+            shift_range = 0
+        else:
+            shift_range = 10
+
+        rms = array(loop_input_spectrum(input_wave,input_spec,folder,teff_space,logg_space,feh_space,w1,w2,True,shift_range,False))
         i = find_min_index(rms)
         print teff_table_list[i],logg_table_list[i],feh_table_list[i],rms[i]
         #rms_feh = rms_feh + rms
@@ -723,18 +923,29 @@ def calculate_spectral_params(teff_ini,logg_ini,feh_ini):
         flux_flux = interpolate.splev(master_flux_wave,flux_interp,der=0)
 
         rms_teff = zeros(len(teff_table_list))
+        
+        if master_weight > 1.0:
+            shift_range = 0.0
+        else:
+            shift_range = 10.0
+
+        if teff_ini > 6000:
+            region_normalise = True
+        if teff_ini <= 6000:
+            region_normalise = False
+
         count = 1
         for region in teff_regions:
-            rms = array(loop_input_spectrum(master_flux_wave,flux_flux,model_path_flux,teff_space,logg_space,feh_space,region[0],region[1],False))
-            rms = 0.5*rms + 0.25*rms_logg + 0.25*rms_feh
+            rms = array(loop_input_spectrum(master_flux_wave,flux_flux,model_path_flux,teff_space,logg_space,feh_space,region[0],region[1],region_normalise,shift_range,False))
+            rms = 0.6*rms + 0.2*rms_logg + 0.2*rms_feh
             #rms_teff = rms_teff + rms
             
-            rms_teff = rms_teff + (master_weight / min(rms))*rms
+            rms_teff = rms_teff + rms
             count = count+1
 
         rms_teff = rms_teff / float(count)
 
-        reddening_weight_factor = 0.75
+        reddening_weight_factor = 0.5
 
         ### Weight against reddening
         if reddening >= 0.0 and reddening <= max_reddening:
@@ -776,18 +987,27 @@ def calculate_spectral_params(teff_ini,logg_ini,feh_ini):
     return teff_min,logg_min,feh_min
 
 
+previous_results  = [[teff_ini,logg_ini,feh_ini]]
+
 run_again = True
 nround = 1
-while run_again and nround <= 5:
+while run_again and nround <= 10:
     print "################### Running round "+str(nround)+" #######################"
     teff_min,logg_min,feh_min = calculate_spectral_params(teff_ini,logg_ini,feh_ini)
     teff_new_ini = int(spectype_functions.round_value(teff_min,250))
     logg_new_ini = spectype_functions.round_value(logg_min,0.5)
     feh_new_ini = spectype_functions.round_value(feh_min,0.5)
 
-    if teff_new_ini == teff_ini:
-        run_again = False
-    else:
+    #if teff_new_ini == teff_ini and logg_new_ini == logg_ini and feh_new_ini == feh_ini:
+        #run_again = False
+
+    for entry in previous_results:
+        if teff_new_ini == entry[0] and logg_new_ini == entry[1] and feh_new_ini == entry[2]:
+            run_again = False
+            break
+
+    if run_again:
+        previous_results.append([teff_new_ini,logg_new_ini,feh_new_ini])
         teff_ini = teff_new_ini
         logg_ini = logg_new_ini
         feh_ini = feh_new_ini
