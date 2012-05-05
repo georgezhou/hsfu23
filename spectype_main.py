@@ -276,8 +276,12 @@ def calculate_spectral_params(teff_ini,logg_ini,feh_ini):
                                 template_flux = spec_database[i]
                             if folder == model_path_norm:
                                 template_flux = normspec_database[i]
-
-                            shift = find_shift(input_flux,template_flux,i1,i2,shift_range)
+                            
+                            try:
+                                shift = find_shift(input_flux,template_flux,i1,i2,shift_range)
+                            except iraf.IrafError:
+                                print "IRAF fxcor stupid error, setting shift to 0"
+                                shift = 0
                             break
                         else:
                             i = i+1
@@ -561,9 +565,9 @@ def calculate_spectral_params(teff_ini,logg_ini,feh_ini):
         feh_regions = [[3900,4100],[4280,4320],[5100,5200]]
 
     ### Define the regions used in flux spectra matching
-    if teff_ini > 6000:
+    if teff_ini >= 5750:
         teff_regions = [[4835,4885],[4315,4365],[4075,4125],[3800,3900]]
-    if teff_ini <= 6000:
+    if teff_ini < 5750:
         teff_regions = [[3900,5700]]
 
     feh_weights = ones(len(feh_space))

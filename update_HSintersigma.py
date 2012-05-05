@@ -17,7 +17,7 @@ import pyfits
 ########################
 
 query_entry = "select SPECtype,SPECobject,SPECmjd,SPEChjd,SPECrv,SPECrv_err,SPECtelescope,SPECresolution,SPECteff,SPECteff_err,SPEClogg,SPEClogg_err,SPECfeh,SPECfeh_err,SPECccfheight,SPECexptime,SPECsn"
-query_entry = query_entry + " from SPEC where SPECutdate >= \"2010-01-01\" and SPECutdate <=\"2012-04-16\" and SPECobject like \"HATS%\""
+query_entry = query_entry + " from SPEC where SPECutdate >= \"2010-01-01\" and SPECutdate <=\"2012-04-16\" and SPECobject like \"HATS%\" and SPECinstrum=\"WiFeS\""
 #query_entry = query_entry + " from SPEC where SPECobject = \"HATS551-013\" "
 
 exposure_info = mysql_query.query_hsmso(query_entry)
@@ -49,7 +49,8 @@ if len(exposure_info) > 0:
             #output = output + str(entry[9]) + " " 
             output = output + str(entry[10]) + " 0.3 " #logg
             #output = output + str(entry[11]) + " " 
-            output = output + "0 0 0 0 0 " #feh feherr vrot vroterr ccfheight
+            output = output + str(entry[12]) + " 0.5 " #feh
+            output = output + "0 0 0 " #feh feherr vrot vroterr ccfheight
             output = output + str(entry[15]) + " " #exptime
             output = output + str(entry[16]) + "\n" #S/N
 

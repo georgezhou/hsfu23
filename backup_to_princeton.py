@@ -69,6 +69,4 @@ for i in query_result:
     print file_path,dateformat
     
     upload(file_path,dateformat)
-
-    break
     
