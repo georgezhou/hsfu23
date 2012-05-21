@@ -69,3 +69,5 @@ FLUX_NORMALISE_w2 4400 ### End of region where the flux calibrated spectrum is n
 
 MODEL_PATH_FLUX /priv/miner3/hat-south/george/Honours/template_spectra_munari/ ###Path for flux corrected templates
 MODEL_PATH_NORM /priv/miner3/hat-south/george/Honours/template_normalised_spectra_munari/ ###Path for normalised templates
+
+INI_FIX_FEH true ### Fix Fe/H initially for the logg estimate of Teff>5000K stars? (true/false)

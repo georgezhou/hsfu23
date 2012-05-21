@@ -4,8 +4,7 @@ import string
 import sys
 import os
 import pyfits
-import urllib2
-import socket
+import urllib
 
 ### Load functions script (located in the same folder)
 import functions
@@ -65,7 +64,7 @@ def convDMS(dec):
 
 def try_webpage(url):
     try:
-        urllib2.urlopen(url,timeout=20)
+        urllib.urlopen(url)
         return True
     except IOError:
         return False
@@ -90,49 +89,42 @@ def find_2mass(ra,dec):
 
     if try_webpage(page_url):
 
-        twomass = urllib2.urlopen(page_url,timeout=20)
-        try:
-           twomass = twomass.read()
+        twomass = urllib.urlopen(page_url)
+        twomass = twomass.read()
 
-           if twomass.find("ERROR") == -1:
+        if twomass.find("ERROR") == -1:
 
-               twomass = string.split(twomass,"\n")
-               twomass_temp = []
-               for i in twomass:
-                   if not i == "":
-                       if not (i[0] == "|" or i[0] == "\\"):
-                           twomass_temp.append(i)
+            twomass = string.split(twomass,"\n")
+            twomass_temp = []
+            for i in twomass:
+                if not i == "":
+                    if not (i[0] == "|" or i[0] == "\\"):
+                        twomass_temp.append(i)
 
-               if not twomass_temp == []:
+            if not twomass_temp == []:
 
-                   twomass = functions.read_table(twomass_temp)
+                twomass = functions.read_table(twomass_temp)
 
-                   dist = transpose(twomass)[8]
-                   dist_temp = []
-                   for i in dist:
-                       dist_temp.append(float(i))
-                   dist = dist_temp
+                dist = transpose(twomass)[8]
+                dist_temp = []
+                for i in dist:
+                    dist_temp.append(float(i))
+                dist = dist_temp
 
-                   for star in twomass:
-                       if float(star[8]) == min(dist):
-                           print "Found star with distance of ",min(dist)
-                           magJ = float(star[4])
-                           magK = float(star[6])
-                           teff = -3590. * (magJ - magK) + 7290.
-                           print "2MASS temp of",teff
-                           break
-               else:
-                   print "Could not find star"
-                   teff = "INDEF"
-           else:
-               print "Could not connect to 2mass catalogue"
-               teff = "INDEF"           
-
-
-        except socket.timeout:
-           print "Timeout"
-           teff = "INDEF"
-           
+                for star in twomass:
+                    if float(star[8]) == min(dist):
+                        print "Found star with distance of ",min(dist)
+                        magJ = float(star[4])
+                        magK = float(star[6])
+                        teff = -3590. * (magJ - magK) + 7290.
+                        print "2MASS temp of",teff
+                        break
+            else:
+                print "Could not find star"
+                teff = "INDEF"
+        else:
+            print "Could not connect to 2mass catalogue"
+            teff = "INDEF"           
                     
     else:
         print "Could not connect to 2mass catalogue"

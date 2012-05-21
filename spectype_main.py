@@ -143,6 +143,9 @@ teff_ini,logg_ini = functions.estimate_teff_logg(file_path,file_name,object_name
 feh_ini = 0.0
 ini_template_spectrum = "template_" + str(teff_ini) + "_" + str(logg_ini) + "_" + str(feh_ini)
 
+ini_fix_feh = functions.read_param_file("INI_FIX_FEH")
+
+
 print "Initial estimate of teff, logg: ",str(teff_ini),str(logg_ini)
 
 def calculate_spectral_params(teff_ini,logg_ini,feh_ini):
@@ -695,7 +698,7 @@ def calculate_spectral_params(teff_ini,logg_ini,feh_ini):
 
     ### >= F and <= M stars often get fitted with lower Fe/H, so we first fix Fe/H to
     ### get an idea of logg, before going through the usual routine.
-    if teff_ini >= 5000:
+    if teff_ini >= 5000 and ini_fix_feh == "true":
 
         ##################################################################
         ### Perform logg-weighted spectrum calculations - WITH FEH = 0 ###

@@ -194,6 +194,8 @@ def estimate_teff_logg(file_path,file_name,candidate,hsmso_connect,hscand_connec
             found_properties = True
             teff = int(round_value(teff,250))
             logg = round_value(default_logg,0.5)
+            if teff < 3500:
+                found_properties = False
 
     if not found_properties:
         import twomass_colour
@@ -202,6 +204,8 @@ def estimate_teff_logg(file_path,file_name,candidate,hsmso_connect,hscand_connec
             found_properties = True
             teff = int(round_value(teff,250))
             logg = round_value(default_logg,0.5)
+            if teff < 3500:
+                found_properties = False
 
     if not found_properties:
         print "Using default teff logg values"

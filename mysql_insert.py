@@ -104,9 +104,9 @@ def db_spectype_entry(object_name,file_name,grating,resolution,dichroic,dateobs,
         command = command+""",SPECimgname=\"%s\" """ % file_name
         command = command+""",SPECtelescope="ANU23" """
         command = command+""",SPECinstrum="WiFeS" """
-        command = command+""",SPECgrating=\"%s\" """ % grating
-        command = command+""",SPECresolution=""" + str(resolution)
-        command = command+""",SPECdichroic=\"%s\" """ % dichroic
+        #command = command+""",SPECgrating=\"%s\" """ % grating
+        #command = command+""",SPECresolution=""" + str(resolution)
+        #command = command+""",SPECdichroic=\"%s\" """ % dichroic
         command = command+""",SPECtype="ST" """
         command = command+""",SPECutdate=\"%s\" """ % sql_date
         command = command+""",SPECuttime=\"%s\" """ % sql_time

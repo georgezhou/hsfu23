@@ -171,7 +171,7 @@ def calc_RV(RV_out,file_name):
         flux_weight = aperture_weights[aperture]
 
         if functions.is_number(stellar_height) and functions.is_number(JD) and functions.is_number(vhelio) and functions.is_number(vhelio_err):
-            if stellar_height > 0.15:
+            if stellar_height > 0.2:
                 RV_table.append([JD,vhelio,vhelio_err,stellar_height,flux_weight])
 
     if RV_table == []:

@@ -231,8 +231,8 @@ if combine_apertures == "true":
         interactive = 0,\
         function  = "spline3",\
         order = 15,\
-        low_reject = 2.0,\
+        low_reject = 5.0,\
         high_reject = 0.0,\
-        niterate = 5,\
+        niterate = 2,\
         grow = 1,\
         ask = "no",)

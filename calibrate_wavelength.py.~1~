@@ -53,7 +53,6 @@ hdulist.close()
 camera = functions.read_config_file("CAMERA")
 grating = functions.read_config_file("GRATING")
 dichroic = functions.read_config_file("DICHROIC")
-combine_aps = functions.read_config_file("COMBINE_APERTURES")
 
 print "This script applies NeAr arc image to calibrate the object spectrum " +file_name
 
@@ -261,17 +260,6 @@ for im_slice in image_slices:
 
     ### Apply high rejection to remove cosmic rays, dead pixels, etc.
     print "Applying high rejection"
-
-    ### Be more lenient if apertures will be combined
-    if combine_aps == "true":
-        lowrej = 30.0
-        highrej = 5.0
-        nit = 2
-    else:
-        lowrej = 10.0
-        highrej = 2.0
-        nit = 5
-
     os.system("rm cray_" + im_slice + "_" + file_name)
     iraf.continuum(
         input = "dispcorr_" + im_slice + "_" + file_name,\
@@ -291,9 +279,9 @@ for im_slice in image_slices:
         naverage = 1,\
         function = "spline3",\
         order = 15,\
-        low_reject = lowrej,\
-        high_reject = highrej,\
-        niterate = nit,\
+        low_reject = 30.0,\
+        high_reject = 5.0,\
+        niterate = 2,\
         grow = 1.0)
 
     iraf.hedit(images="cray_" + im_slice + "_" + file_name,fields="SFIT",value="1",add=0,delete=1,verify=0,show=1,update=1)

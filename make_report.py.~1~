@@ -6,8 +6,8 @@ import sys
 import string
 import pyfits
 
-start_date = "2012-05-09"
-end_date = "2012-05-15"
+start_date = "2012-04-10"
+end_date = "2012-04-15"
 
 program_dir = os.getcwd() + "/" #Save the current working directory
 
@@ -19,7 +19,7 @@ month_list = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov",
 ### Deal with RV observations
 
 query_entry = "select SPECutdate,SPECimgname,SPECobject,SPEChjd,SPECrv,SPECrv_err,SPECccfheight,SPECbis,SPECbis_err"
-query_entry = query_entry + " from SPEC where SPECutdate >= \""+start_date+"\" and SPECutdate <=\""+end_date+"\" and SPECobject like \"HATS%\" and SPECtype =\"RV\" and SPECinstrum=\"WiFeS\""
+query_entry = query_entry + " from SPEC where SPECutdate >= \""+start_date+"\" and SPECutdate <=\""+end_date+"\" and SPECobject like \"HATS%\" and SPECtype = \"RV\""
 
 exposure_info = mysql_query.query_hsmso(query_entry)
 
@@ -80,8 +80,8 @@ if len(exposure_info)>0:
         date = string.split(thedate,"-")[2]
         file_path = "/mimsy/george/wifes/" + date + month + year +"/spectype/blue/"
 
-        os.system("cp "+file_path+"reduced/spectype_plots/"+candidate_name+"_*.pdf outputs/spectype/")
-        #os.system("cp "+file_path+"reduced/spectype_plots/"+candidate_name+"_spectrum.pdf outputs/spectype/")
+        os.system("cp "+file_path+"reduced/spectype_plots/"+candidate_name+"_contour.pdf outputs/spectype/")
+        os.system("cp "+file_path+"reduced/spectype_plots/"+candidate_name+"_spectrum.pdf outputs/spectype/")
 
     os.chdir("outputs/spectype/")
     os.system("gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=spectype.pdf HATS*.pdf")
