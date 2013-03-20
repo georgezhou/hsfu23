@@ -414,6 +414,11 @@ def calculate_spectral_params(teff_ini,logg_ini,feh_ini):
             teff_min_fit = teff_min
             logg_min_fit = logg_min
 
+        if teff_min_fit < 3500:
+            teff_min_fit = 3500
+        if teff_min_fit > 9000:
+            teff_min_fit = 9000
+
         if logg_min_fit < 0.0:
             logg_min_fit = 0.0
         if logg_min_fit > 5.0:
@@ -421,6 +426,8 @@ def calculate_spectral_params(teff_ini,logg_ini,feh_ini):
 
         teff_min = int(spectype_functions.round_value(teff_min_fit,250.))
         logg_min = spectype_functions.round_value(logg_min_fit,0.5)
+
+        print teff_min,logg_min
 
         ### Plot teff_logg space
         plt.figure(figsize=(7,5))
@@ -430,6 +437,7 @@ def calculate_spectral_params(teff_ini,logg_ini,feh_ini):
 
         v_min = min(rms_list)
         v_max = min(rms_list)+((max(rms_list)-min(rms_list))/3.)
+        #v_max = max(rms_list)
         rms_space = clip(rms_space,v_min,v_max)
 
         cm = matplotlib.cm.get_cmap('jet')
@@ -746,13 +754,21 @@ def calculate_spectral_params(teff_ini,logg_ini,feh_ini):
         print teff_table_list[i],logg_table_list[i],0.0,rms_logg[i]
         #logg_min = logg_table_list[i]
 
-        if teff_ini >= 5750 and teff_ini < 6250: ### There should be no giants here, so choose the largest logg measurement 
-            logg_min = max(logg_regions_min)
-        else:
-            logg_min = 1/array(logg_regions_weights)
-            logg_min = logg_min / sum(logg_min)
-            logg_min = sum(logg_min * array(logg_regions_min))
-            #logg_min = average(logg_regions_min)
+        print logg_regions_min
+
+        # if teff_ini >= 5750 and teff_ini < 6250: ### There should be no giants here, so choose the largest logg measurement 
+        #     logg_min = max(logg_regions_min)
+        # else:
+        #     logg_min = 1/array(logg_regions_weights)
+        #     logg_min = logg_min / sum(logg_min)
+        #     logg_min = sum(logg_min * array(logg_regions_min))
+        #     #logg_min = average(logg_regions_min)
+
+        logg_min = 1/array(logg_regions_weights)
+        logg_min = logg_min / sum(logg_min)
+        logg_min = sum(logg_min * array(logg_regions_min))
+        #logg_min = average(logg_regions_min)
+
         print "[Fe/H] Fixed Logg sensitive regions identify best fit of ",logg_min
         logg_min_index = (logg_min - min(logg_space))/0.5
 
@@ -816,7 +832,6 @@ def calculate_spectral_params(teff_ini,logg_ini,feh_ini):
     print teff_table_list[i],logg_table_list[i],feh_table_list[i],rms_logg[i]
     #logg_min = logg_table_list[i]
 
-    
     logg_min = 1/array(logg_regions_weights)
     logg_min = logg_min / sum(logg_min)
     logg_min = sum(logg_min * array(logg_regions_min))
@@ -947,6 +962,7 @@ def calculate_spectral_params(teff_ini,logg_ini,feh_ini):
             rms = 0.6*rms + 0.2*rms_logg + 0.2*rms_feh
             #rms_teff = rms_teff + rms
             
+
             rms_teff = rms_teff + rms
             count = count+1
 

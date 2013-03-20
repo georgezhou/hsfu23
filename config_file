@@ -2,9 +2,9 @@
 ### File locations ###
 ######################
 
-FILE_NAME r0045.fits #The image name to be reduced
+FILE_NAME r0051.fits #The image name to be reduced
 
-FILE_PATH /mimsy/george/wifes/14May2012/RV/red/ The filepath of the raw images
+FILE_PATH /mimsy/george/wifes/30Oct2012/RV/red/ The filepath of the raw images
 
 ###########################
 ### Instrument settings ###

@@ -44,7 +44,7 @@ TELLURIC_REGION a6881-6931 ### Region for cc against telluric lines
 ###(Defaults: R7000 a6881-6931, I7000 a7618-7675)
 
 STELLAR_REGION a5270-5825,a6370-6510 ### Region for cc against stellar lines
-###(Defaults: R7000 a5270-5650, I7000 a8500-8510,a8535-8561,a8652-8687)
+###(Defaults: R7000 a5270-5825,a6370-6510; I7000 a8500-8510,a8535-8561,a8652-8687; Halpha a6500-6650)
 
 RV_SPECTRAL_LIBRARY /priv/miner3/hat-south/george/Honours/MUNARI_highres_model_spectra/fits_files/ ### location of the synthetic spectra
 

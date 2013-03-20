@@ -171,11 +171,31 @@ def calc_RV(RV_out,file_name):
         flux_weight = aperture_weights[aperture]
 
         if functions.is_number(stellar_height) and functions.is_number(JD) and functions.is_number(vhelio) and functions.is_number(vhelio_err):
-            if stellar_height > 0.15:
+            if stellar_height > 0.20: ### NORMAL
+            #if stellar_height > 0.0: ### Manual
                 RV_table.append([JD,vhelio,vhelio_err,stellar_height,flux_weight])
 
     if RV_table == []:
+        print "Lowering ccf_height threshold"
+        ### Lower the bar on ccf_height
+        for i in range(len(related)):
+            print related[i]
+            JD = related[i][3]
+            stellar_height = related[i][5]
+            vhelio = related[i][7]
+            vhelio_err = related[i][8]
+            aperture = int(related[i][4]) - 1
+            flux_weight = aperture_weights[aperture]
+
+            if functions.is_number(stellar_height) and functions.is_number(JD) and functions.is_number(vhelio) and functions.is_number(vhelio_err):
+                if stellar_height > 0.10: ### NORMAL
+                #if stellar_height > 0.0: ### Manual
+                    RV_table.append([JD,vhelio,vhelio_err,stellar_height,flux_weight])
+
+    if RV_table == []:
+        ### If it still doesn't work, return INDEF
         return ["INDEF","INDEF","INDEF","INDEF"]
+
     else:
 
         ### Use (fxcor telluric error + telluric height + stellar error +
@@ -210,6 +230,18 @@ def calc_RV(RV_out,file_name):
                     stellar_height_list.append(stellar_height[i])
                     flux_weights_list.append(flux_weights[i])
 
+            if len(v_list) == 0:
+                v_list = []
+                err_list = []
+                stellar_height_list = []
+                flux_weights_list = []
+                for i in range(len(vhelio)):
+                    if (abs(vhelio[i] - median(vhelio)) < 50.0) and (vhelio_err[i] < 50.0):
+                        v_list.append(vhelio[i])
+                        err_list.append(vhelio_err[i])
+                        stellar_height_list.append(stellar_height[i])
+                        flux_weights_list.append(flux_weights[i])
+
             err_list = array(err_list)
             stellar_height_list = array(stellar_height_list)
             flux_weights_list = array(flux_weights_list)
@@ -217,7 +249,7 @@ def calc_RV(RV_out,file_name):
             poisson_factor = (1/flux_weights_list) * (err_list/sum(err_list) +(1/stellar_height_list)/sum(1/stellar_height_list))
             poisson_factor = 1 / poisson_factor
             poisson_factor = poisson_factor / max(poisson_factor)
-            poisson_factor = sqrt(sum(poisson_factor))
+            poisson_factor = sqrt(sum(poisson_factor)/nstandards)
 
             v_err = std(v_list)
             velocity = waverage(v_list,(1/flux_weights_list) * (err_list/sum(err_list) + (1/stellar_height_list)/sum(1/stellar_height_list)))
@@ -293,6 +325,16 @@ hdulist = pyfits.open(file_path + file_name)
 object_name = hdulist[0].header['OBJECT']
 exptime = hdulist[0].header['EXPTIME']
 hdulist.close()
+
+### Find number of RV standards
+os.system("python find_rv.py "+file_path)
+nstandards = open(file_path_temp + "RV_Standard_list").read()
+if not nstandards == "":
+    nstandards = string.split(nstandards)
+    nstandards = float(len(nstandards))
+else:
+    nstandards = 1.0
+os.system("rm "+file_path_temp+" RV_Standard_list")
 
 RV_out = functions.read_ascii(file_path_reduced + "RV_out.dat")
 RV_out = functions.read_table(RV_out)

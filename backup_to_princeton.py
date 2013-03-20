@@ -3,10 +3,28 @@ import os
 import sys
 import string
 import mysql_query
+#from pyraf import iraf
+import pyfits
+
+def remove_nonhs(file_path):
+    file_list = os.system("ls "+file_path+"*.fits > file_list")
+    file_list = open("file_list").read()
+    file_list = string.split(file_list)
+    for file_name in file_list:
+        hdulist = pyfits.open(file_name)
+        object_name = hdulist[0].header["OBJECT"]
+        comments = hdulist[0].header["NOTES"]
+        hdulist.close()
+
+        if not (object_name[:4] == "HATS" or object_name == "Ne-Ar" or object_name == "Flat" or object_name == "bias") and not (comments == "RV Standard" or comments == "SpecPhot"):
+            print file_name,object_name,comments
+            os.system("rm "+file_name)
+
+    #sys.exit()
 
 def upload(file_path,dateformat):
-    file_path_RV = file_path + "RV/red/"
-    file_path_spectype = file_path + "spectype/blue/"
+    file_path_RV = file_path + "/RV/red/"
+    file_path_spectype = file_path + "/spectype/blue/"
 
     ### Do raw files first
     print "Zipping raw files"
@@ -18,6 +36,9 @@ def upload(file_path,dateformat):
 
     os.system("cp "+file_path_spectype+"*.fits "+dateformat+"/spectype/")
     os.system("cp "+file_path_RV+"*.fits "+dateformat+"/RV/")
+
+    remove_nonhs(dateformat+"/RV/")
+    remove_nonhs(dateformat+"/spectype/")
 
     os.system("tar -pczf "+dateformat+".tar.gz "+dateformat+"/")
 
@@ -39,6 +60,9 @@ def upload(file_path,dateformat):
     os.system("cp "+file_path_spectype+"reduced/fluxcal*.fits "+dateformat+"/spectype/")
     os.system("cp "+file_path_RV+"reduced/normspec*.fits "+dateformat+"/RV/")
 
+    remove_nonhs(dateformat+"/RV/")
+    remove_nonhs(dateformat+"/spectype/")
+
     os.system("tar -pczf "+dateformat+".tar.gz "+dateformat+"/")
 
     ### Upload to princeton
@@ -48,9 +72,9 @@ def upload(file_path,dateformat):
 
     os.system("rm -rf "+dateformat+"*")
 
+    #sys.exit()
 
-
-query_entry = "select distinct SPECutdate from SPEC where SPECutdate >= \"2012-05-09\" and SPECutdate <= \"2012-05-15\" and SPECinstrum = \"WiFeS\""
+query_entry = "select distinct SPECutdate from SPEC where SPECutdate >= \"2012-10-01\" and SPECutdate <= \"2012-12-30\" and SPECinstrum = \"WiFeS\""
 query_result = mysql_query.query_hsmso(query_entry)
 
 month_list = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]

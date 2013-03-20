@@ -315,9 +315,17 @@ data = handle.read()
 candids={}
 
 for f in data.splitlines():
+
+    #print re.search('a href="Candidate_Edit.aspx',f)
+    #print re.search('candidateID=',f)
+    #print re.search('HATS',f)
+
     if re.search('a href="Candidate_Edit.aspx',f) and \
-            re.search('candidateID=',f) and \
-            re.search('HATS',f):
+            re.search('candidateID=',f):
+
+    # if re.search('a href="Candidate_Edit.aspx',f) and \
+    #         re.search('candidateID=',f) and \
+    #         re.search('HATS',f):
         candidateid = f.split("=")[2].split('"')[0]
         candname = f.split(">")[1].split("<")[0]
         candids[candname] = candidateid

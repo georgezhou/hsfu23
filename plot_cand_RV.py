@@ -38,6 +38,13 @@ if sys.argv[1] == "-f":
 if sys.argv[1] == "-o":
     object_name = sys.argv[2]
 
+if object_name[:4] == "HATS":
+    object_name_query = object_name[:11]
+else:
+    object_name_query = object_name
+
+print object_name_query
+
 plots_folder = functions.read_param_file("RV_PLOTS_FOLDER")
 
 ### Extract rv points from HSMSO
@@ -56,7 +63,7 @@ if len(RV_points) > 1:
     ### Extract candidate phase information from HSCAND
     if object_name[:4]=="HATS":
         print "Using HSCAND for candidate parameters"
-        query_entry = "select HATSE,HATSP,HATSq from HATS where HATSname=\'%s\' " % object_name
+        query_entry = "select HATSE,HATSP,HATSq from HATS where HATSname=\'%s\' " % object_name_query
         cand_params = mysql_query.query_hscand(query_entry)[1]
 
     else:
@@ -82,9 +89,12 @@ if len(RV_points) > 1:
     program_dir = os.getcwd() + "/" #Save the current working directory
     os.chdir(plots_folder)
 
+    print cand_params
+    
     os.system("./rv_plot.sh "+object_name+" "+str(cand_params[0])+" "+str(cand_params[1])+" "+str(cand_params[2]))
+    #os.system("./rv_plot.sh "+object_name+" "+str(cand_params[0]+0.5*cand_params[1])+" "+str(cand_params[1]*2)+" "+str(cand_params[2]))
 
     os.chdir(program_dir)
 
     if functions.read_config_file("OPEN_RESULT_PDFS") == "true":
-        os.system("xpdf "+plots_folder + object_name + ".pdf &")
+        os.system("evince "+plots_folder + object_name + ".pdf &")

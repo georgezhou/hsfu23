@@ -265,12 +265,12 @@ for im_slice in image_slices:
     ### Be more lenient if apertures will be combined
     if combine_aps == "true":
         lowrej = 30.0
-        highrej = 5.0
+        highrej = 20.0
         nit = 2
     else:
-        lowrej = 10.0
-        highrej = 2.0
-        nit = 5
+        lowrej = 50.0
+        highrej = 50.0
+        nit = 2
 
     os.system("rm cray_" + im_slice + "_" + file_name)
     iraf.continuum(

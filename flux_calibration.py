@@ -76,8 +76,8 @@ def divide_smooth(input_file):
         naverage = 1,\
         function = "spline3",\
         order = 10,\
-        low_reject = 15.0,\
-        high_reject = 4.0,\
+        low_reject = 30.0,\
+        high_reject = 20.0,\
         niterate = 1,\
         grow = 5.0)
 

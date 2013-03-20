@@ -59,8 +59,8 @@ def run_fxcor(input_file,input_rv,lines,output,fitshead_update,npoints,functiont
         maxwidth = npoints,\
         weights = 1.,\
         background = "INDEF",\
-        window = "INDEF",\
-        wincenter = "INDEF",\
+        window = 30,\
+        wincenter = 0,\
         output = output,\
         verbose = "long",\
         imupdate = fitshead_update,\

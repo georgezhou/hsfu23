@@ -132,10 +132,12 @@ def monotonicize(x_list,y_list,direction):
     return x_list,y_list
 
 def bisector_analysis(x_list,y_list,height,centre,width):
-    height_step = (max(y_list)-min(y_list)) /22 ### we want 20 points for analysis
+    #height_step = (max(y_list)-min(y_list)) /22 ### we want 20 points for analysis
+    height_step = 0.4 * height / 22
     height_list = []
-    i = max(y_list) - height_step
-    while i > 0.025:
+    #i = max(y_list) - height_step
+    i = 0.8 * height
+    while i > 0.4 * height:
         height_list.append(i)
         i = i - height_step
 
@@ -207,6 +209,7 @@ for i in range(len(ccf)):
         max_pos = i
         break
 
+#ccf = ccf[i-200:i+200]
 ccf = ccf[i-40:i+40]
 ccf = transpose(ccf)
 
@@ -252,7 +255,8 @@ delta_v_top = std(bisector_list[:5])
 v_bottom = median(bisector_list[len(bisector_list)-5:])
 delta_v_bottom = std(bisector_list[len(bisector_list)-5:])
 
-BIS = (v_top - v_bottom)/height
+#BIS = (v_top - v_bottom)/height
+BIS = (v_top - v_bottom) / 0.4
 BIS_err = abs(BIS * sqrt((delta_v_top / v_top)**2 + (delta_v_bottom / v_bottom)**2))
 
 print "BIS is " + str(BIS) + "+/-" + str(BIS_err)

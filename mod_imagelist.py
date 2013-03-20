@@ -34,7 +34,7 @@ file_path = sys.argv[1]
 ### Load imagelist
 imagelist = functions.read_ascii(file_path + "image_list")
 
-disallowed = ["Arc","Ne-Ar","Flat","Quartz","bias",""]
+disallowed = ["Arc","Ne-Ar","Flat","Quartz","bias","","SkyFlat"]
 
 imagelist_temp = []
 for i in range(len(imagelist)):

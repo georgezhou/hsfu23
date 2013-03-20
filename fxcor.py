@@ -54,6 +54,7 @@ def run_fxcor(input_file,input_rv,lines,output,fitshead_update,write_ccf):
         templates = input_rv, \
         apertures = "*", \
         cursor = ccf_command,\
+        #cursor = "",\
         continuum = "both",\
         filter = "both",\
         rebin = "smallest",\
@@ -71,11 +72,13 @@ def run_fxcor(input_file,input_rv,lines,output,fitshead_update,write_ccf):
         background = "INDEF",\
         window = "INDEF",\
         wincenter = "INDEF",\
+        #wincenter = 0.0,\
         output = output,\
         verbose = "long",\
         imupdate = fitshead_update,\
         graphics = "stdgraph",\
         interactive = interact,\
+        #interactive = 1,\
         autowrite = 1,\
         ccftype = "text",\
         observatory = "sso",\
@@ -253,6 +256,13 @@ if len(RV_list) > 0:
     iraf.filtpars.setParam("f_type","square",check=1,exact=1)
     iraf.filtpars.setParam("cuton",50,check=1,exact=1)
     iraf.filtpars.setParam("cutoff",5000,check=1,exact=1)
+
+    iraf.unlearn(iraf.continpars)
+    iraf.continpars.setParam("c_interactive",0,check=1,exact=1)
+    iraf.continpars.setParam("order",5,check=1,exact=1)
+    iraf.continpars.setParam("low_reject",2.0,check=1,exact=1)
+    iraf.continpars.setParam("high_reject",2.0,check=1,exact=1)
+
 
     ### Then apply fxcor to the stellar regions for RV measurement
     os.system("rm fxcor_stellar*")
