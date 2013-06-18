@@ -252,7 +252,7 @@ if os.path.isfile(COOKIEFILE):
 opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cj))
 urllib2.install_opener(opener)
 
-theurl='http://hatsouth.intersigma.dk/Login.aspx'
+theurl = 'http://hatsouth.exoplanets.dk/Login.aspx'
 
 req = Request(theurl)
 
@@ -278,7 +278,7 @@ txdata=urllib.urlencode({'__EVENTARGUMENT': '', '__EVENTTARGET': '', '__EVENTVAL
 
 #txdata=urllib.urlencode({'user': usr, 'pass': pwd})
 
-txheaders = {'User-agent' : 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)', 'Referer': 'http://hatsouth.intersigma.dk/Login.aspx'}
+txheaders = {'User-agent' : 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)', 'Referer': 'http://hatsouth.exoplanets.dk/Login.aspx'}
 # fake a user agent, some websites (like google) don't like automated exploration
 
 req = Request(theurl,txdata,txheaders)
@@ -298,13 +298,13 @@ for f in data.splitlines():
         g=f.split('"')
         prevpage=g[7]
 
-theurl='http://hatsouth.intersigma.dk/Default.aspx'
+theurl='http://hatsouth.exoplanets.dk/Default.aspx'
 
 #candname='HATS551-008'
 
 txdata=urllib.urlencode({'__EVENTARGUMENT': '', '__EVENTTARGET': 'ctl00$cpMainContent$tbSearch', '__EVENTVALIDATION': validation, '__LASTFOCUS': '', '__PREVIOUSPAGE': prevpage, '__VIEWSTATE': viewstate, '__VIEWSTATEENCRYPTED': '', 'ctl00$cpMainContent$ddlNdays': 5, 'ctl00$cpMainContent$ddlTargetsPrPage': 10000, 'ctl00$cpMainContent$tbMagnitude': '', 'ctl00$cpMainContent$tbObsGroup': '', 'ctl00$cpMainContent$tbPhaseDate': '', 'ctl00$cpMainContent$tbPhaseSlack': 0.1, 'ctl00$cpMainContent$tbPreferredNight': '', 'ctl00$cpMainContent$tbPriority_lc': '', 'ctl00$cpMainContent$tbPriority_spec': '', 'ctl00$cpMainContent$tbRAgt': '', 'ctl00$cpMainContent$tbRAlt': '', 'ctl00$cpMainContent$tbSearch': '', 'ctl00$cpMainContent$tbType': '', 'ctl00$cpMainContent$tbVPDate': '25-04-2011 05:00'})
 
-txheaders = {'User-agent' : 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)', 'Referer': 'http://hatsouth.intersigma.dk/Default.aspx'}
+txheaders = {'User-agent' : 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)', 'Referer': 'http://hatsouth.exoplanets.dk/Default.aspx'}
 
 req = Request(theurl,txdata,txheaders)
 
@@ -315,17 +315,9 @@ data = handle.read()
 candids={}
 
 for f in data.splitlines():
-
-    #print re.search('a href="Candidate_Edit.aspx',f)
-    #print re.search('candidateID=',f)
-    #print re.search('HATS',f)
-
     if re.search('a href="Candidate_Edit.aspx',f) and \
-            re.search('candidateID=',f):
-
-    # if re.search('a href="Candidate_Edit.aspx',f) and \
-    #         re.search('candidateID=',f) and \
-    #         re.search('HATS',f):
+            re.search('candidateID=',f) and \
+            re.search('HATS',f):
         candidateid = f.split("=")[2].split('"')[0]
         candname = f.split(">")[1].split("<")[0]
         candids[candname] = candidateid
@@ -343,8 +335,8 @@ for lines in allinlines.splitlines():
             velline=velline+" "+g
 
         inserturl=urllib.urlencode({'candidateid': idval})
-        inserturl="http://hatsouth.intersigma.dk/add_velocity.aspx?"+inserturl
-        inserturl2="http://hatsouth.intersigma.dk/add_velocity.aspx"
+        inserturl="http://hatsouth.exoplanets.dk/add_velocity.aspx?"+inserturl
+        inserturl2="http://hatsouth.exoplanets.dk/add_velocity.aspx"
         req = Request(inserturl)
         handle = urlopen(req)
         data = handle.read()

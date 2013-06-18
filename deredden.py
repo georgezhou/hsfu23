@@ -43,6 +43,7 @@ def try_webpage(url):
 
 def find_max_reddening(ra,dec):
     print "Trying ",ra,dec
+    ra,dec = str(ra),str(dec)
     page_url = "http://irsa.ipac.caltech.edu/cgi-bin/DUST/nph-dust?locstr="
     page_url = page_url + ra + "+" + dec + "+equ+j2000"
 
@@ -93,7 +94,7 @@ os.system("rm deredden/" +"*"+ string.split(file_name,".")[0] + "*")
 ### Define max reddening
 #redden_max = 0.13
 
-hdulist = pyfits.open(file_path + file_name)
+hdulist = pyfits.open(file_path_reduced + "spec_" + file_name)
 object_name = hdulist[0].header["OBJECT"]
 ra = hdulist[0].header["RA"]
 dec = hdulist[0].header["DEC"]

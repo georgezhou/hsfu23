@@ -7,6 +7,7 @@ import os
 import functions
 import matplotlib.pyplot as plt
 from matplotlib.widgets import Slider, Button
+import detect_stars
 
 ###################
 ### Description ###
@@ -69,6 +70,9 @@ def find_required_apertures(input_list,starting_pos):
 
 ### Read from config file
 no_apertures = int(functions.read_config_file("NO_APERTURES"))
+no_stars = int(functions.read_config_file("NO_STARS"))
+se_path = functions.read_param_file("SE_PATH")
+program_dir = os.getcwd()+"/"
 
 ### Set file_path
 file_path = sys.argv[1]
@@ -106,6 +110,24 @@ for image_slice in image_slices_list:
     spatial_image.append(row_values)
 
 spatial_image = array(spatial_image)
+
+# os.system("rm image.fits")
+# os.system("cp "+program_dir+"default.sex .")
+# os.system("cp "+program_dir+"default.param .")
+
+# hdu = pyfits.PrimaryHDU(spatial_image)
+# hdulist = pyfits.HDUList([hdu])
+# hdulist.writeto("image.fits")
+
+# detect_stars.detect_stars("image.fits",se_path)
+
+# os.system("cat master_coo")
+# coo = functions.read_ascii("master_coo")
+# coo = functions.read_table(coo)
+# #sys.exit()
+
+# xpos = coo[0][1]-1
+# ypos = coo[0][0]-1
 
 xpos,ypos = find_max_in_array(spatial_image)
 print xpos,ypos

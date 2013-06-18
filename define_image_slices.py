@@ -48,6 +48,7 @@ if os.path.exists(file_path_temp + "master_flat.fits"):
     for i in range(1,len(median_values)):
         if median_values[i] > threshold and median_values[i-1] < threshold:
             region_table.append([i+1,i+38])
+            #region_table.append([i+5,i+33])
 
     ### Write the table into a text file
     image_slice_table = open(file_path_temp + "image_slice_table.txt","w")

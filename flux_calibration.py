@@ -5,9 +5,10 @@ import string
 import sys
 import os
 import pyfits
-
+import re
 ### Load functions script (located in the same folder)
 import functions
+from scipy import interpolate
 
 ### Load iraf moduels
 iraf.noao()
@@ -32,9 +33,75 @@ iraf.onedspec()
 ### Functions ###
 #################
 
+def update_fitsheader(input_header,original_data,image):
+    bad_header_names = "SIMPLE,BITPIX,NAXIS,NAXIS1,NAXIS2,BSCALE,BZERO"
+
+    # print input_header
+    # sys.exit()
+    
+    ### correct header
+    #input_header = string.split(input_header,"\n")
+    corrected_header = []
+    for i in range(len(input_header)):
+        #print input_header[i]
+        if not input_header[i] == "":
+            if not input_header[i][0] == " ":
+                header_name = re.split(" |=",input_header[i])[0]
+                try:
+                    header_value = original_data[0].header[header_name]
+                    if type(header_value) == str:
+                        if len(header_value) > 0:
+                            if header_value[0] == "+":
+                                header_value = header_value[1:]
+
+                    # else:
+                    #     header_value = str(header_value)
+
+                    if not (header_name in bad_header_names):
+                        try:            
+                            #print header_name,header_value,type(header_value)
+                            iraf.hedit(
+                                images = image,\
+                                fields = header_name,\
+                                add = 0,\
+                                addonly = 0,\
+                                delete = 1,\
+                                verify = 0,\
+                                show = 0,\
+                                update = 0)
+
+                            iraf.hedit(
+                                images = image,\
+                                fields = header_name,\
+                                value = "dummy",\
+                                add = 1,\
+                                addonly = 0,\
+                                delete = 0,\
+                                verify = 0,\
+                                show = 0,\
+                                update = 1)
+
+                            iraf.hedit(
+                                images = image,\
+                                fields = header_name,\
+                                value = header_value,\
+                                add = 1,\
+                                addonly = 0,\
+                                delete = 0,\
+                                verify = 0,\
+                                show = 0,\
+                                update = 1)
+                        except iraf.IrafError:
+                            print "Hedit insert error",header_name,header_value,type(header_value)
+
+                except KeyError:
+                    pass
+
 def divide_smooth(input_file):
     os.system("rm smoothdiv*_"+input_file)
 
+    print wave_w1,wave_w2
+    
     iraf.sarith(
         input1 = "spec_" + input_file,\
         op = "/",\
@@ -42,9 +109,9 @@ def divide_smooth(input_file):
         output = "smoothdivtemp_"+input_file,\
         w1 = wave_w1,\
         w2 = wave_w2,\
-        apertures = 1,\
-        bands = 1,\
-        beams = 1,\
+        apertures = "*",\
+        bands = "",\
+        beams = "",\
         apmodulus = 0,\
         reverse = 0,\
         ignoreaps = 1,\
@@ -77,7 +144,7 @@ def divide_smooth(input_file):
         function = "spline3",\
         order = 10,\
         low_reject = 30.0,\
-        high_reject = 20.0,\
+        high_reject = 30.0,\
         niterate = 1,\
         grow = 5.0)
 
@@ -105,6 +172,8 @@ os.chdir(file_path_temp) #Change to ../temp/
 
 ### read in all flux standard exposures
 SpecPhot_list = functions.read_ascii(file_path_temp + "SpecPhot_list")
+for i in range(len(SpecPhot_list)):
+    SpecPhot_list[i] = "A_"+SpecPhot_list[i]
 
 #################################################
 ### Divide object by black body star spectrum ###
@@ -234,8 +303,8 @@ iraf.continuum(
     naverage = 1,\
     function = "spline3",\
     order = 15,\
-    low_reject = 10.0,\
-    high_reject = 5.0,\
+    low_reject = 30.0,\
+    high_reject = 30.0,\
     niterate = 10,\
     grow = 1.0)
 
@@ -243,7 +312,7 @@ os.system("rm fluxcal_" + file_name)
 os.system("mv temp.fits fluxcal_" + file_name)
 
 ### Move spectrum to reduced/
-os.system("rm " + file_path_reduced + "spec_" + file_name)
+#os.system("rm " + file_path_reduced + "spec_" + file_name)
 os.system("cp -f " + "fluxcal_" + file_name + " " + file_path_reduced)
 
 ########################

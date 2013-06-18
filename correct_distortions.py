@@ -56,7 +56,9 @@ dichroic = functions.read_config_file("DICHROIC")
 
 ### Get slice numbers and arc images to use
 arc_list = functions.read_ascii(file_path_temp + "arcs_to_use.txt")
-image_slices = functions.read_ascii(file_path_temp + "stellar_apertures.txt")
+#image_slices = functions.read_ascii(file_path_temp + "stellar_apertures.txt")
+image_slices = loadtxt(file_path_temp+"image_slice_table.txt")
+image_slices = arange(len(image_slices))
 
 ### Define linelist to use
 linelist = grating + "_linelist.dat"
@@ -77,6 +79,7 @@ os.system("rm database/*" + string.split(file_name,".")[0] + "*")
 print "Straightening spectroscopic distortions"
 
 for im_slice in image_slices:
+    im_slice = str(im_slice)
 
     ### We only need one arc image as reference for 
     ### straightening out the lines
@@ -92,74 +95,137 @@ for im_slice in image_slices:
     os.system("cp -f " + program_dir+"cal_linelists/database/id"+grating+"_"+dichroic+"_template " + "database/")
     os.system("rm database/*" + im_slice + "_" + string.split(arc_name,".")[0]+ "*")
  
-    print "Dispersion correcting the central row of pixels"
+    # print "Dispersion correcting the central row of pixels"
 
-    iraf.reidentify(
-        reference = template, \
-        images = im_slice + "_" + arc_name,\
-        answer = "no",\
-        crval = "",\
-        cdelt = "",\
-        interactive = "no",\
-        section = "first line",\
-        newaps = 0,\
-        override = 1,\
-        refit = 1,\
-        trace = 0,\
-        step = "10",\
-        nsum = "10",\
-        shift = "INDEF",\
-        search = "INDEF",\
-        nlost = 2,\
-        cradius = 5.0,\
-        threshold = 5.0,\
-        addfeatures = 0,\
-        coordlist = program_dir + "cal_linelists/" + linelist,\
-        match = -2.0,\
-        maxfeatures = 60,\
-        minsep = 2.0,\
-        database = "database",\
-        plotfile = "",\
-        verbose = 1,\
-        graphics = "stdgraph",\
-        cursor = "",\
-        aidpars = "",\
-        mode = "ql")
+    # iraf.reidentify(
+    #     reference = template, \
+    #     images = im_slice + "_" + arc_name,\
+    #     answer = "no",\
+    #     crval = "",\
+    #     cdelt = "",\
+    #     interactive = "no",\
+    #     section = "first line",\
+    #     #section = "middle line",\
+    #     newaps = 0,\
+    #     override = 1,\
+    #     refit = 1,\
+    #     trace = 0,\
+    #     step = "10",\
+    #     nsum = "10",\
+    #     shift = "INDEF",\
+    #     search = "INDEF",\
+    #     nlost = 2,\
+    #     cradius = 5.0,\
+    #     threshold = 5.0,\
+    #     addfeatures = 0,\
+    #     coordlist = program_dir + "cal_linelists/" + linelist,\
+    #     match = -2.0,\
+    #     maxfeatures = 60,\
+    #     minsep = 2.0,\
+    #     database = "database",\
+    #     plotfile = "",\
+    #     verbose = 1,\
+    #     graphics = "stdgraph",\
+    #     cursor = "",\
+    #     aidpars = "",\
+    #     mode = "ql")
 
-    ### Run reidentify again on the same image
-    ### this time run it for every row 
-    ### along the spatial axis, such that we map out
-    ### the distortions
-    iraf.reidentify(
-        reference = im_slice +"_" + arc_name,\
-        images = im_slice + "_" + arc_name,\
-        interactive = "no",\
-        section = "first line",\
-        newaps = 1,\
-        override = 1,\
-        refit = 1,\
-        trace = 0,\
-        step = 1,\
-        nsum = 1,\
-        shift = "INDEF",\
-        search = "INDEF",\
-        nlost = 3,\
-        cradius = 5.0,\
-        threshold = 5.0,\
-        addfeatures = 0,\
-        coordlist = program_dir + "cal_linelists/" + linelist,\
-        match = -2.0,\
-        maxfeatures = 60,\
-        minsep = 2.0,\
-        database = "database",\
-        plotfile = "",\
-        verbose = 1,\
-        graphics = "stdgraph",\
-        cursor = "",\
-        answer = "no",\
-        crval = "",\
-        cdelt = "",\
-        aidpars = "")
+    # print "running reidentify again for each row"
+
+    nlines = pyfits.getdata(im_slice +"_" + arc_name)
+    nlines = len(nlines)
+    print nlines
+
+    for n in arange(1,nlines+1):
+
+        os.system("rm temp_slice.fits")
+        os.system("rm database/*temp_slice*")
+        
+        iraf.imcopy(
+            input = im_slice +"_" + arc_name+"[*,"+str(n)+"]",\
+            output = "temp_slice.fits")
+
+        iraf.reidentify(
+            reference = template, \
+            images = "temp_slice.fits",\
+            answer = "no",\
+            crval = "",\
+            cdelt = "",\
+            interactive = "no",\
+            section = "first line",\
+            #section = "middle line",\
+            newaps = 0,\
+            override = 1,\
+            refit = 1,\
+            trace = 0,\
+            step = "10",\
+            nsum = "10",\
+            shift = "INDEF",\
+            search = "INDEF",\
+            nlost = 2,\
+            cradius = 5.0,\
+            threshold = 5.0,\
+            addfeatures = 0,\
+            coordlist = program_dir + "cal_linelists/" + linelist,\
+            match = -2.0,\
+            maxfeatures = 60,\
+            minsep = 2.0,\
+            database = "database",\
+            plotfile = "",\
+            verbose = 1,\
+            graphics = "stdgraph",\
+            cursor = "",\
+            aidpars = "",\
+            mode = "ql")
+
+
+        identify_result = open("database/idtemp_slice").read()
+        #identify_result = string.split(identify_result,"\n\t")
+        #print identify_result
+        identify_result = string.replace(identify_result,"temp_slice",im_slice +"_" + string.split(arc_name,".fits")[0]+"[*,"+str(n)+"]")
+        f = open("database/temp_text","w")
+        f.write(identify_result)
+        f.close()
+
+        os.system("cat database/temp_text >> database/id"+im_slice +"_" +string.split(arc_name,".fits")[0])
+                 
+
+
+    # ### Run reidentify again on the same image
+    # ### this time run it for every row 
+    # ### along the spatial axis, such that we map out
+    # ### the distortions
+    # iraf.reidentify(
+    #     reference = im_slice +"_" + arc_name,\
+    #     images = im_slice + "_" + arc_name,\
+    #     interactive = "yes",\
+    #     section = "first line",\
+    #     #section = "middle line",\
+    #     newaps = 1,\
+    #     override = 1,\
+    #     refit = 0,\
+    #     trace = 0,\
+    #     step = 1,\
+    #     nsum = 1,\
+    #     shift = "INDEF",\
+    #     search = "INDEF",\
+    #     nlost = 3,\
+    #     cradius = 5.0,\
+    #     threshold = 5.0,\
+    #     addfeatures = 0,\
+    #     coordlist = program_dir + "cal_linelists/" + linelist,\
+    #     match = -2.0,\
+    #     maxfeatures = 60,\
+    #     minsep = 2.0,\
+    #     database = "database",\
+    #     plotfile = "",\
+    #     verbose = 1,\
+    #     graphics = "stdgraph",\
+    #     cursor = "",\
+    #     answer = "yes",\
+    #     crval = "",\
+    #     cdelt = "",\
+    #     aidpars = "")
 
     ### Run fitcoords to fit coordinate and get ready for transformation
     ### xorder and yorder specifies the fitting orders
@@ -220,3 +286,4 @@ for im_slice in image_slices:
         blank = "INDEF",\
         logfile = "STDOUT,logfile",\
         mode = "al")
+

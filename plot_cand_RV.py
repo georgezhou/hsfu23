@@ -31,15 +31,20 @@ if sys.argv[1] == "-f":
     file_name = sys.argv[3]
 
     ### Extract object name from fits header
-    hdulist = pyfits.open(file_path + file_name)
+    hdulist = pyfits.open(file_path_reduced +"normspec_"+ file_name)
     object_name = hdulist[0].header["OBJECT"]
     hdulist.close()
 
 if sys.argv[1] == "-o":
     object_name = sys.argv[2]
 
-if object_name[:4] == "HATS":
-    object_name_query = object_name[:11]
+# if object_name[:4] == "HATS":
+#     object_name_query = object_name[:11]
+# else:
+#     object_name_query = object_name
+
+if ord(object_name[-1])-ord("A")>0 and ord(object_name[-1])-ord("A")<10:
+    object_name_query = object_name[:-1]
 else:
     object_name_query = object_name
 
@@ -50,6 +55,8 @@ plots_folder = functions.read_param_file("RV_PLOTS_FOLDER")
 ### Extract rv points from HSMSO
 query_entry = "select SPEChjd, SPECrv, SPECrv_err from SPEC where SPECtype=\"RV\" and SPECobject=\"%s\" " % object_name
 RV_points = mysql_query.query_hsmso(query_entry)
+
+print RV_points
 
 if len(RV_points) > 0:
     cand_txt = open(plots_folder + object_name + ".txt","w")
@@ -73,7 +80,7 @@ if len(RV_points) > 1:
 
         object_found = False
         for entry in candidates_txt:
-            if entry[0] == object_name:
+            if entry[0] == object_name_query:
                 print "Using candidates.txt for candidate parameters"
                 object_found = True
                 cand_params = [entry[5],entry[6],entry[7]]
@@ -91,8 +98,10 @@ if len(RV_points) > 1:
 
     print cand_params
     
+    print cand_params[0],cand_params[1],cand_params[2]
+
     os.system("./rv_plot.sh "+object_name+" "+str(cand_params[0])+" "+str(cand_params[1])+" "+str(cand_params[2]))
-    #os.system("./rv_plot.sh "+object_name+" "+str(cand_params[0]+0.5*cand_params[1])+" "+str(cand_params[1]*2)+" "+str(cand_params[2]))
+    #os.system("./rv_plot.sh "+object_name+" "+str(cand_params[0])+" "+str(2*cand_params[1])+" "+str(cand_params[2]))
 
     os.chdir(program_dir)
 

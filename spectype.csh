@@ -52,7 +52,7 @@ if ($test == "True") then
     ### finds the ith image from file SpecPhot_list
     set SP_i = `gawk "NR==$i {print}" $SpecPhot_list` 
 
-    ls $file_path/temp/smoothdiv_{$SP_i}* >& /dev/null
+    ls $file_path/temp/smoothdiv_*{$SP_i}* >& /dev/null
     if ( $status == 0 ) then
         echo $SP_i has already been reduced
     else

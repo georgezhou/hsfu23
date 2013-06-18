@@ -14,7 +14,8 @@ def db_rv_entry(object_name,file_name,grating,resolution,dichroic,dateobs,mjd,hj
     db=MySQLdb.connect(host="mutant.anu.edu.au",user="daniel",passwd="h@ts0uthDB",db="daniel1")
 
     c = db.cursor()
-    c.execute("""SELECT SPECid FROM SPEC WHERE SPECmjd=""" + str(mjd) + """ and SPECobject=\"%s\" """ % object_name)
+    #c.execute("""SELECT SPECid FROM SPEC WHERE SPECmjd=""" + str(mjd) + """ and SPECobject=\"%s\" """ % object_name)
+    c.execute("""SELECT SPECid FROM SPEC WHERE SPECmjd=""" + str(mjd))
 
     duplicate = c.fetchone()
     if duplicate == None:
@@ -75,7 +76,7 @@ def db_spectype_entry(object_name,file_name,grating,resolution,dichroic,dateobs,
     db=MySQLdb.connect(host="mutant.anu.edu.au",user="daniel",passwd="h@ts0uthDB",db="daniel1")
 
     c = db.cursor()
-    c.execute("""SELECT SPECid FROM SPEC WHERE SPECmjd=""" + str(mjd) + """ and SPECobject=\"%s\" """ % object_name)
+    c.execute("""SELECT SPECid FROM SPEC WHERE SPECmjd=""" + str(mjd))
 
     duplicate = c.fetchone()
     if duplicate == None:

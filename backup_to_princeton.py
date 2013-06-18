@@ -74,7 +74,7 @@ def upload(file_path,dateformat):
 
     #sys.exit()
 
-query_entry = "select distinct SPECutdate from SPEC where SPECutdate >= \"2012-10-01\" and SPECutdate <= \"2012-12-30\" and SPECinstrum = \"WiFeS\""
+query_entry = "select distinct SPECutdate from SPEC where SPECutdate >= \"2013-01-01\" and SPECutdate <= \"2013-04-30\" and SPECinstrum = \"WiFeS\""
 query_result = mysql_query.query_hsmso(query_entry)
 
 month_list = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]

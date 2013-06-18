@@ -42,6 +42,7 @@ def try_webpage(url):
         return False
 
 def find_max_reddening(ra,dec):
+    ra,dec = str(ra),str(dec)
     print "Trying ",ra,dec
     page_url = "http://irsa.ipac.caltech.edu/cgi-bin/DUST/nph-dust?locstr="
     page_url = page_url + ra + "+" + dec + "+equ+j2000"
@@ -125,11 +126,12 @@ flux_normalise_w1 = eval(functions.read_param_file("FLUX_NORMALISE_w1"))
 flux_normalise_w2 = eval(functions.read_param_file("FLUX_NORMALISE_w2"))
 
 ### Find initial estimate of properties
-hdulist = pyfits.open(file_path + file_name)
+hdulist = pyfits.open(file_path_reduced+"spec_"+file_name)
 object_name = hdulist[0].header["OBJECT"]
 ra = hdulist[0].header["RA"]
 dec = hdulist[0].header["DEC"]
 max_reddening = find_max_reddening(ra,dec)
+
 print "Regional maximum reddening of E(B-V):",max_reddening
 hdulist.close()
 
@@ -490,6 +492,8 @@ def calculate_spectral_params(teff_ini,logg_ini,feh_ini):
         plt.plot(master_flux_wave,data_flux,"b-",label="data")
         plt.plot(master_flux_wave,template_flux,"g-",label="template")
         plt.xlim(3600,5800)
+        ylim_range = max(template_flux)-min(template_flux)
+        plt.ylim(min(template_flux)-ylim_range*0.2,max(template_flux)+ylim_range*0.2)
 
         plt.legend(loc="lower right",ncol=2)
 

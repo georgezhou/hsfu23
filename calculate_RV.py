@@ -156,7 +156,8 @@ def calc_RV(RV_out,file_name):
     for i in range(len(RV_out)):
         row_name = RV_out[i][1]
         row_name = string.split(row_name,".")[0]
-        row_name = string.split(row_name,"_")[1]
+        row_name = string.split(row_name,"normspec_")[1]
+        print file_name,row_name
         if file_name == row_name:
             related.append(RV_out[i])
 
@@ -275,7 +276,7 @@ fxcor_stellar = functions.read_table(fxcor_stellar)
 
 ### Load grating / camera settings
 grating = functions.read_config_file("GRATING")
-dichroic = functions.read_config_file("RT560")
+dichroic = functions.read_config_file("DICHROIC")
 
 region_w1 = functions.read_param_file(grating+"_"+dichroic+"_w1")
 region_w2 = functions.read_param_file(grating+"_"+dichroic+"_w2")
@@ -321,7 +322,7 @@ extract_output.close()
 #############################################################################
 
 ### Open the image header for more info
-hdulist = pyfits.open(file_path + file_name)
+hdulist = pyfits.open(file_path_reduced + "normspec_"+file_name)
 object_name = hdulist[0].header['OBJECT']
 exptime = hdulist[0].header['EXPTIME']
 hdulist.close()

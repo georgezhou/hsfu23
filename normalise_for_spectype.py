@@ -58,9 +58,9 @@ iraf.scopy(
     output = "trim_" + file_name,\
     w1 = norm_w1,\
     w2 = norm_w2,\
-    apertures = 1,\
-    bands = 1,\
-    beams = 1,\
+    apertures = "*",\
+    bands = "",\
+    beams = "",\
     apmodulus = 0,\
     format = "multispec",\
     renumber = 0,\

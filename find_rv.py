@@ -5,6 +5,7 @@ import string
 import sys
 import os
 import pyfits
+import glob
 
 ### Load functions script (located in the same folder)
 import functions
@@ -49,19 +50,32 @@ file_path_reduced = file_path + "reduced/"
 ### Open file_path and find all RV_standards ###
 ################################################
 
-### Get a list of fits files with objects begining in "HD"
-object_list = functions.ccdlist_extract(iraf.ccdlist(file_path +"*.fits",Stdout = 1))
-HD_match = functions.ccdlist_identify_HD(object_list)
-
-### Open those images and check if NOTES says "RV Standard"
-RV_match = check_head(HD_match,"NOTES","RV Standard")
-
-### Write the file_names to temp textfile
 RV_list = open(file_path_temp + "RV_Standard_list","w")
-for i in range(len(RV_match)):
-    file_name = object_list[RV_match[i]][2] + "\n"
-    RV_list.write(file_name)
+
+
+os.chdir(file_path)
+file_list = glob.glob("*.fits")
+for file_name in file_list:
+    hdulist = pyfits.open(file_name)
+    notes = hdulist[0].header["NOTES"]
+    if notes == "RV Standard":
+        file_name_short = string.split(file_name,".fits")[0]
+        RV_list.write(file_name_short+"\n")
 RV_list.close()
+
+
+# ### Get a list of fits files with objects begining in "HD"
+# object_list = functions.ccdlist_extract(iraf.ccdlist(file_path +"*.fits",Stdout = 1))
+# HD_match = functions.ccdlist_identify_HD(object_list)
+
+# ### Open those images and check if NOTES says "RV Standard"
+# RV_match = check_head(HD_match,"NOTES","RV Standard")
+
+# ### Write the file_names to temp textfile
+# for i in range(len(RV_match)):
+#     file_name = object_list[RV_match[i]][2] + "\n"
+#     RV_list.write(file_name)
+# RV_list.close()
 
 
 

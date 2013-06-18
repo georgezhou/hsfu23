@@ -6,8 +6,8 @@ import sys
 import string
 import pyfits
 
-start_date = "2012-12-04"
-end_date = "2012-12-06"
+start_date = "2013-05-01"
+end_date = "2013-05-31"
 
 program_dir = os.getcwd() + "/" #Save the current working directory
 
@@ -19,7 +19,13 @@ month_list = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov",
 ### Deal with RV observations
 
 query_entry = "select SPECutdate,SPECimgname,SPECobject,SPEChjd,SPECrv,SPECrv_err,SPECccfheight,SPECbis,SPECbis_err"
-query_entry = query_entry + " from SPEC where SPECutdate >= \""+start_date+"\" and SPECutdate <=\""+end_date+"\" and SPECobject like \"HATS%\" and SPECtype =\"RV\" and SPECinstrum=\"WiFeS\""
+query_entry = query_entry + " from SPEC where SPECutdate >= \""+start_date+"\" and SPECutdate <=\""+end_date+"\" and SPECtype =\"RV\" and SPECtelescope=\"ANU23\""
+query_entry = query_entry + " and SPECobject like \"0%\""
+#query_entry = query_entry + " and (SPECobject like \"0%\" or SPECobject like \"HATS%\")"
+
+
+print query_entry
+
 
 exposure_info = mysql_query.query_hsmso(query_entry)
 
@@ -45,7 +51,7 @@ if len(exposure_info)>0:
         os.system("cp /mimsy/george/wifes/candidates/RV_plots/"+candidate_name+".pdf outputs/RV_plots/")
 
     os.chdir("outputs/RV_plots/")
-    os.system("gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=RV_ANU23.pdf HATS*.pdf")
+    os.system("gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=RV_ANU23.pdf *.pdf")
 
     os.chdir(program_dir)
     os.chdir("outputs/")
@@ -63,7 +69,8 @@ if len(exposure_info)>0:
 os.chdir(program_dir)
 
 query_entry = "select SPECutdate,SPECobject,SPECteff,SPEClogg"
-query_entry = query_entry + " from SPEC where SPECutdate >= \""+start_date+"\" and SPECutdate <=\""+end_date+"\" and SPECobject like \"HATS%\" and SPECtype = \"ST\""
+query_entry = query_entry + " from SPEC where SPECutdate >= \""+start_date+"\" and SPECutdate <=\""+end_date+"\" and SPECtype = \"ST\""
+query_entry = query_entry + " and SPECobject like \"0%\""
 
 exposure_info = mysql_query.query_hsmso(query_entry)
 
@@ -84,7 +91,7 @@ if len(exposure_info)>0:
         #os.system("cp "+file_path+"reduced/spectype_plots/"+candidate_name+"_spectrum.pdf outputs/spectype/")
 
     os.chdir("outputs/spectype/")
-    os.system("gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=spectype.pdf HATS*.pdf")
+    os.system("gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=spectype.pdf *.pdf")
 
     os.chdir(program_dir)
     os.chdir("outputs/")

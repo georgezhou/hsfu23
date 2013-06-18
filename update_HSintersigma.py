@@ -16,12 +16,13 @@ import pyfits
 ### Start of program ###
 ########################
 
-start_date = "2012-12-06"
-end_date = "2012-12-06"
+
+start_date = "2013-05-24"
+end_date = "2013-05-25"
 
 query_entry = "select SPECtype,SPECobject,SPECmjd,SPEChjd,SPECrv,SPECrv_err,SPECtelescope,SPECresolution,SPECteff,SPECteff_err,SPEClogg,SPEClogg_err,SPECfeh,SPECfeh_err,SPECccfheight,SPECexptime,SPECsn"
-#query_entry = query_entry + " from SPEC where SPECutdate >= \""+start_date+"\" and SPECutdate <=\""+end_date+"\" and SPECobject like \"HATS%\" and SPECinstrum=\"WiFeS\""
-query_entry = query_entry + " from SPEC where SPECobject = \"HATS551-027\" "
+query_entry = query_entry + " from SPEC where SPECutdate >= \""+start_date+"\" and SPECutdate <=\""+end_date+"\" and SPECobject like \"HATS%\" and SPECtelescope=\"ANU23\""
+#query_entry = query_entry + " from SPEC where SPECobject = \"HATS563-025\" "
 
 exposure_info = mysql_query.query_hsmso(query_entry)
 #print exposure_info
@@ -72,12 +73,14 @@ if len(exposure_info) > 0:
         os.system("rm HSintersigma_output")
 
 
+
+
 ####################
 ### RV Standards ###
 ####################
 
 query_entry = "select SPECtype,SPECobject,SPECmjd,SPEChjd,SPECrv,SPECrv_err,SPECtelescope,SPECresolution,SPECteff,SPECteff_err,SPEClogg,SPEClogg_err,SPECfeh,SPECfeh_err,SPECccfheight,SPECexptime,SPECsn"
-query_entry = query_entry + " from SPEC where SPECutdate >= \""+start_date+"\" and SPECutdate <=\""+end_date+"\" and SPECinstrum=\"WiFeS\""
+query_entry = query_entry + " from SPEC where SPECutdate >= \""+start_date+"\" and SPECutdate <=\""+end_date+"\" and SPECinstrum=\"echelle\""
 query_entry = query_entry + " and (SPECobject=\"HD100623\""
 query_entry = query_entry + " or SPECobject=\"HD97343\""
 query_entry = query_entry + " or SPECobject=\"HD96700\""

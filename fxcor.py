@@ -72,6 +72,7 @@ def run_fxcor(input_file,input_rv,lines,output,fitshead_update,write_ccf):
         background = "INDEF",\
         window = "INDEF",\
         wincenter = "INDEF",\
+        #window = 500,\
         #wincenter = 0.0,\
         output = output,\
         verbose = "long",\
@@ -101,7 +102,7 @@ def append_VHELIO(image_file,v_value): #Note v_value must be string!
 
 ### Retrieve VHELIO information by searching database
 def retrieve_RV(star_name,database):
-    VHELIO = "ERROR"
+    VHELIO = "0.0"
     for i in range(len(database)):
         if database[i][0] == star_name:
             VHELIO = database[i][1]
@@ -141,7 +142,7 @@ os.chdir(file_path_reduced) #Change to ../reduced/ dir
 RV_list = functions.read_ascii(file_path_temp + "RV_Standard_list")
 
 for i in range(len(RV_list)):
-    RV_list[i] = "normspec_" + RV_list[i] + ".fits"
+    RV_list[i] = "normspec_A_" + RV_list[i] + ".fits"
     print RV_list[i]
 
 

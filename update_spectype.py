@@ -40,7 +40,7 @@ program_dir = os.getcwd() + "/" #Save the current working directory
 os.chdir(file_path_reduced) #Change to ../temp/ dir
 
 ### Find info from the fits header
-hdulist = pyfits.open(file_path + file_name)
+hdulist = pyfits.open(file_path_reduced+"spec_" + file_name)
 object_name = hdulist[0].header["OBJECT"]
 dateobs = hdulist[0].header["DATE-OBS"]
 mjd = hdulist[0].header["MJD-OBS"]
@@ -61,8 +61,22 @@ for entry in spectype:
 image_quality = functions.read_ascii("image_quality.dat")
 image_quality = functions.read_table(image_quality)
 
+sn = 0.
+entry_found = False
 for entry in image_quality:
     if entry[0] == file_name and entry[1] == object_name:
         sn = entry[5]
+        entry_found = True
+        break
+if not entry_found:
+    for entry in image_quality:
+        entry_name = string.split(entry[0],"_")[-1]
+        file_name_temp = string.split(file_name,"_")[-1]
+        index = 0
+        if len(string.split(file_name,"_")[-2]) == 1:
+            index = ord(string.split(file_name,"_")[-2]) - ord("A")
+        if entry_name == file_name_temp:
+            sn = entry[5]
+            mjd = eval(mjd)+0.00001*index
 
 mysql_insert.db_spectype_entry(object_name,file_name,grating,resolution,dichroic,dateobs,mjd,teff,logg,feh,sn,exptime,comment)

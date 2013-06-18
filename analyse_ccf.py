@@ -193,7 +193,7 @@ os.system("rm ccf_pdfs/*" + file_name + "*")
 ################
 plt.clf()
 
-hdulist = pyfits.open(file_path + file_name)
+hdulist = pyfits.open(file_path_reduced + "normspec_"+file_name)
 candidate = hdulist[0].header["OBJECT"]
 hdulist.close()
 

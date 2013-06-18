@@ -63,13 +63,15 @@ endif
 ### Measure RV - if task is RV
 set task = `grep TASK config_file | awk '{print $2}'`
 if ($task == RV) then 
-    ./radial_velocity.csh $file_path $file_name
+    #./radial_velocity.csh $file_path $file_name
+    python run_csh_script.py $file_path $file_name radial_velocity.csh
 endif
 
 ### Spectral typing
 set task = `grep TASK config_file | awk '{print $2}'`
 if ($task == SPECTYPE) then 
-    ./spectype.csh $file_path $file_name
+    #./spectype.csh $file_path $file_name
+    python run_csh_script.py $file_path $file_name spectype.csh
 endif
 
 ### Remove the iraf log file it stores in this folder.

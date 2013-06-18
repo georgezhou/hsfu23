@@ -47,11 +47,16 @@ if camera == "red":
     biassec_value = functions.read_param_file("RED_BIASSEC")
     region1 = functions.read_param_file("RED_REGION1")
     region2 = functions.read_param_file("RED_REGION2")
+    use_regions = functions.read_param_file("RED_USEREGIONS")
+    reflect = functions.read_param_file("RED_REFLECT")
+
 if camera == "blue":
     trimsec_value = functions.read_param_file("BLUE_TRIMSEC")
     biassec_value = functions.read_param_file("BLUE_BIASSEC")
     region1 = functions.read_param_file("BLUE_REGION1")
     region2 = functions.read_param_file("BLUE_REGION2")
+    use_regions = functions.read_param_file("BLUE_USEREGIONS")
+    reflect = functions.read_param_file("BLUE_REFLECT")
 
 grating = functions.read_config_file("GRATING")
 dichroic = functions.read_config_file("DICHROIC")
@@ -250,30 +255,41 @@ iraf.ccdproc(
     low_reject = 3.0,\
     high_reject = 3.0,\
     grow = 1.0)
-### The ccd has an overscan and a blank in the middle. 
-### So we need to cut the two useful regions out, then join them together
 
-print "Splitting the image into two regions to remove the central blank strip"
+if reflect == "true":
+    iraf.imcopy(
+        input = file_path_temp+"ccdproc_"+file_name+"[-*,*]",\
+        output = file_path_temp+"ccdproc_"+file_name)
 
-### Delete any previous files
-os.system("rm -f " + file_path_temp + "*_" + "ccdproc_" + file_name)
 
-### Extract region 1
-iraf.imcopy(
-    input = file_path_temp + "ccdproc_" + file_name+ region1, \
-    output = file_path_temp + "1_" + "ccdproc_" + file_name)
+if use_regions == "true":
 
-### Extract region 2
-iraf.imcopy(
-    input = file_path_temp + "ccdproc_" + file_name+ region2, \
-    output = file_path_temp + "2_" + "ccdproc_" + file_name)
+    ### The ccd has an overscan and a blank in the middle. 
+    ### So we need to cut the two useful regions out, then join them together
 
-### Join region 1 and 2 together
-iraf.imjoin(
-    input = file_path_temp + "1_" + "ccdproc_"+file_name + "," + file_path_temp + "2_" + "ccdproc_"+file_name ,\
-    output = file_path_temp + "out_" + "ccdproc_" + file_name,\
-    join_dimension = 1)
+    print "Splitting the image into two regions to remove the central blank strip"
 
-print "Image joined together"
-print "Reduced image: " + file_path_temp + "out_ccdproc_" + file_name
+    ### Delete any previous files
+    os.system("rm -f " + file_path_temp + "*_" + "ccdproc_" + file_name)
 
+    ### Extract region 1
+    iraf.imcopy(
+        input = file_path_temp + "ccdproc_" + file_name+ region1, \
+        output = file_path_temp + "1_" + "ccdproc_" + file_name)
+
+    ### Extract region 2
+    iraf.imcopy(
+        input = file_path_temp + "ccdproc_" + file_name+ region2, \
+        output = file_path_temp + "2_" + "ccdproc_" + file_name)
+
+    ### Join region 1 and 2 together
+    iraf.imjoin(
+        input = file_path_temp + "1_" + "ccdproc_"+file_name + "," + file_path_temp + "2_" + "ccdproc_"+file_name ,\
+        output = file_path_temp + "out_" + "ccdproc_" + file_name,\
+        join_dimension = 1)
+
+    print "Image joined together"
+    print "Reduced image: " + file_path_temp + "out_ccdproc_" + file_name
+
+else:
+    os.system("mv "+file_path_temp + "ccdproc_" + file_name+" "+file_path_temp + "out_ccdproc_" + file_name)

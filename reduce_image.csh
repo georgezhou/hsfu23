@@ -44,37 +44,39 @@ python chop_image.py $file_path $file_name
 
 ### Reconstruct the spatial image
 ### and find which image slices to extract stellar signal
-python reconstruct_image.py $file_path $file_name
-
-### Analyse image signal-to-noise
-python analyse_spectrum.py $file_path $file_name
+#python reconstruct_image.py $file_path $file_name
+python reconstruct_image_multistar.py $file_path $file_name
 
 ### Correct for spectroscopic distortions on those 
 ### image slices
 python correct_distortions.py $file_path $file_name
 
 ### Perform wavelength calibration
-python calibrate_wavelength.py $file_path $file_name
+python calibrate_wavelength_multistar.py $file_path $file_name
 
-### Correct RV based on telluric lines
-### Do this only for R7000 or I7000 data
-set task = `grep TASK config_file | awk '{print $2}'`
-if ($task == RV) then 
-    python telluric_correction.py $file_path $file_name
-endif
+### Analyse image signal-to-noise
+python analyse_spectrum.py $file_path $file_name
 
-### Combine the spectra into a single spectrum
-python combine_apertures.py $file_path $file_name
+#exit 1
 
+# ### Correct RV based on telluric lines
+# ### Do this only for R7000 or I7000 data
+# set task = `grep TASK config_file | awk '{print $2}'`
+# if ($task == RV) then 
+#     python telluric_correction.py $file_path $file_name
+# endif
+
+# ### Combine the spectra into a single spectrum
+# python combine_apertures.py $file_path $file_name
 
 ### Copy the reduced files into file_path/reduced
 set task = `grep TASK config_file | awk '{print $2}'`
 if ($task == RV) then 
-    cp $file_path/temp/spec_$file_name $file_path/reduced/
-    cp $file_path/temp/normspec_$file_name $file_path/reduced/
+    cp $file_path/temp/spec_*_$file_name $file_path/reduced/
+    cp $file_path/temp/normspec_*_$file_name $file_path/reduced/
 else if ($task == NONE) then 
-    cp $file_path/temp/spec_$file_name $file_path/reduced/
-    cp $file_path/temp/normspec_$file_name $file_path/reduced/
+    cp $file_path/temp/spec_*_$file_name $file_path/reduced/
+    cp $file_path/temp/normspec_*_$file_name $file_path/reduced/
 else if ($task == SPECTYPE) then 
-    cp $file_path/temp/spec_$file_name $file_path/reduced/
+    cp $file_path/temp/spec_*_$file_name $file_path/reduced/
 endif

@@ -53,7 +53,7 @@ set title\
 R_0=$R0 km/s" 
 K=abs($K) 
 R0=$R0 
-set yrange [R0-K-20 to R0+K+20] # Enter RV range 
+set yrange [R0-K-30 to R0+K+30] # Enter RV range 
 #########################################
 
 tc=t1+(q*0.5*period) #calculating transit center

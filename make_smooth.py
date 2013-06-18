@@ -35,7 +35,7 @@ def reduce_image(file_path,file_name,file_path_reduced,smooth_files_list,count):
     os.system("rm -rf " + file_path_reduced + "*")
     os.system("rm -rf " + file_path + "temp/*")
     os.system("./reduce_image.csh " + file_path + " " + file_name)
-    os.system("cp " + file_path_reduced + "spec_" + file_name+" smooth_dir/smooth_" + str(count) + ".fits")
+    os.system("cp " + file_path_reduced + "spec_A_" + file_name+" smooth_dir/smooth_" + str(count) + ".fits")
     smooth_files_list.append("smooth_" + str(count) + ".fits")
     count = count + 1
     return smooth_files_list,count
@@ -51,7 +51,7 @@ def make_string_from_list(input_list):
 ########################
 
 file_path = "/mimsy/george/wifes/"
-folders_to_search = ["24Oct2012/spectype/blue/"]
+folders_to_search = ["25May2013/spectype/blue/"]
 
 grating = functions.read_config_file("GRATING")
 dichroic = functions.read_config_file("DICHROIC")

@@ -39,7 +39,7 @@ if ($test == "True") then
     ### finds the ith image from file RV_Standard_list
     set RV_i = `gawk "NR==$i {print}" $RV_Standard_list` 
 
-    ls $file_path/reduced/normspec_{$RV_i}* >& /dev/null
+    ls $file_path/reduced/normspec_*{$RV_i}* >& /dev/null
     if ( $status == 0 ) then
         echo $RV_i has already been reduced
     else

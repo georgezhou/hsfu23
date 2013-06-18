@@ -201,7 +201,7 @@ for i in range(len(aperture_weights)):
 print "best aperture is ", best_aperture
 
 ### Estimate teff and logg
-hdulist = pyfits.open(file_path + file_name)
+hdulist = pyfits.open(file_path_reduced + "normspec_"+file_name)
 object_name = hdulist[0].header['OBJECT']
 hdulist.close()
 
