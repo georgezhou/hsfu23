@@ -19,7 +19,7 @@ set file_name = $2
 ########################
 
 ### Find RV Standards
-python find_rv.py $file_path
+python find_rv.py $file_path $file_name
 
 ### Reduce these RV Standard images
 echo Finding and reducing RV standard images

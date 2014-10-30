@@ -43,26 +43,41 @@ def check_head(input_list,head_param,check_string):
 
 ### Set file_path
 file_path = sys.argv[1]
+file_name = sys.argv[2]
+file_name_floor = string.split(file_name,"_")[-1]
 file_path_temp = file_path + "temp/"
 file_path_reduced = file_path + "reduced/"
+fits = pyfits.open(file_path+file_name_floor)
+candidate = fits[0].header["OBJECT"]
 
-################################################
-### Open file_path and find all RV_standards ###
-################################################
-
-RV_list = open(file_path_temp + "RV_Standard_list","w")
+### Find teff of target
+teff,logg = functions.estimate_teff_logg(file_path,file_name_floor,candidate,"true","true",5500,4.5)
 
 
-os.chdir(file_path)
-file_list = glob.glob("*.fits")
-for file_name in file_list:
-    hdulist = pyfits.open(file_name)
-    notes = hdulist[0].header["NOTES"]
-    if notes == "RV Standard":
-        file_name_short = string.split(file_name,".fits")[0]
-        RV_list.write(file_name_short+"\n")
-RV_list.close()
+if teff >= 3800:
+    ################################################
+    ### Open file_path and find all RV_standards ###
+    ################################################
 
+    RV_list = open(file_path_temp + "RV_Standard_list","w")
+
+
+    os.chdir(file_path)
+    file_list = glob.glob("*.fits")
+    for file_name in file_list:
+        hdulist = pyfits.open(file_name)
+        notes = hdulist[0].header["NOTES"]
+        if notes == "RV Standard":
+            file_name_short = string.split(file_name,".fits")[0]
+            RV_list.write(file_name_short+"\n")
+    RV_list.close()
+
+else:
+    os.system("cp mdwarf_template.fits "+file_path_reduced+"normspec_A_mdwarf_template.fits")
+    RV_list = open(file_path_temp + "RV_Standard_list","w")
+
+    RV_list.write("mdwarf_template")
+    RV_list.close()
 
 # ### Get a list of fits files with objects begining in "HD"
 # object_list = functions.ccdlist_extract(iraf.ccdlist(file_path +"*.fits",Stdout = 1))

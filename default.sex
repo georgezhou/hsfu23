@@ -23,7 +23,7 @@ FILTER_NAME      /home/george/SExtractor/sextractor-2.5.0/config/default.conv   
 FILTER_THRESH                   # Threshold[s] for retina filtering
  
 DEBLEND_NTHRESH  3             # Number of deblending sub-thresholds
-DEBLEND_MINCONT  0.0001          # Minimum contrast parameter for deblending
+DEBLEND_MINCONT  0.001          # Minimum contrast parameter for deblending
  
 CLEAN            Y              # Clean spurious detections? (Y or N)?
 CLEAN_PARAM      1.0            # Cleaning efficiency

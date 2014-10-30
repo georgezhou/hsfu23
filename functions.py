@@ -3,6 +3,12 @@ from numpy import *
 import string
 import sys
 import os
+import matplotlib.pyplot as plt
+
+def quit_figure(event):
+    if event.key=="q":
+        plt.close(event.canvas.figure)
+
 
 ### Check of number is NaN
 def isnan(num):
@@ -133,7 +139,12 @@ import mysql_query
 def teff_from_colour(candidate):
     print "Connecting to HSCAND to retrieve J-K colour to estimate teff"
     query_command = "select HATSmagJ, HATSmagK from HATS where HATSname = \'"+ candidate + "\'"
-    query_output = mysql_query.query_hscand(query_command)
+
+    try:
+        query_output = mysql_query.query_hscand(query_command)
+    except IOError:
+        query_output = []
+
 
     if len(query_output) > 1:
         magJ = query_output[1][0]

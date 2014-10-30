@@ -1,0 +1,34 @@
+import functions
+import mysql_query
+from numpy import *
+import os
+import sys
+import string
+import pyfits
+
+start_date = "2014-10-01"
+end_date = "2014-10-31"
+
+program_dir = os.getcwd() + "/" #Save the current working directory
+
+os.system("mkdir outputs")
+os.system("rm -rf outputs/*")
+
+month_list = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
+
+### Deal with RV observations
+
+query_entry = "select distinct SPECobject"
+query_entry = query_entry + " from SPEC where SPECutdate >= \""+start_date+"\" and SPECutdate <=\""+end_date+"\" and SPECtelescope=\"ANU23\""
+#query_entry = query_entry + " and SPECobject like \"073-435421\""
+
+#query_entry = query_entry + " and SPECobject like \"HATS%\""
+query_entry = query_entry + " and SPECobject like \"KS%\""
+#query_entry = query_entry + " and (SPECobject like \"KS%\" or SPECobject like \"HATS%\")"
+#query_entry = query_entry + " and (SPECobject like \"ASTEPC%\" or SPECobject like \"asud%\")"
+
+
+print query_entry
+
+
+exposure_info = mysql_query.query_hsmso(query_entry)

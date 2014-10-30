@@ -50,8 +50,8 @@ def make_string_from_list(input_list):
 ### Start of program ###
 ########################
 
-file_path = "/mimsy/george/wifes/"
-folders_to_search = ["25May2013/spectype/blue/"]
+file_path = "/priv/mulga2/george/wifes/"
+folders_to_search = ["02Jun2014/spectype/blue/"]
 
 grating = functions.read_config_file("GRATING")
 dichroic = functions.read_config_file("DICHROIC")

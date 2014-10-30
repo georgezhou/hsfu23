@@ -17,12 +17,12 @@ import pyfits
 ########################
 
 
-start_date = "2013-05-24"
-end_date = "2013-05-25"
+start_date = "2014-10-01"
+end_date = "2014-10-31"
 
 query_entry = "select SPECtype,SPECobject,SPECmjd,SPEChjd,SPECrv,SPECrv_err,SPECtelescope,SPECresolution,SPECteff,SPECteff_err,SPEClogg,SPEClogg_err,SPECfeh,SPECfeh_err,SPECccfheight,SPECexptime,SPECsn"
-query_entry = query_entry + " from SPEC where SPECutdate >= \""+start_date+"\" and SPECutdate <=\""+end_date+"\" and SPECobject like \"HATS%\" and SPECtelescope=\"ANU23\""
-#query_entry = query_entry + " from SPEC where SPECobject = \"HATS563-025\" "
+#query_entry = query_entry + " from SPEC where SPECutdate >= \""+start_date+"\" and SPECutdate <=\""+end_date+"\" and SPECobject like \"HATS%\" and SPECtelescope=\"ANU23\""
+query_entry = query_entry + " from SPEC where SPECobject = \"HATS778-008\" "
 
 exposure_info = mysql_query.query_hsmso(query_entry)
 #print exposure_info
@@ -32,12 +32,18 @@ if len(exposure_info) > 0:
     for entry in exposure_info:
         output = ""
 
+        if entry[7] == 23000:
+            inst = "ANU23"
+        else:
+            inst = "WiFeS"
+
         if entry[0] == "RV":
             #output = output + entry[1] + " " #name
             output = output + str(2400000 + entry[3]) + " " #hjd
             output = output + str(entry[4]) + " " #RV
             output = output + str(entry[5]) + " " #RVerr
-            output = output + str(entry[6]) + " " #tel
+            #output = output + str(entry[6]) + " " #tel
+            output = output + inst + " " #tel
             output = output + str(entry[7]) + " " #res
             output = output + "0 0 0 0 0 0 0 0 " #teff terr logg loggerr feh feherr vrot vroterr
             output = output + str(entry[14]) + " " #ccfheight
@@ -48,7 +54,8 @@ if len(exposure_info) > 0:
             #output = output + entry[1] + " " #name
             output = output + str(2400000 + entry[2]) + " " #mjd
             output = output + "-999 -999 " #rv rverr
-            output = output + str(entry[6]) + " " #tel
+            #output = output + str(entry[6]) + " " #tel
+            output = output + inst + " " #tel
             output = output + str(entry[7]) + " " #res            
             output = output + str(entry[8]) + " 300 " #teff
             #output = output + str(entry[9]) + " " 
@@ -69,9 +76,6 @@ if len(exposure_info) > 0:
         tracker_command = "./updatecandidate.py -c "+candidate
 
         os.system(tracker_command)
-
-
-
 
 ####################
 ### RV Standards ###
@@ -96,12 +100,21 @@ if len(exposure_info) > 0:
     
     for entry in exposure_info:
         output = ""
+
+
+        if entry[7] == 23000:
+            inst = "ANU23"
+        else:
+            inst = "WiFeS"
+
+
         if entry[0] == "RV":
             #output = output + entry[1] + " " #name
             output = output + str(2400000 + entry[3]) + " " #hjd
             output = output + str(entry[4]) + " " #RV
             output = output + str(entry[5]) + " " #RVerr
-            output = output + str(entry[6]) + " " #tel
+            #output = output + str(entry[6]) + " " #tel
+            output = output + inst + " " #tel
             output = output + str(entry[7]) + " " #res
             output = output + "0 0 0 0 0 0 0 0 " #teff terr logg loggerr feh feherr vrot vroterr
             output = output + str(entry[14]) + " " #ccfheight
@@ -112,7 +125,9 @@ if len(exposure_info) > 0:
             #output = output + entry[1] + " " #name
             output = output + str(2400000 + entry[2]) + " " #mjd
             output = output + "-999 -999 " #rv rverr
-            output = output + str(entry[6]) + " " #tel
+            #output = output + str(entry[6]) + " " #tel
+            output = output + inst + " " #tel
+
             output = output + str(entry[7]) + " " #res            
             output = output + str(entry[8]) + " 300 " #teff
             #output = output + str(entry[9]) + " " 
@@ -133,4 +148,3 @@ if len(exposure_info) > 0:
         tracker_command = "./updatecandidate.py -c "+candidate
 
         os.system(tracker_command)
-

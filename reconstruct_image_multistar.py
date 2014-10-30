@@ -335,6 +335,8 @@ if interactive=="true":
     print "Coordinate file updated"
     os.system("cat master_coo")
 
+
+
 else:
     plt.savefig(file_path_reduced + "spatial_" + file_name + ".pdf")
 

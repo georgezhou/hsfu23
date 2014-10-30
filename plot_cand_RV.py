@@ -80,6 +80,7 @@ if len(RV_points) > 1:
 
         object_found = False
         for entry in candidates_txt:
+            print entry[0]
             if entry[0] == object_name_query:
                 print "Using candidates.txt for candidate parameters"
                 object_found = True
@@ -96,12 +97,13 @@ if len(RV_points) > 1:
     program_dir = os.getcwd() + "/" #Save the current working directory
     os.chdir(plots_folder)
 
-    print cand_params
+    #print cand_params
     
-    print cand_params[0],cand_params[1],cand_params[2]
+    print "t0,period,q",cand_params[0],cand_params[1],cand_params[2]
+    #cand_params[0] = cand_params[0] + cand_params[1]*0.5
+    #cand_params[1] = cand_params[1]*0.5
 
     os.system("./rv_plot.sh "+object_name+" "+str(cand_params[0])+" "+str(cand_params[1])+" "+str(cand_params[2]))
-    #os.system("./rv_plot.sh "+object_name+" "+str(cand_params[0])+" "+str(2*cand_params[1])+" "+str(cand_params[2]))
 
     os.chdir(program_dir)
 

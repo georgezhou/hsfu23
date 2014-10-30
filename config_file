@@ -2,27 +2,27 @@
 ### File locations ###
 ######################
 
-FILE_NAME b0079.fits #The image name to be reduced
+FILE_NAME r0042.fits #The image name to be reduced
 
-FILE_PATH /priv/munch2/george/wifes/08Jun2012/spectype/blue/ The filepath of the raw images
+FILE_PATH /priv/mulga2/george/wifes/08Oct2014/RV/red/ The filepath of the raw images
 
 ###########################
 ### Instrument settings ###
 ###########################
 
-CAMERA blue ### WiFeS camera (red/blue)
-GRATING B3000 ### WiFeS grating (B3000/R3000/R7000/I7000)
-DICHROIC RT560 ### WiFeS dichroic (RT480/RT560/RT615)
+CAMERA red ### WiFeS camera (red/blue)
+GRATING R7000 ### WiFeS grating (B3000/R3000/R7000/I7000)
+DICHROIC RT480 ### WiFeS dichroic (RT480/RT560/RT615)
 
 #########################
 ### Reduction options ###
 #########################
 DELETE_ALL false ### Delete all previous reductions (true/false)
-DIVIDE_FLAT false ### Divide by flat field (true/false)
+DIVIDE_FLAT true ### Divide by flat field (true/false)
 
 INTERACT false ### Interactive? (true/false)
 NO_STARS 0 ### Number of stars (0 = automatic)
-NO_APERTURES 4 ### Number of apertures to extract (integer)
+NO_APERTURES 3 ### Number of apertures to extract (integer)
 
 COMBINE_APERTURES true ### Combine data from image slices? (true/false)
 

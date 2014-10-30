@@ -6,8 +6,8 @@ import sys
 import string
 import pyfits
 
-start_date = "2013-05-01"
-end_date = "2013-05-31"
+start_date = "2014-10-01"
+end_date = "2014-10-31"
 
 program_dir = os.getcwd() + "/" #Save the current working directory
 
@@ -20,8 +20,12 @@ month_list = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov",
 
 query_entry = "select SPECutdate,SPECimgname,SPECobject,SPEChjd,SPECrv,SPECrv_err,SPECccfheight,SPECbis,SPECbis_err"
 query_entry = query_entry + " from SPEC where SPECutdate >= \""+start_date+"\" and SPECutdate <=\""+end_date+"\" and SPECtype =\"RV\" and SPECtelescope=\"ANU23\""
-query_entry = query_entry + " and SPECobject like \"0%\""
-#query_entry = query_entry + " and (SPECobject like \"0%\" or SPECobject like \"HATS%\")"
+#query_entry = query_entry + " and SPECobject like \"073-435421\""
+
+#query_entry = query_entry + " and SPECobject like \"HATS%\""
+#query_entry = query_entry + " and SPECobject like \"KS%\""
+#query_entry = query_entry + " and (SPECobject like \"KS%\" or SPECobject like \"HATS%\")"
+query_entry = query_entry + " and (SPECobject like \"ASTEPC%\" or SPECobject like \"ASUD%\")"
 
 
 print query_entry
@@ -42,13 +46,13 @@ if len(exposure_info)>0:
         month = int(string.split(thedate,"-")[1])
         month = month_list[month-1]
         date = string.split(thedate,"-")[2]
-        file_path = "/mimsy/george/wifes/" + date + month + year +"/RV/red/"
+        file_path = "/priv/mulga2/george/wifes/" + date + month + year +"/RV/red/"
 
         print file_path,file_name,candidate_name
         os.system("mkdir outputs/ccf_plots/"+candidate_name)
 
         os.system("cp " + file_path + "reduced/ccf_pdfs/ccf_" + file_name + ".pdf outputs/ccf_plots/"+candidate_name+"/"+str(i[3])+".pdf")
-        os.system("cp /mimsy/george/wifes/candidates/RV_plots/"+candidate_name+".pdf outputs/RV_plots/")
+        os.system("cp /priv/mulga2/george/wifes/candidates/RV_plots/"+candidate_name+".pdf outputs/RV_plots/")
 
     os.chdir("outputs/RV_plots/")
     os.system("gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=RV_ANU23.pdf *.pdf")
@@ -70,7 +74,12 @@ os.chdir(program_dir)
 
 query_entry = "select SPECutdate,SPECobject,SPECteff,SPEClogg"
 query_entry = query_entry + " from SPEC where SPECutdate >= \""+start_date+"\" and SPECutdate <=\""+end_date+"\" and SPECtype = \"ST\""
-query_entry = query_entry + " and SPECobject like \"0%\""
+#query_entry = query_entry + " and SPECobject like \"HATS%\""
+#query_entry = query_entry + " and SPECobject like \"KS%\""
+#query_entry = query_entry + " and (SPECobject like \"KS%\" or SPECobject like \"HATS%\")"
+query_entry = query_entry + " and (SPECobject like \"ASTEPC%\" or SPECobject like \"ASUD%\")"
+
+
 
 exposure_info = mysql_query.query_hsmso(query_entry)
 
@@ -85,12 +94,13 @@ if len(exposure_info)>0:
         month = int(string.split(thedate,"-")[1])
         month = month_list[month-1]
         date = string.split(thedate,"-")[2]
-        file_path = "/mimsy/george/wifes/" + date + month + year +"/spectype/blue/"
+        file_path = "/priv/mulga2/george/wifes/" + date + month + year +"/spectype/blue/"
 
         os.system("cp "+file_path+"reduced/spectype_plots/"+candidate_name+"_*.pdf outputs/spectype/")
         #os.system("cp "+file_path+"reduced/spectype_plots/"+candidate_name+"_spectrum.pdf outputs/spectype/")
 
     os.chdir("outputs/spectype/")
+    print "here"
     os.system("gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=spectype.pdf *.pdf")
 
     os.chdir(program_dir)

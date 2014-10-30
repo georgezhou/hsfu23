@@ -54,14 +54,15 @@ def find_max_reddening(ra,dec):
         schlegel = urllib.urlopen(page_url)
         schlegel = schlegel.read()
 
-        schlegel = string.split(schlegel,"<meanValue>")[1]
+        #schlegel = string.split(schlegel,"<meanValue>")[1]
+        schlegel = string.split(schlegel,"<meanValueSandF>")[1]
         schlegel = string.split(schlegel)
 
         max_reddening = float(schlegel[0])
     else:
         print "Could not connect to Schlegel database"
         print "Default max reddening = 0.10"
-        max_reddening = 0.1
+        max_reddening = 0.2
     return max_reddening
 
 
@@ -127,6 +128,7 @@ flux_normalise_w2 = eval(functions.read_param_file("FLUX_NORMALISE_w2"))
 
 ### Find initial estimate of properties
 hdulist = pyfits.open(file_path_reduced+"spec_"+file_name)
+#hdulist = pyfits.open(file_path+file_name)
 object_name = hdulist[0].header["OBJECT"]
 ra = hdulist[0].header["RA"]
 dec = hdulist[0].header["DEC"]
@@ -144,6 +146,11 @@ default_logg = float(functions.read_config_file("LOGG_ESTIMATE"))
 teff_ini,logg_ini = functions.estimate_teff_logg(file_path,file_name,object_name,hsmso_connect,hscand_connect,default_teff,default_logg)
 feh_ini = 0.0
 ini_template_spectrum = "template_" + str(teff_ini) + "_" + str(logg_ini) + "_" + str(feh_ini)
+
+if teff_ini <= 4750:
+    print "Using alternative cool star library"
+    model_path_flux = functions.read_param_file("COOL_STAR_FLUX")
+    model_path_norm = functions.read_param_file("COOL_STAR_NORM")
 
 ini_fix_feh = functions.read_param_file("INI_FIX_FEH")
 
@@ -311,6 +318,7 @@ def calculate_spectral_params(teff_ini,logg_ini,feh_ini):
                     input_flux_cropped = input_flux[i1+shift:i2+shift]
                     template_flux_cropped = template_flux[i1:i2]
 
+
                     sigma = 10.0
 
                     if perform_normalise:
@@ -322,7 +330,6 @@ def calculate_spectral_params(teff_ini,logg_ini,feh_ini):
                     diff_flux = clip(diff_flux,median(diff_flux) - sigma*std(diff_flux),median(diff_flux)+sigma*std(diff_flux))
 
                     rms = sqrt(sum(diff_flux**2) /float(len(input_wave_cropped)))
-
 
                     # shift_rms = []
                     # shift_range = 0
@@ -580,10 +587,12 @@ def calculate_spectral_params(teff_ini,logg_ini,feh_ini):
         feh_regions = [[3900,4100],[4280,4320],[5100,5200]]
 
     ### Define the regions used in flux spectra matching
-    if teff_ini >= 5750:
-        teff_regions = [[4835,4885],[4315,4365],[4075,4125],[3800,3900]]
-    if teff_ini < 5750:
-        teff_regions = [[3900,5700]]
+    # if teff_ini >= 5750:
+    #     teff_regions = [[4835,4885],[4315,4365],[4075,4125],[3800,3900]]
+    # if teff_ini < 5750:
+    #     teff_regions = [[3900,5700]]
+
+    teff_regions = [[3800,5700]]
 
     feh_weights = ones(len(feh_space))
     logg_weights = ones(len(logg_space))
@@ -959,9 +968,10 @@ def calculate_spectral_params(teff_ini,logg_ini,feh_ini):
             region_normalise = True
         if teff_ini <= 6000:
             region_normalise = False
-
+            
         count = 1
         for region in teff_regions:
+
             rms = array(loop_input_spectrum(master_flux_wave,flux_flux,model_path_flux,teff_space,logg_space,feh_space,region[0],region[1],region_normalise,shift_range,False))
             rms = 0.6*rms + 0.2*rms_logg + 0.2*rms_feh
             #rms_teff = rms_teff + rms
@@ -981,6 +991,8 @@ def calculate_spectral_params(teff_ini,logg_ini,feh_ini):
             reddening_weight = (reddening - max_reddening)/reddening_weight_factor + 1
         if reddening < 0.0:
             reddening_weight = abs(reddening)/reddening_weight_factor + 1
+
+        #reddening_weight = 1.0
 
         rms_teff = rms_teff * reddening_weight
 

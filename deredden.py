@@ -54,13 +54,17 @@ def find_max_reddening(ra,dec):
         schlegel = urllib.urlopen(page_url)
         schlegel = schlegel.read()
 
-        schlegel = string.split(schlegel,"<meanValue>")[1]
+        #schlegel = string.split(schlegel,"<meanValue>")[1]
+        schlegel = string.split(schlegel,"<meanValueSandF>")[1]
         schlegel = string.split(schlegel)
 
         max_reddening = float(schlegel[0])
         if max_reddening < 0.2:
             print "minimal reddening, imposing default value of 0.25"
             max_reddening = 0.2
+
+        if max_reddening > 1.0:
+            max_reddening = 1.0
 
     else:
         print "Could not connect to Schlegel database"
@@ -102,15 +106,17 @@ hdulist.close()
 
 redden_max = find_max_reddening(ra,dec)
 print "Max reddening ", redden_max
-n = 20
+n = 30
 
-redden_step = (redden_max-(-0.2)) / n
+#redden_max = redden_max*2.
+
+redden_step = (redden_max-(-0.1)) / n
 
 ##################
 ### Start loop ###
 ##################
 
-redden = -0.2
+redden = -0.1
 while redden <= redden_max:
     redden_name = "deredden_" + str(redden) + "_" + file_name
     

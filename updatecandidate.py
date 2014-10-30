@@ -33,7 +33,7 @@ def parse_command_line():
                       dest="username", default="gzhou",
                       help="username")
     parser.add_option("-p","--password", action="store",
-                      dest="password", default="blueskies123_89", help="password")
+                      dest="password", default="egghead", help="password")
     parser.add_option("-i","--input", action="store",
                       dest="input", default="tracker_temp.txt", help="Input file")    
     parser.add_option("-l","--upload", action="store",
@@ -73,9 +73,16 @@ def login(login_url, username=None, password=None):
         html = f.read()
 
 
-login_url= "https://phs5.astro.princeton.edu/accounts/login/"
-exposures_url = "https://phs5.astro.princeton.edu/hatsouth/{0}/exposure_list/".format(args.candidate)
-upload_url = "https://phs5.astro.princeton.edu/hatsouth/{0}/upload/".format(args.candidate)
+# login_url= "https://phs5.astro.princeton.edu/accounts/login/"
+# exposures_url = "https://phs5.astro.princeton.edu/hatsouth/{0}/exposure_list/".format(args.candidate)
+# upload_url = "https://phs5.astro.princeton.edu/hatsouth/{0}/upload/".format(args.candidate)
+
+
+login_url= "https://hatsouth.astro.princeton.edu/accounts/login/"
+exposures_url = "https://hatsouth.astro.princeton.edu/hatsouth/{0}/exposure_list/".format(args.candidate)
+upload_url = "https://hatsouth.astro.princeton.edu/hatsouth/{0}/upload/".format(args.candidate)
+
+
 
 login(login_url, args.username, args.password)
 
@@ -97,5 +104,6 @@ if args.upload:
 try:
     result = urllib2.urlopen(post_req)
     print result.read()
+    #print "upload successful"
 except urllib2.URLError, e:
     print e

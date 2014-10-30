@@ -2,14 +2,18 @@ import string
 import os
 import functions
 import MySQLdb
+import time
 
 ### Performs query of HSCAND database on princeton computer
 ### Only works if you run this from program_dir
 def query_hscand(query_entry):
+    #print query_entry
+
     ### Write the mysql query csh script
     command = "mysql --defaults-file=/home/gzhou/hscand.cfg HSCAND -e \"" + query_entry + "\" > /home/gzhou/query_result.txt"
     mysql_query = open("mysql_query.csh","w")
     mysql_query.write("#! /bin/csh \n")
+    mysql_query.write("echo \"Executing mysql command\"\n")
     mysql_query.write(command + "\n")
     mysql_query.close()
 
@@ -21,14 +25,15 @@ def query_hscand(query_entry):
 
     ### Execute the program and copy the results over
     print "Executing .csh files on princeton via ssh"
-    os.system("ssh gzhou@hatsouth.astro.princeton.edu '/home/gzhou/mysql_query.csh'")
+    os.system("ssh -o ConnectTimeout=20 gzhou@hatsouth.astro.princeton.edu '/home/gzhou/mysql_query.csh'")
+    time.sleep(2)
     os.system("scp gzhou@hatsouth.astro.princeton.edu:/home/gzhou/query_result.txt .")
 
     ### Read query_result.txt in as a list
     query_result = functions.read_ascii("query_result.txt")
     query_result = functions.read_table(query_result)
 
-    os.system("rm query_result.txt")
+    #os.system("rm query_result.txt")
     os.system("rm mysql_query.csh")
     return query_result
 

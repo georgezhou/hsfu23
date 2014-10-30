@@ -157,7 +157,7 @@ def calc_RV(RV_out,file_name):
         row_name = RV_out[i][1]
         row_name = string.split(row_name,".")[0]
         row_name = string.split(row_name,"normspec_")[1]
-        print file_name,row_name
+        #print file_name,row_name
         if file_name == row_name:
             related.append(RV_out[i])
 
@@ -169,10 +169,12 @@ def calc_RV(RV_out,file_name):
         vhelio = related[i][7]
         vhelio_err = related[i][8]
         aperture = int(related[i][4]) - 1
+        print aperture_weights,aperture
+
         flux_weight = aperture_weights[aperture]
 
         if functions.is_number(stellar_height) and functions.is_number(JD) and functions.is_number(vhelio) and functions.is_number(vhelio_err):
-            if stellar_height > 0.20: ### NORMAL
+            if stellar_height > 0.20 and abs(vhelio) < 500: ### NORMAL
             #if stellar_height > 0.0: ### Manual
                 RV_table.append([JD,vhelio,vhelio_err,stellar_height,flux_weight])
 
@@ -189,7 +191,7 @@ def calc_RV(RV_out,file_name):
             flux_weight = aperture_weights[aperture]
 
             if functions.is_number(stellar_height) and functions.is_number(JD) and functions.is_number(vhelio) and functions.is_number(vhelio_err):
-                if stellar_height > 0.10: ### NORMAL
+                if stellar_height > 0.01 and abs(vhelio) < 500: ### NORMAL
                 #if stellar_height > 0.0: ### Manual
                     RV_table.append([JD,vhelio,vhelio_err,stellar_height,flux_weight])
 
@@ -298,9 +300,9 @@ if os.path.isfile(file_path_reduced + "RV_out.dat"):
     temp_table = []
     for i in RV_out:
         row_name = i[1]
-        row_name = string.split(row_name,".")[0]
-        row_name = string.split(row_name,"_")[1]
-        if not string.split(file_name,".")[0] == row_name:
+        #row_name = string.split(row_name,".")[0]
+        row_name = string.split(row_name,"_")[-1]
+        if not string.split(file_name,"_")[-1] == row_name:
             temp_table.append(i)
     RV_out = temp_table
 else:
@@ -328,7 +330,7 @@ exptime = hdulist[0].header['EXPTIME']
 hdulist.close()
 
 ### Find number of RV standards
-os.system("python find_rv.py "+file_path)
+os.system("python find_rv.py "+file_path+" "+file_name)
 nstandards = open(file_path_temp + "RV_Standard_list").read()
 if not nstandards == "":
     nstandards = string.split(nstandards)

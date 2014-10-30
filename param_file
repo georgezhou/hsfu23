@@ -17,7 +17,8 @@ RED_USEREGIONS false ### Are there regions (true for old, false for new)
 RED_REFLECT false ### Reflect (false default)
 
 BLUE_TRIMSEC [54:4149,1:1024] ### trimsec, fits header not correct #Pre-Jun2011: [19:4162,1:1024]; Pre-May2013 [63:4160,1:1024]
-BLUE_BIASSEC [4163:4180,1:1024] ### biassec #oldformat: [4163:4175,1:1024]pre-May2013 [4163:4180,1:1024] 
+### Post May2013 - use RED NEW for all blues
+BLUE_BIASSEC [4150:4202,1:1024] ### biassec #oldformat: [4163:4175,1:1024]pre-May2013 [4163:4180,1:1024] 
 BLUE_REGION1 [1:2047,1:1024] ### image region 1 #oldformat: [1:2048,1:1024]
 BLUE_REGION2 [2053:4098,1:1024] ### image region 2s #oldformat: [2097:4144,1:1024]
 BLUE_USEREGIONS false ### Are there regions (true for old, false for new)
@@ -45,15 +46,15 @@ I7000_RT615_w2 8880 ### end wavelength for I7000
 ################################
 ### Radial velocity settings ###
 ################################
-TELLURIC_REGION a6881-6931 ### Region for cc against telluric lines 
+TELLURIC_REGION a6500-6650 ### Region for cc against telluric lines 
 ###(Defaults: R7000 a6881-6931, I7000 a7618-7675)
 
-STELLAR_REGION a5270-5825,a6370-6510 ### Region for cc against stellar lines
+STELLAR_REGION a5250-6500 ### Region for cc against stellar lines
 ###(Defaults: R7000 a5270-5825,a6370-6510; I7000 a8500-8510,a8535-8561,a8652-8687; Halpha a6500-6650,all a5250-6500)
 
 RV_SPECTRAL_LIBRARY /priv/miner3/hat-south/george/Honours/MUNARI_highres_model_spectra/fits_files/ ### location of the synthetic spectra
 
-RV_PLOTS_FOLDER /mimsy/george/wifes/candidates/RV_plots/ ### Folder where rv phase curves will be stored
+RV_PLOTS_FOLDER /priv/mulga2/george/wifes/candidates/RV_plots/ ### Folder where rv phase curves will be stored
 
 ################################
 ### Spectral typing settings ###
@@ -69,10 +70,13 @@ ONLY_FLUXCAL false ### Perform only flux calibration, don't do the things (true/
 NORM_REGION_w1 4500 ### Start of normalised spectral region
 NORM_REGION_w2 5950 ### End of normalised spectral region
 
-FLUX_NORMALISE_w1 5200 ### Start of region where the flux calibrated spectrum is normalised
-FLUX_NORMALISE_w2 5500 ### End of region where the flux calibrated spectrum is normalised
+FLUX_NORMALISE_w1 5000 ### Start of region where the flux calibrated spectrum is normalised #4500
+FLUX_NORMALISE_w2 5500 ### End of region where the flux calibrated spectrum is normalised #4700
 
 MODEL_PATH_FLUX /priv/miner3/hat-south/george/Honours/template_spectra_munari/ ###Path for flux corrected templates
 MODEL_PATH_NORM /priv/miner3/hat-south/george/Honours/template_normalised_spectra_munari/ ###Path for normalised templates
+
+COOL_STAR_FLUX /priv/miner3/hat-south/george/Honours/template_spectra_marcs/ ###Path for flux corrected templates
+COOL_STAR_NORM /priv/miner3/hat-south/george/Honours/template_normalised_spectra_marcs/ ###Path for normalised templates
 
 INI_FIX_FEH true ### Fix Fe/H initially for the logg estimate of Teff>5000K stars? (true/false)

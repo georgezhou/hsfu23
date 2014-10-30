@@ -44,7 +44,7 @@ iraf.astutil()
 def run_fxcor(input_file,input_rv,lines,output,fitshead_update,write_ccf):
     if write_ccf:
         ccf_command = program_dir + "fxcor_cursor_command.txt"
-        interat = 1
+        interact = 1
     else:
         ccf_command = ""
         interact = 0
@@ -118,6 +118,9 @@ file_path_temp = file_path + "temp/"
 file_path_reduced = file_path + "reduced/"
 
 file_name = sys.argv[2]
+file_name_floor = string.split(file_name,"_")[-1]
+fits = pyfits.open(file_path+file_name_floor)
+candidate = fits[0].header["OBJECT"]
 
 ### Read in spectral regions for RV cc
 stellar_region = functions.read_param_file("STELLAR_REGION")
@@ -127,6 +130,15 @@ if functions.read_config_file("COMBINE_APERTURES") == "false":
     no_apertures = int(functions.read_config_file("NO_APERTURES"))
 else:
     no_apertures = 1
+
+### Check if target is mdwarf
+teff,logg = functions.estimate_teff_logg(file_path,file_name_floor,candidate,"true","true",5500,4.5)
+
+if teff < 3800:
+    no_apertures = 3
+    stellar_region = "*"
+if teff > 7500:
+    stellar_region = "a6450-6700"
 
 print "This script uses iraf.fxcor to find RV solution of " +file_name
 

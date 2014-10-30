@@ -1,12 +1,12 @@
 #K IRAF       = NOAO/IRAF V2.14.1              version   
 #K USER       = george                         name      
 #K HOST       = maggot                         computer  
-#K DATE       = 2013-04-27                     yyyy-mm-dd
-#K TIME       = 06:01:01                       hh:mm:ss  
+#K DATE       = 2014-06-04                     yyyy-mm-dd
+#K TIME       = 16:41:45                       hh:mm:ss  
 #K PACKAGE    = rv                             name      
 #K TASK       = fxcor                          name      
 # 
-#T Template ' A' -- Object = 'g29-23'                                        \*
+#T Template ' A' -- Object = 'HD118055'                                      \*
 #                   Image  = 'temp_norm.fits'                  Vhelio = INDEF
 # 
 #  Velocity Dispersion = 41.51 Km/sec/pixel     Rebinned WPC = 6.01391E-5
@@ -14,4 +14,4 @@
 #N OBJECT        IMAGE     REF   HJD       AP    CODES     SHIFT   HGHT FWHM    TDR    VOBS      VREL       VHELIO     VERR
 #U name          image           days            cfr/fun   pixel                       km/s      km/s       km/s       km/s
 #
-O2_telluric      telluric.fits  A  INDEF       1    BBS/gau   -0.036  0.16 369.97  150.75 -3.8424   -1.4919    0.0000     1.915  
+O2_telluric      telluric.fits  A  INDEF       1    BBS/gau   -0.538  0.16 363.72  103.29 -2.2570   -22.3266   0.0000     2.739  
