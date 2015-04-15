@@ -11,7 +11,7 @@ def db_rv_entry(object_name,file_name,grating,resolution,dichroic,dateobs,mjd,hj
     sql_time = string.split(dateobs,"T")[1]
 
     print "Connecting to database"
-    db=MySQLdb.connect(host="mutant.anu.edu.au",user="daniel",passwd="h@ts0uthDB",db="daniel1")
+    db=MySQLdb.connect(host="malice.anu.edu.au",user="daniel",passwd="h@ts0uthDB",db="daniel1")
 
     c = db.cursor()
     #c.execute("""SELECT SPECid FROM SPEC WHERE SPECmjd=""" + str(mjd) + """ and SPECobject=\"%s\" """ % object_name)
@@ -73,7 +73,7 @@ def db_spectype_entry(object_name,file_name,grating,resolution,dichroic,dateobs,
     sql_time = string.split(dateobs,"T")[1]
 
     print "Connecting to database"
-    db=MySQLdb.connect(host="mutant.anu.edu.au",user="daniel",passwd="h@ts0uthDB",db="daniel1")
+    db=MySQLdb.connect(host="malice.anu.edu.au",user="daniel",passwd="h@ts0uthDB",db="daniel1")
 
     c = db.cursor()
     c.execute("""SELECT SPECid FROM SPEC WHERE SPECmjd=""" + str(mjd))

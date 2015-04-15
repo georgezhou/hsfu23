@@ -176,6 +176,7 @@ for i in range(len(spatial_image)):
     spatial_image[i] = spatial_image[i] - xmodel[i]
 
 spatial_image = transpose(spatial_image)
+savetxt(file_path_reduced+"spatial_"+file_name+".dat",spatial_image,fmt="%.10f")
 
 ### Write to file
 

@@ -74,7 +74,7 @@ def upload(file_path,dateformat):
 
     #sys.exit()
 
-query_entry = "select distinct SPECutdate from SPEC where SPECutdate >= \"2013-01-01\" and SPECutdate <= \"2013-04-30\" and SPECinstrum = \"WiFeS\""
+query_entry = "select distinct SPECutdate from SPEC where SPECutdate >= \"2015-02-01\" and SPECutdate <= \"2015-02-30\" and SPECinstrum = \"WiFeS\""
 query_result = mysql_query.query_hsmso(query_entry)
 
 month_list = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
@@ -86,7 +86,7 @@ for i in query_result:
     month = int(string.split(thedate,"-")[1])
     month = month_list[month-1]
     date = string.split(thedate,"-")[2]
-    file_path = "/mimsy/george/wifes/" + date + month + year +"/"
+    file_path = "/priv/mulga2/george/wifes/" + date + month + year +"/"
 
     dateformat = string.split(thedate,"-")
     dateformat = dateformat[0]+dateformat[1]+dateformat[2]

@@ -5,7 +5,7 @@ from numpy import *
 import functions
 import matplotlib.pyplot as plt
 from scipy import optimize
-import spectype_numerical_functions
+#import spectype_numerical_functions
 
 ######################################
 ### Functions for spectype_main.py ###
@@ -13,7 +13,15 @@ import spectype_numerical_functions
 
 ### Normalise input spectrum
 def normalise(spectrum,start_lambda,end_lambda):
-    norm_region = spectype_numerical_functions.chop_spectrum(spectrum,start_lambda,end_lambda)
+    spectrum = transpose(spectrum)
+    mask = spectrum[:,0] > start_lambda
+    mask *= spectrum[:,0] < end_lambda
+
+    #print min(spectrum[:,0]),max(spectrum[:,0]),start_lambda,end_lambda
+    norm_region = spectrum[mask]
+    norm_region = transpose(norm_region)
+    spectrum = transpose(spectrum)
+    #norm_region = spectype_numerical_functions.chop_spectrum(spectrum,start_lambda,end_lambda)
     norm_factor = mean(norm_region[1])
     spectrum[1] = spectrum[1] / norm_factor
     return spectrum

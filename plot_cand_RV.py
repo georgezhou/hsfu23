@@ -85,7 +85,7 @@ if len(RV_points) > 1:
                 print "Using candidates.txt for candidate parameters"
                 object_found = True
                 cand_params = [entry[5],entry[6],entry[7]]
-                break
+                #break
         if not object_found:
             print "Using default candidate parameters"
             RV_points = transpose(RV_points)
@@ -101,7 +101,7 @@ if len(RV_points) > 1:
     
     print "t0,period,q",cand_params[0],cand_params[1],cand_params[2]
     #cand_params[0] = cand_params[0] + cand_params[1]*0.5
-    #cand_params[1] = cand_params[1]*0.5
+    #cand_params[1] = cand_params[1]*2
 
     os.system("./rv_plot.sh "+object_name+" "+str(cand_params[0])+" "+str(cand_params[1])+" "+str(cand_params[2]))
 

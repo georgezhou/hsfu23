@@ -31,6 +31,9 @@ BLUE_REFLECT false ### Reflect (false default)
 R7000_RT480_w1 5250 ### start wavelength for R7000
 R7000_RT480_w2 7000 ### end wavelength for R7000
 
+R7000_RT560_w1 5250 ### start wavelength for R7000
+R7000_RT560_w2 7000 ### end wavelength for R7000
+
 B3000_RT560_w1 3400 ### start wavelength for B3000
 B3000_RT560_w2 5990 ### end wavelength for B3000
 
@@ -46,7 +49,7 @@ I7000_RT615_w2 8880 ### end wavelength for I7000
 ################################
 ### Radial velocity settings ###
 ################################
-TELLURIC_REGION a6500-6650 ### Region for cc against telluric lines 
+TELLURIC_REGION a6881-6931 ### Region for cc against telluric lines 
 ###(Defaults: R7000 a6881-6931, I7000 a7618-7675)
 
 STELLAR_REGION a5250-6500 ### Region for cc against stellar lines

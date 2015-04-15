@@ -136,6 +136,8 @@ for im_slice in image_slices:
     nlines = len(nlines)
     print nlines
 
+    ncoeff = []
+    identify_result_list = []
     for n in arange(1,nlines+1):
 
         os.system("rm temp_slice.fits")
@@ -180,16 +182,53 @@ for im_slice in image_slices:
 
 
         identify_result = open("database/idtemp_slice").read()
-        #identify_result = string.split(identify_result,"\n\t")
+        identify_result_temp = string.split(identify_result,"\n\t")
         #print identify_result
         identify_result = string.replace(identify_result,"temp_slice",im_slice +"_" + string.split(arc_name,".fits")[0]+"[*,"+str(n)+"]")
-        f = open("database/temp_text","w")
-        f.write(identify_result)
-        f.close()
+        #f = open("database/temp_text","w")
+        #f.write(identify_result)
+        #f.close()
+        identify_result_list.append(identify_result)
 
-        os.system("cat database/temp_text >> database/id"+im_slice +"_" +string.split(arc_name,".fits")[0])
-                 
+        for i in range(len(identify_result_temp)):
+            #print identify_result_temp[i]
+            if "coefficients" in identify_result_temp[i]:
+                ncoeff.append(float(identify_result_temp[i+3]))
+                
 
+
+        #os.system("cat database/temp_text >> database/id"+im_slice +"_" +string.split(arc_name,".fits")[0])
+
+    def calc_std(in_list):
+        in_list = array(in_list)
+        mask = abs(in_list-median(in_list)) < 2*std(in_list)
+        return std(in_list[mask])
+
+    std_ncoeff = calc_std(ncoeff)
+
+    n_omitted = 0
+    for i in range(len(ncoeff)):
+        if abs(ncoeff[i]-median(ncoeff)) < 5*std_ncoeff:
+            
+            f = open("database/temp_text","w")
+            f.write(identify_result_list[i])
+            f.close()
+
+            os.system("cat database/temp_text >> database/id"+im_slice +"_" +string.split(arc_name,".fits")[0])
+        else:
+            print "omitted, y",i
+            n_omitted += 1
+
+    if n_omitted > 10:
+        print "too many omitted, redoing"
+        os.system("rm database/id"+im_slice +"_" +string.split(arc_name,".fits")[0])
+        for i in range(len(ncoeff)):
+
+            f = open("database/temp_text","w")
+            f.write(identify_result_list[i])
+            f.close()
+
+            os.system("cat database/temp_text >> database/id"+im_slice +"_" +string.split(arc_name,".fits")[0])
 
     # ### Run reidentify again on the same image
     # ### this time run it for every row 

@@ -17,12 +17,12 @@ import pyfits
 ########################
 
 
-start_date = "2014-10-01"
-end_date = "2014-10-31"
+start_date = "2015-03-28"
+end_date = "2015-04-31"
 
 query_entry = "select SPECtype,SPECobject,SPECmjd,SPEChjd,SPECrv,SPECrv_err,SPECtelescope,SPECresolution,SPECteff,SPECteff_err,SPEClogg,SPEClogg_err,SPECfeh,SPECfeh_err,SPECccfheight,SPECexptime,SPECsn"
-#query_entry = query_entry + " from SPEC where SPECutdate >= \""+start_date+"\" and SPECutdate <=\""+end_date+"\" and SPECobject like \"HATS%\" and SPECtelescope=\"ANU23\""
-query_entry = query_entry + " from SPEC where SPECobject = \"HATS778-008\" "
+query_entry = query_entry + " from SPEC where SPECutdate >= \""+start_date+"\" and SPECutdate <=\""+end_date+"\" and SPECobject like \"HATS%\" and SPECtelescope=\"ANU23\""
+#query_entry = query_entry + " from SPEC where SPECobject = \"HATS778-008\" "
 
 exposure_info = mysql_query.query_hsmso(query_entry)
 #print exposure_info

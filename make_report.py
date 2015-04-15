@@ -6,8 +6,8 @@ import sys
 import string
 import pyfits
 
-start_date = "2014-10-01"
-end_date = "2014-10-31"
+start_date = "2015-03-30"
+end_date = "2015-03-31"
 
 program_dir = os.getcwd() + "/" #Save the current working directory
 
@@ -22,10 +22,11 @@ query_entry = "select SPECutdate,SPECimgname,SPECobject,SPEChjd,SPECrv,SPECrv_er
 query_entry = query_entry + " from SPEC where SPECutdate >= \""+start_date+"\" and SPECutdate <=\""+end_date+"\" and SPECtype =\"RV\" and SPECtelescope=\"ANU23\""
 #query_entry = query_entry + " and SPECobject like \"073-435421\""
 
-#query_entry = query_entry + " and SPECobject like \"HATS%\""
-#query_entry = query_entry + " and SPECobject like \"KS%\""
-#query_entry = query_entry + " and (SPECobject like \"KS%\" or SPECobject like \"HATS%\")"
-query_entry = query_entry + " and (SPECobject like \"ASTEPC%\" or SPECobject like \"ASUD%\")"
+query_entry = query_entry + " and SPECobject like \"HATS%\""
+#query_entry = query_entry + " and (SPECobject like \"KJ%\" or SPECobject like \"KS%\")"
+#query_entry = query_entry + " and (SPECobject like \"KJ%\" or SPECobject like \"HATS%\")"
+#query_entry = query_entry + " and (SPECobject like \"ASTEPC%\" or SPECobject like \"asud%\")"
+#query_entry = query_entry + " and SPECobject like \"EP20%\""
 
 
 print query_entry
@@ -74,10 +75,12 @@ os.chdir(program_dir)
 
 query_entry = "select SPECutdate,SPECobject,SPECteff,SPEClogg"
 query_entry = query_entry + " from SPEC where SPECutdate >= \""+start_date+"\" and SPECutdate <=\""+end_date+"\" and SPECtype = \"ST\""
-#query_entry = query_entry + " and SPECobject like \"HATS%\""
-#query_entry = query_entry + " and SPECobject like \"KS%\""
-#query_entry = query_entry + " and (SPECobject like \"KS%\" or SPECobject like \"HATS%\")"
-query_entry = query_entry + " and (SPECobject like \"ASTEPC%\" or SPECobject like \"ASUD%\")"
+query_entry = query_entry + " and SPECobject like \"HATS%\""
+#query_entry = query_entry + " and (SPECobject like \"KJ%\" or SPECobject like \"KS%\")"
+#query_entry = query_entry + " and SPECobject like \"KJ%\""
+#query_entry = query_entry + " and (SPECobject like \"KJ%\" or SPECobject like \"HATS%\")"
+#query_entry = query_entry + " and (SPECobject like \"ASTEPC%\" or SPECobject like \"asud%\")"
+#query_entry = query_entry + " and SPECobject like \"EP20%\""
 
 
 

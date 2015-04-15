@@ -6,8 +6,8 @@ import sys
 import string
 import pyfits
 
-start_date = "2014-10-01"
-end_date = "2014-10-31"
+start_date = "2015-02-28"
+end_date = "2015-03-31"
 
 program_dir = os.getcwd() + "/" #Save the current working directory
 
@@ -16,6 +16,12 @@ program_dir = os.getcwd() + "/" #Save the current working directory
 query_entry = "select distinct SPECobject"
 query_entry = query_entry + " from SPEC where SPECutdate >= \""+start_date+"\" and SPECutdate <=\""+end_date+"\" and SPECtelescope=\"ANU23\""
 query_entry = query_entry + " and SPECobject like \"HATS%\""
+#query_entry = query_entry + " and SPECobject like \"KJ%\""
+#query_entry = query_entry + " and SPECobject like \"asud%\""
+#query_entry = query_entry + " and (SPECobject like \"KJ%\" or SPECobject like \"KS%\")"
+#query_entry = query_entry + " and SPECobject like \"EP20%\""
+
+
 query_entry = query_entry + " ORDER BY SPECobject"
 
 print query_entry

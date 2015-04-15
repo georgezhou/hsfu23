@@ -47,6 +47,9 @@ python chop_image.py $file_path $file_name
 #python reconstruct_image.py $file_path $file_name
 python reconstruct_image_multistar.py $file_path $file_name
 
+### Fit centroids
+python fit_centroids.py $file_path $file_name
+
 ### Correct for spectroscopic distortions on those 
 ### image slices
 python correct_distortions.py $file_path $file_name
@@ -56,6 +59,7 @@ python calibrate_wavelength_multistar.py $file_path $file_name
 
 ### Analyse image signal-to-noise
 python analyse_spectrum.py $file_path $file_name
+
 
 #exit 1
 

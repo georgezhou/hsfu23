@@ -8,12 +8,27 @@ from scipy import optimize
 import pyfits
 import matplotlib.pyplot as plt
 
+def iter_polyfit(x,y,sigma=3,niter=3):
+    fit = polyfit(x,y,1)
+    for i in range(niter):
+        fit = polyval(fit,x)
+        mask = abs(y-fit) < sigma*std(y-fit)
+        x = x[mask]
+        y = y[mask]
+        fit = polyfit(x,y,1)
+        #print fit
+
+    return fit
+    
+
 def gaussian(x0,x):
-    a0,mu,sigma,c = x0
-    f = a0*exp(-1*(x-mu)**2/(2*sigma**2))+c
+    a0,mu,sigma,m,c = x0
+    f = a0*exp(-1*(x-mu)**2/(2*sigma**2))+m*x+c
     return f
 
 def fit_gauss(x,y):
+    x = x[1:]
+    y = y[1:]
 
     def minfunc(x0):
         f = gaussian(x0,x)
@@ -21,32 +36,36 @@ def fit_gauss(x,y):
 
         if x0[0] < 2:
             f = NaN
-        if x0[1] < 0 or x0[1] > len(x)-1:
+        if x0[1] < 0 or x0[1] > (len(x)-1):
             f = NaN
         if x[2] < 0. or x[2] > 5:
             f = NaN
-
+        #print x0,f
         return f
 
     ### Find loc of max
     midpt = len(x)/2
+    #y_fit = polyfit(x,y,1)
+    y_fit_param = iter_polyfit(x,y)
+    y_fit = polyval(y_fit_param,x)
+    y_fit = y-y_fit
+    #y_fit = y
     for i in range(len(x)):
-        if y[i] == max(y):
+        if y_fit[i] == max(y_fit):
             if i > 1 and i < len(x)-2:
                 midpt = i
                 break
 
 
-    x0 = [max(y),midpt,2.,median(y)]
-
-    x0 = optimize.fmin(minfunc,x0,disp=0)
-
+    x0 = array([max(y),midpt,2.,y_fit_param[0],median(y)])
+    
+    x0 = optimize.fmin(minfunc,x0)#,disp=0)
+    print x0
     f = gaussian(x0,x)
-
-    # plt.plot(x,y)
-    # plt.plot(x,f)
-    # plt.show()
-
+    #plt.plot(x,y)
+    #plt.plot(x,f)
+    #plt.show()
+    
     return f,x0[2]
 
 def define_aperture(imslice,coo,star):
@@ -61,11 +80,17 @@ def define_aperture(imslice,coo,star):
 
     for i in range(len(imslice)):
         x.append(i)
-        y.append(median(imslice[i]))
+        midpt = len(imslice[i])/2
+        y.append(median(imslice[i,midpt-200:midpt+200]))
 
     x,y = array(x),array(y)
 
     f,sigma = fit_gauss(x,y)
+    if sigma > 5:
+        sigma = 5
+    if sigma < 1:
+        sigma = 1
+
 
     xlist = transpose(coo)[0]
     temp = []

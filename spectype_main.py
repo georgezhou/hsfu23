@@ -479,7 +479,7 @@ def calculate_spectral_params(teff_ini,logg_ini,feh_ini):
         template_spectrum = functions.read_table(template_spectrum)
         template_spectrum = transpose(array(template_spectrum))
         template_spectrum = spectype_functions.normalise(template_spectrum,flux_normalise_w1,flux_normalise_w2)
-
+    
         data_wave = data_spectrum[0]
         data_flux = data_spectrum[1]
         template_wave = template_spectrum[0]
@@ -614,7 +614,6 @@ def calculate_spectral_params(teff_ini,logg_ini,feh_ini):
     flux_spectrum = transpose(array(flux_spectrum))
     flux_spectrum = spectype_functions.normalise(flux_spectrum,flux_normalise_w1,flux_normalise_w2)
 
-
     ### Find shift
     os.system("rm apshift*")
 
@@ -664,7 +663,7 @@ def calculate_spectral_params(teff_ini,logg_ini,feh_ini):
     ######################################
 
     os.system("mkdir spectype_plots")
-    os.system("rm spectype_plots/" + object_name + "*.pdf")
+    #os.system("rm spectype_plots/" + object_name + "*.pdf")
 
     #################################
     ### Read database into memory ###
@@ -944,7 +943,6 @@ def calculate_spectral_params(teff_ini,logg_ini,feh_ini):
         flux_spectrum = functions.read_table(flux_spectrum)
         flux_spectrum = transpose(array(flux_spectrum))
         flux_spectrum = spectype_functions.normalise(flux_spectrum,flux_normalise_w1,flux_normalise_w2)
-
         ### Correct shift
         flux_wave = flux_spectrum[0]
         flux_flux = flux_spectrum[1]

@@ -5,7 +5,7 @@ import os
 import sys
 import string
 
-date = "2014-10-01"
+date = "2015-02-28"
 #CAMERA red ### WiFeS camera (red/blue)
 #GRATING B3000 ### WiFeS grating (B3000/R3000/R7000/I7000)
 

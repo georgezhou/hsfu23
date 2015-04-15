@@ -58,6 +58,9 @@ if ($test == "True") then
     python generate_ccf.py $file_path $file_name
     python analyse_ccf.py $file_path $file_name
 
+
+
+
     set write_to_database = `grep WRITE_TO_DATABASE config_file | awk '{print $2}'`
     if ($write_to_database == true) then 
 	### Log RV into database

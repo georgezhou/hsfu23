@@ -407,6 +407,7 @@ for i in range(len(coo)):
         os.system("python telluric_correction.py "+file_path+" "+file_name)
     
     os.system("python combine_apertures.py "+file_path+" "+file_name)
+    #os.system("python calc_vel_offset.py "+file_path+" "+file_name+" "+str(i))
 
     if grating == "R3000":
         os.system("python telluric_removal.py "+file_path_temp+"spec_"+file_name)

@@ -43,7 +43,7 @@ def query_hscand(query_entry):
 
 ### Query from HSMSO on marble
 def query_hsmso(query_entry):
-    db=MySQLdb.connect(host="mutant.anu.edu.au",user="daniel",passwd="h@ts0uthDB",db="daniel1")
+    db=MySQLdb.connect(host="malice.anu.edu.au",user="daniel",passwd="h@ts0uthDB",db="daniel1")
     c = db.cursor()
     c.execute(query_entry)
     result = c.fetchall()
