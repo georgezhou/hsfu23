@@ -34,21 +34,16 @@ file_path = sys.argv[1]
 ### Load imagelist
 imagelist = functions.read_ascii(file_path + "image_list")
 
-disallowed = ["Arc","Ne-Ar","Flat","Quartz","bias","","SkyFlat"]
-
+#disallowed = ["Arc","Ne-Ar","Flat","Quartz","bias","","SkyFlat"]
+disallowed = ["arc","Ne-Ar","Flat","Quartz","bias","","SkyFlat","zero","wire"]
 imagelist_temp = []
-for i in range(len(imagelist)):
-	### Find object type
-	image_name = imagelist[i]
-	hdulist = pyfits.open(file_path + image_name)
-	object_name = hdulist[0].header["OBJECT"]
-	allowed = True
-	for i in range(len(disallowed)):
-		if object_name == disallowed[i]:
-			allowed = False
-			break
-	if allowed == True:
-		imagelist_temp.append(image_name)
+
+for i in imagelist:
+        ### Find object type
+        hdulist = pyfits.open(file_path + i)
+        object_name = hdulist[0].header["IMAGETYP"]
+        if object_name.lower() not in map(str.lower,disallowed):
+                imagelist_temp.append(i)
 
 imagelist = imagelist_temp
 
