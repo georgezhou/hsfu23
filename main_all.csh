@@ -7,7 +7,7 @@
 ### Applies main.csh to all object images in the file_path
 ### Accepts all settings from config_file and param_file
 
-### Usage: ./main.csh
+### Usage: ./main_all.csh
 
 ########################
 ### Load config_file ###

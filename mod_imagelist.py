@@ -9,7 +9,7 @@ from numpy import *
 ###################
 
 ### Takes a raw image list output from ls
-### Removes individual images that are calibration frame
+### Removes individual images that are calibration frames
 ### Pass the image list on for further reduction to be done on them
 
 ### usage: python mod_imagelist.py file_path imagelist
@@ -42,6 +42,7 @@ for i in imagelist:
         ### Find object type
         hdulist = pyfits.open(file_path + i)
         object_name = hdulist[0].header["IMAGETYP"]
+        #Make the match case insensitive
         if object_name.lower() not in map(str.lower,disallowed):
                 imagelist_temp.append(i)
 
