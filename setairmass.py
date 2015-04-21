@@ -6,8 +6,6 @@ import sys
 import os
 import pyfits
 
-### Load functions script (located in the same folder)
-import functions
 
 ### Load iraf moduels
 iraf.imred()

@@ -29,7 +29,7 @@ file_path_reduced = file_path + "reduced/"
 ### If so use this to gauge where the image slices are
 if os.path.exists(file_path_temp + "master_flat.fits"):
     print "Using master_flat.fits to find the positions of each image slice"
-    ### Use pyfits to readin master flats
+    ### Use pyfits to read in master flats
     master_flat = file_path_temp + "master_flat.fits"
     master_flat = pyfits.getdata(master_flat)
     master_flat = transpose(master_flat)
