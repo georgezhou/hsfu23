@@ -1,11 +1,7 @@
 #! /usr/bin/env python
-
 import sys
 import os, commands
-import pyfits
-#import wifes_calib
-
-#stdstar_list = wifes_calib.ref_fname_lookup.keys()
+import pyfits, numpy
 
 # get directory to be parsed
 try:
@@ -14,12 +10,11 @@ except:
     data_dir = os.getcwd()+'/'
 
 # get list of all fits files in directory
-all_files = commands.getoutput('ls T2*.fits').split('\n')
+all_files = commands.getoutput('ls '+data_dir+'T2*.fits').split('\n'+data_dir)
 blue_obs = []
 red_obs = []
 obs_date = None
 for fn in all_files:
-    obs = fn
     if obs_date == None:
         try:
             f = pyfits.open(data_dir+fn)
@@ -35,18 +30,18 @@ for fn in all_files:
     except:
         continue
     if camera == 'WiFeSBlue':
-        if obs in blue_obs:
+        if fn in blue_obs:
             continue
         else:
-            blue_obs.append(obs)
+            blue_obs.append(fn)
     if camera == 'WiFeSRed':
-        if obs in red_obs:
+        if fn in red_obs:
             continue
         else:
-            red_obs.append(obs)
-#print blue_obs
-#print red_obs
-#print obs_date
+            red_obs.append(fn)
+print blue_obs
+print red_obs
+print obs_date
 
 #---------------------------------------------
 #  ***  BLUE CHANNEL  ***
@@ -66,7 +61,7 @@ for obs in blue_obs:
     fn = data_dir+obs
     f = pyfits.open(fn)
     imagetype = f[0].header['IMAGETYP'].upper()
-    objtype = f[0].header['OBJECT'].upper()
+    objtype = f[0].header['NOTES'].upper()
     try: objname=  f[0].header['OBJNAME']
     except Exception: pass
     f.close()
@@ -110,7 +105,7 @@ for obs in blue_obs:
 #------------------------------------------------------
 if len(blue_obs)!=0:
     # write to metadata save script!
-    f = open('image_types_blue.py', 'w')
+    f = open(data_dir+'image_types_blue.py', 'w')
 
     dsplit = '#' + 54*'-'
 
@@ -196,6 +191,11 @@ if len(blue_obs)!=0:
 
     f.close()
 
+try: os.system('rm '+data_dir+'image_list')
+except Exception: pass
+image_list=open(data_dir+'image_list','ab')
+numpy.savetxt(image_list,numpy.array(blue_science),fmt='%s')
+
 #---------------------------------------------
 #  ***  RED CHANNEL  ***
 #---------------------------------------------
@@ -214,7 +214,7 @@ for obs in red_obs:
     fn = data_dir+obs
     f = pyfits.open(fn)
     imagetype = f[0].header['IMAGETYP'].upper()
-    objtype = f[0].header['OBJECT'].upper()
+    objtype = f[0].header['NOTES'].upper()
     try: objname=  f[0].header['OBJNAME']
     except Exception: pass
     f.close()
@@ -260,7 +260,7 @@ for obs in red_obs:
 #------------------------------------------------------
 if len(red_obs)!=0:
     # write to metadata save script!
-    f = open('image_types_red.py', 'w')
+    f = open(data_dir+'image_types_red.py', 'w')
 
     dsplit = '#' + 54*'-'
 
@@ -344,3 +344,6 @@ if len(red_obs)!=0:
 
 
     f.close()
+
+numpy.savetxt(image_list,numpy.array(red_science),fmt='%s')
+image_list.close()

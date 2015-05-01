@@ -36,13 +36,20 @@ file_path_reduced = file_path + "reduced/"
 file_name = sys.argv[2]
 
 hdulist = pyfits.open(file_path + file_name)
-object_name = hdulist[0].header["OBJECT"]
+object_name = hdulist[0].header["OBJNAME"]
+camera = hdulist[0].header["CAMERA"].lower()
+dichroic = hdulist[0].header["BEAMSPLT"]
+if 'red' in camera:
+    grating = hdulist[0].header["GRATINGR"]
+    import image_type_red as image_types
+else:
+    grating = hdulist[0].header["GRATINGB"]
+    import image_type_blue as image_types
 hdulist.close()
 
 print "This script applies bias subtraction to the image " + file_name
 
-camera = functions.read_config_file("CAMERA")
-if camera == "red":
+if "red" in camera:
     trimsec_value = functions.read_param_file("RED_TRIMSEC")
     biassec_value = functions.read_param_file("RED_BIASSEC")
     region1 = functions.read_param_file("RED_REGION1")
@@ -50,7 +57,7 @@ if camera == "red":
     use_regions = functions.read_param_file("RED_USEREGIONS")
     reflect = functions.read_param_file("RED_REFLECT")
 
-if camera == "blue":
+if "blue" in camera:
     trimsec_value = functions.read_param_file("BLUE_TRIMSEC")
     biassec_value = functions.read_param_file("BLUE_BIASSEC")
     region1 = functions.read_param_file("BLUE_REGION1")
@@ -58,8 +65,6 @@ if camera == "blue":
     use_regions = functions.read_param_file("BLUE_USEREGIONS")
     reflect = functions.read_param_file("BLUE_REFLECT")
 
-grating = functions.read_config_file("GRATING")
-dichroic = functions.read_config_file("DICHROIC")
 
 print trimsec_value, biassec_value, region1, region2
 
@@ -76,26 +81,16 @@ os.system("mkdir " + file_path + "reduced")
 ### Form master bias ###
 ########################
 ### Find the bias images
-print "Finding the bias frame(s)"
-ccdlist_info = iraf.ccdlist(file_path + "*.fits", Stdout=1)
-ccdlist_info = functions.ccdlist_extract(ccdlist_info)
-ccdlist_match = functions.ccdlist_identify(ccdlist_info,"bias")
-
 os.system("rm " + file_path_temp + "master_bias.fits")
 
-if len(ccdlist_match) < 1:
+if len(image_types.bias_obs) == 0:
     print "!!!!!!! No Bias frames found, using default bias !!!!!!!"
     os.system("cp default_cal_frames/bias.fits " + file_path_temp + "master_bias.fits")
-if len(ccdlist_match) >= 1:
-    input_list = ""
-    for i in range(len(ccdlist_match)):
-        bias_file_path = ccdlist_info[ccdlist_match[i]][0]
-        input_list = input_list + bias_file_path + "\n"
-    functions.write_string_to_file(input_list,file_path + "bias_list")
+else:
     print "The bias files found are:"
-    print input_list
+    print image_types.bias_obs
     iraf.combine(
-        input = "@" + file_path + "bias_list",\
+        input = ",".join(image_types.bias_obs),\
         output = file_path_temp + "master_bias.fits",\
         combine = "average",\
         reject = "sigclip",\
@@ -120,39 +115,24 @@ if len(ccdlist_match) >= 1:
         rdnoise = 0.,\
         mode = "ql")
 
-os.system("rm " + file_path + "bias_list")
 
 ########################
 ### Form master flat ###
 ########################
+
 if functions.read_config_file("DIVIDE_FLAT") == "true" and (not object_name == "Ne-Ar"):
     ### Find the flat images
-    print "Finding the flat frame(s)"
-    ccdlist_info = iraf.ccdlist(file_path + "*.fits", Stdout=1)
-    ccdlist_info = functions.ccdlist_extract(ccdlist_info)
-    ccdlist_match = functions.ccdlist_identify(ccdlist_info,"Flat")
-
     os.system("rm " + file_path_temp + "master_flat.fits")
-
-    if len(ccdlist_match) < 1:
+    flatcor_option = 1
+    flat_option = file_path_temp + "master_flat.fits"
+    if len(image_types.domeflat_obs)==0:
         print "!!!!!! No flat frames found, using default flat !!!!!!!!"
         os.system("cp default_cal_frames/" + grating + "_" + dichroic +"_flat.fits " + file_path_temp + "master_flat.fits")
-        flatcor_option = 1
-        flat_option = file_path_temp + "master_flat.fits"
-    if len(ccdlist_match) >= 1:
-        flatcor_option = 1
-        flat_option = file_path_temp + "master_flat.fits"
-
-        input_list = ""
-        for i in range(len(ccdlist_match)):
-            flat_file_path = ccdlist_info[ccdlist_match[i]][0]
-            input_list = input_list + flat_file_path + "\n"
-
-        functions.write_string_to_file(input_list,file_path + "flat_list")
+    else:
         print "The flat files found are:"
-        print input_list
+        print image_types.domeflat_obs
         iraf.combine(
-            input = "@" + file_path + "flat_list",\
+            input = ",".join(image_types.domeflat_obs),\
             output = file_path_temp + "master_flat.fits",\
             combine = "average",\
             reject = "sigclip",\
@@ -176,8 +156,6 @@ if functions.read_config_file("DIVIDE_FLAT") == "true" and (not object_name == "
             hsigma = 3,\
             rdnoise = 0.,\
             mode = "ql")
-
-    os.system("rm " + file_path + "flat_list")
 else:
     flatcor_option = 0
     flat_option = ""
@@ -257,7 +235,7 @@ iraf.ccdproc(
     grow = 1.0)
 
 if reflect == "true":
-    iraf.imcopy(
+   iraf.imcopy(
         input = file_path_temp+"ccdproc_"+file_name+"[-*,*]",\
         output = file_path_temp+"ccdproc_"+file_name)
 

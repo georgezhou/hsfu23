@@ -22,12 +22,7 @@ set file_path = `grep FILE_PATH config_file | awk '{print $2}'`
 
 ### Go to file_path and create a list of all fits files
 set program_dir = `pwd`
-cd $file_path 
-ls *.fits > image_list
-cd $program_dir
-
-### Modify image_list to remove calibration files
-python mod_imagelist.py $file_path image_list
+./generage_imagetype_lists.py $file_path
 
 set image_list = $file_path/image_list
 
