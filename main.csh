@@ -28,6 +28,15 @@ else
     set file_name = $2
 endif
 
+#check if the generate_imagetype_lists.py has been ran, if not, run it now.
+ls $file_path/image_types_red.py >& /dev/null 
+if ($status == 0) then
+    echo "file list already generated"
+else
+    echo "File type list not generated yet. Doing this now..."
+    ./generate_imagetype_lists.py $file_path
+endif
+
 echo Beginning reduction of $file_name
 
 ####################
