@@ -2,17 +2,9 @@
 ### File locations ###
 ######################
 
-FILE_NAME r0025.fits #The image name to be reduced
+FILE_NAME T2m3wr-20150331.114634-0052.fits #The image name to be reduced
 
-FILE_PATH /priv/mulga2/george/wifes/06Apr2015/RV/red/ The filepath of the raw images
-
-###########################
-### Instrument settings ###
-###########################
-
-CAMERA red ### WiFeS camera (red/blue)
-GRATING R7000 ### WiFeS grating (B3000/R3000/R7000/I7000)
-DICHROIC RT480 ### WiFeS dichroic (RT480/RT560/RT615)
+FILE_PATH /priv/mulga1/jbento/wifes_data/20150331/ #The filepath of the raw images
 
 #########################
 ### Reduction options ###

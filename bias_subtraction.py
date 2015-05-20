@@ -30,6 +30,7 @@ iraf.astutil()
 
 ### Set file_path
 file_path = sys.argv[1]
+sys.path.append(file_path)
 file_path_temp = file_path + "temp/"
 file_path_reduced = file_path + "reduced/"
 
@@ -41,10 +42,10 @@ camera = hdulist[0].header["CAMERA"].lower()
 dichroic = hdulist[0].header["BEAMSPLT"]
 if 'red' in camera:
     grating = hdulist[0].header["GRATINGR"]
-    import image_type_red as image_types
+    import image_types_red as image_types
 else:
     grating = hdulist[0].header["GRATINGB"]
-    import image_type_blue as image_types
+    import image_types_blue as image_types
 hdulist.close()
 
 print "This script applies bias subtraction to the image " + file_name
@@ -113,6 +114,7 @@ else:
         lsigma = 3,\
         hsigma = 3,\
         rdnoise = 0.,\
+        subsets="No",\
         mode = "ql")
 
 
@@ -155,6 +157,7 @@ if functions.read_config_file("DIVIDE_FLAT") == "true" and (not object_name == "
             lsigma = 3,\
             hsigma = 3,\
             rdnoise = 0.,\
+            subsets="no",\
             mode = "ql")
 else:
     flatcor_option = 0

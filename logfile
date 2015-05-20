@@ -54,3 +54,115 @@ Apr 27 14:35: IMCOMBINE
 /mimsy/george/wifes/27Jul2011/spectype/blue/temp/master_bias.fits: Apr 27 14:35 Trim data section is [63:4160,1:1024]
 /mimsy/george/wifes/27Jul2011/spectype/blue/temp/master_bias.fits: Apr 27 14:35 Overscan section is [4163:4180,1:1024] with mean=658.4363
 /mimsy/george/wifes/27Jul2011/spectype/blue/temp/b0055.fits: Apr 27 14:35 Zero level correction image is /mimsy/george/wifes/27Jul2011/spectype/blue/temp/master_bias.fits
+
+May 18 16:50: IMCOMBINE
+  combine = average, scale = none, zero = none, weight = none
+  reject = sigclip, mclip = yes, nkeep = 1
+  lsigma = 3., hsigma = 3.
+  blank = 0.
+                Images 
+  /priv/mulga1/jbento/wifes_data/20150331/T2m3wr-20150331.064234-0001.fits
+  /priv/mulga1/jbento/wifes_data/20150331/T2m3wr-20150331.064305-0002.fits
+  /priv/mulga1/jbento/wifes_data/20150331/T2m3wr-20150331.064337-0003.fits
+  /priv/mulga1/jbento/wifes_data/20150331/T2m3wr-20150331.064408-0004.fits
+  /priv/mulga1/jbento/wifes_data/20150331/T2m3wr-20150331.064439-0005.fits
+
+  Output image = /priv/mulga1/jbento/wifes_data/20150331/temp/master_bias.fits, ncombine = 5
+
+May 18 16:53: IMCOMBINE
+  combine = average, scale = none, zero = none, weight = none
+  reject = sigclip, mclip = yes, nkeep = 1
+  lsigma = 3., hsigma = 3.
+  blank = 0.
+                Images 
+  /priv/mulga1/jbento/wifes_data/20150331/T2m3wr-20150331.064234-0001.fits
+  /priv/mulga1/jbento/wifes_data/20150331/T2m3wr-20150331.064305-0002.fits
+  /priv/mulga1/jbento/wifes_data/20150331/T2m3wr-20150331.064337-0003.fits
+  /priv/mulga1/jbento/wifes_data/20150331/T2m3wr-20150331.064408-0004.fits
+  /priv/mulga1/jbento/wifes_data/20150331/T2m3wr-20150331.064439-0005.fits
+
+  Output image = /priv/mulga1/jbento/wifes_data/20150331/temp/master_bias.fits, ncombine = 5
+
+May 18 17:03: IMCOMBINE
+  combine = average, scale = none, zero = none, weight = none
+  reject = sigclip, mclip = yes, nkeep = 1
+  lsigma = 3., hsigma = 3.
+  blank = 0.
+                Images 
+  /priv/mulga1/jbento/wifes_data/20150331/T2m3wr-20150331.064234-0001.fits
+  /priv/mulga1/jbento/wifes_data/20150331/T2m3wr-20150331.064305-0002.fits
+  /priv/mulga1/jbento/wifes_data/20150331/T2m3wr-20150331.064337-0003.fits
+  /priv/mulga1/jbento/wifes_data/20150331/T2m3wr-20150331.064408-0004.fits
+  /priv/mulga1/jbento/wifes_data/20150331/T2m3wr-20150331.064439-0005.fits
+
+  Output image = /priv/mulga1/jbento/wifes_data/20150331/temp/master_bias.fits, ncombine = 5
+
+May 18 17:04: IMCOMBINE
+  combine = average, scale = none, zero = none, weight = none
+  reject = sigclip, mclip = no, nkeep = 1
+  lsigma = 3., hsigma = 3.
+  blank = 0.
+                Images 
+  /priv/mulga1/jbento/wifes_data/20150331/T2m3wr-20150331.064234-0001.fits
+  /priv/mulga1/jbento/wifes_data/20150331/T2m3wr-20150331.064305-0002.fits
+  /priv/mulga1/jbento/wifes_data/20150331/T2m3wr-20150331.064337-0003.fits
+  /priv/mulga1/jbento/wifes_data/20150331/T2m3wr-20150331.064408-0004.fits
+  /priv/mulga1/jbento/wifes_data/20150331/T2m3wr-20150331.064439-0005.fits
+
+  Output image = /priv/mulga1/jbento/wifes_data/20150331/temp/master_bias.fits, ncombine = 5
+
+May 18 17:05: IMCOMBINE
+  combine = average, scale = none, zero = none, weight = none
+  reject = sigclip, mclip = yes, nkeep = 1
+  lsigma = 3., hsigma = 3.
+  blank = 0.
+                Images 
+  /priv/mulga1/jbento/wifes_data/20150331/T2m3wr-20150331.064234-0001.fits
+  /priv/mulga1/jbento/wifes_data/20150331/T2m3wr-20150331.064305-0002.fits
+  /priv/mulga1/jbento/wifes_data/20150331/T2m3wr-20150331.064337-0003.fits
+  /priv/mulga1/jbento/wifes_data/20150331/T2m3wr-20150331.064408-0004.fits
+  /priv/mulga1/jbento/wifes_data/20150331/T2m3wr-20150331.064439-0005.fits
+
+  Output image = /priv/mulga1/jbento/wifes_data/20150331/temp/master_bias.fits, ncombine = 5
+
+May 18 17:05: IMCOMBINE
+  combine = average, scale = none, zero = none, weight = none
+  reject = sigclip, mclip = yes, nkeep = 1
+  lsigma = 3., hsigma = 3.
+  blank = 0.
+                Images 
+  /priv/mulga1/jbento/wifes_data/20150331/T2m3wr-20150331.064234-0001.fits
+  /priv/mulga1/jbento/wifes_data/20150331/T2m3wr-20150331.064305-0002.fits
+  /priv/mulga1/jbento/wifes_data/20150331/T2m3wr-20150331.064337-0003.fits
+  /priv/mulga1/jbento/wifes_data/20150331/T2m3wr-20150331.064408-0004.fits
+  /priv/mulga1/jbento/wifes_data/20150331/T2m3wr-20150331.064439-0005.fits
+
+  Output image = /priv/mulga1/jbento/wifes_data/20150331/temp/master_bias.fits, ncombine = 5
+
+May 18 17:05: IMCOMBINE
+  combine = average, scale = none, zero = none, weight = none
+  reject = sigclip, mclip = yes, nkeep = 1
+  lsigma = 3., hsigma = 3.
+  blank = 0.
+                Images 
+  /priv/mulga1/jbento/wifes_data/20150331/T2m3wr-20150331.064234-0001.fits
+  /priv/mulga1/jbento/wifes_data/20150331/T2m3wr-20150331.064305-0002.fits
+  /priv/mulga1/jbento/wifes_data/20150331/T2m3wr-20150331.064337-0003.fits
+  /priv/mulga1/jbento/wifes_data/20150331/T2m3wr-20150331.064408-0004.fits
+  /priv/mulga1/jbento/wifes_data/20150331/T2m3wr-20150331.064439-0005.fits
+
+  Output image = /priv/mulga1/jbento/wifes_data/20150331/temp/master_bias.fits, ncombine = 5
+
+May 18 17:06: IMCOMBINE
+  combine = average, scale = none, zero = none, weight = none
+  reject = sigclip, mclip = yes, nkeep = 1
+  lsigma = 3., hsigma = 3.
+  blank = 0.
+                Images 
+  /priv/mulga1/jbento/wifes_data/20150331/T2m3wr-20150331.064234-0001.fits
+  /priv/mulga1/jbento/wifes_data/20150331/T2m3wr-20150331.064305-0002.fits
+  /priv/mulga1/jbento/wifes_data/20150331/T2m3wr-20150331.064337-0003.fits
+  /priv/mulga1/jbento/wifes_data/20150331/T2m3wr-20150331.064408-0004.fits
+  /priv/mulga1/jbento/wifes_data/20150331/T2m3wr-20150331.064439-0005.fits
+
+  Output image = /priv/mulga1/jbento/wifes_data/20150331/temp/master_bias.fits, ncombine = 5

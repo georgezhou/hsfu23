@@ -10,21 +10,21 @@ except:
     data_dir = os.getcwd()+'/'
 
 # get list of all fits files in directory
-all_files = commands.getoutput('ls '+data_dir+'T2*.fits').split('\n'+data_dir)
+all_files = commands.getoutput('ls '+data_dir+'T2*.fits').split('\n')
 blue_obs = []
 red_obs = []
 obs_date = None
 for fn in all_files:
     if obs_date == None:
         try:
-            f = pyfits.open(data_dir+fn)
+            f = pyfits.open(fn)
             obs_date = f[0].header['DATE-OBS'].replace('-', '')
             f.close()
         except:
             continue
         #obs_date = obs[7:15]
     try:
-        f = pyfits.open(data_dir+fn)
+        f = pyfits.open(fn)
         camera = f[0].header['CAMERA']
         f.close()
     except:
@@ -58,7 +58,7 @@ blue_specphot= []
 blue_science = []
 
 for obs in blue_obs:
-    fn = data_dir+obs
+    fn = obs
     f = pyfits.open(fn)
     imagetype = f[0].header['IMAGETYP'].upper()
     objtype = f[0].header['NOTES'].upper()
@@ -211,7 +211,7 @@ red_science = []
 red_specphot=[]
 
 for obs in red_obs:
-    fn = data_dir+obs
+    fn = obs
     f = pyfits.open(fn)
     imagetype = f[0].header['IMAGETYP'].upper()
     objtype = f[0].header['NOTES'].upper()
