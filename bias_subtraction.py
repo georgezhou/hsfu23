@@ -3,7 +3,7 @@ from pyraf import iraf
 from numpy import *
 import string
 import sys
-import os
+import os, copy
 import pyfits
 
 ### Load functions script (located in the same folder)
@@ -127,14 +127,24 @@ if functions.read_config_file("DIVIDE_FLAT") == "true" and (not object_name == "
     os.system("rm " + file_path_temp + "master_flat.fits")
     flatcor_option = 1
     flat_option = file_path_temp + "master_flat.fits"
-    if len(image_types.domeflat_obs)==0:
+    flatlist=copy.copy(image_types.domeflat_obs)
+    #remove any flats that do not match the grating and splitter settings of the image
+    for i in flatlist:
+        h=pyfits.getheader(i)
+        if 'red' in camera:
+            flatgrating = h["GRATINGR"]
+        else:
+            flatgrating = h["GRATINGB"]
+        if h['BEAMSPLT']!=dichroic or flatgrating!=grating:
+            flatlist.remove(i)
+    if len(flatlist)==0:
         print "!!!!!! No flat frames found, using default flat !!!!!!!!"
         os.system("cp default_cal_frames/" + grating + "_" + dichroic +"_flat.fits " + file_path_temp + "master_flat.fits")
     else:
         print "The flat files found are:"
-        print image_types.domeflat_obs
+        print flatlist
         iraf.combine(
-            input = ",".join(image_types.domeflat_obs),\
+            input = ",".join(flatlist),\
             output = file_path_temp + "master_flat.fits",\
             combine = "average",\
             reject = "sigclip",\
